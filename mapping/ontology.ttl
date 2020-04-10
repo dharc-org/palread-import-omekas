@@ -21,6 +21,11 @@
                                     rdfs:comment "The numerical part of the VIAF Identifier." ;
                                     rdfs:label "VIAF ID" .
 
+###  http://www.wikidata.org/prop/P21
+<http://www.wikidata.org/prop/P21> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The sex or gender of the person." ;
+                                    rdfs:label "gender" .
+
 #################################################################
 #    Data properties
 #################################################################

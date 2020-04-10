@@ -1,0 +1,6 @@
+{
+  "Gender":[
+    "Male": "http://omeka/items/full-uri-id",
+    "Female": "http://omeka/items/full-uri-id"
+  ]
+}

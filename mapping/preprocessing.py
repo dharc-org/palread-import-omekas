@@ -22,3 +22,5 @@ def split_values(stringa):
         return ''
 
 # TODO vocabulary
+def vocabulary(stringa):
+    return stringa

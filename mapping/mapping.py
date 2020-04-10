@@ -63,31 +63,37 @@ def fill_json(data_row, item_properties):
     item_data = {k:v for k,v in item_properties.items()}
     for prop, values_list in item_data.items():
         for value_dict in values_list:
+            object = "@value" if "@value" in value_dict else "@id"
             # Note for future me: "op:" has always to be in the mapping, even if it's just for stripping
-            if "op:" in value_dict["@value"]:
+            if "op:" in value_dict[object]:
                 # pre-processing operations
-                if "split_values" in value_dict["@value"]:
-                    values = replace_value(value_dict["@value"],data_row)
+                if "split_values" in value_dict[object]:
+                    values = replace_value(value_dict[object],data_row)
                     if len(values) != 0:
                         count_prop = 0
                         for value in values:
                             count_prop += 1
                             new_dict = {}
-                            new_dict["property_id"] = count_prop
-                            new_dict["property_label"] = value_dict["property_label"]
-                            new_dict["@value"] = value
-                            new_dict["type"] = value_dict["type"]
+                            if "property_id" in value_dict:
+                                new_dict["property_id"] = count_prop
+                            if "property_label" in value_dict:
+                                new_dict["property_label"] = value_dict["property_label"]
+                            new_dict[object] = value
+                            if "type" in value_dict:
+                                new_dict["type"] = value_dict["type"]
                             if value_dict["type"] == "literal":
-                                new_dict["lang"] = value_dict["lang"]
+                                if "lang" in value_dict:
+                                    new_dict["lang"] = value_dict["lang"]
                             values_list.append(new_dict)
                 else:
-                    value_dict["@value"] = replace_value(value_dict["@value"],data_row)
+                    value_dict[object] = replace_value(value_dict[object],data_row)
     return item_data
 
 def clean_dict(item_data):
     for prop, values_list in item_data.items():
         for value_dict in values_list:
-            if "op:" in value_dict["@value"] or value_dict["@value"] == '':
+            object = "@value" if "@value" in value_dict else "@id"
+            if "op:" in value_dict[object] or value_dict[object] == '':
                 values_list.remove(value_dict)
             # change property id
     return item_data
