@@ -1,5 +1,6 @@
 def clean_name(stringa):
-    clean_stringa = s_strip(stringa.replace(r"\(.*\)","")) if stringa != '' and stringa != 'None' else ''
+    #clean_stringa = s_strip(stringa.replace(r"\(.*\)","")) if stringa != '' and stringa != 'None' else ''
+    clean_stringa = s_strip(stringa)
     return clean_stringa
 
 def expand_viaf(stringa):
@@ -19,3 +20,5 @@ def split_values(stringa):
         return [stringa]
     else:
         return ''
+
+# TODO vocabulary

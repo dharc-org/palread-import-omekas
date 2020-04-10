@@ -23,7 +23,7 @@ def update_item(data_row, item_set_id=None, item_type=None):
     with open("mapping.json") as json_file:
         mapping = json.load(json_file)
     data = fill_json(data_row, mapping[item_type]["update"])
-    update_json = ''
+    update_json = 'TODO'
     return update_json
 
 def map_to_entity(filename=None):
