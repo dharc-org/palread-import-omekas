@@ -1,0 +1,28 @@
+{
+  "person": {
+    "create": {
+      "wdp:P2561":[{ "property_id":1, "property_label":"person name", "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
+                   { "property_id":2, "property_label":"person name", "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
+                 ],
+      "wdp:P214":[{ "property_id":1, "property_label":"VIAF ID", "@value": "op:expand_viaf-->VIAF", "type":"uri" }],
+      "wdp:P742":[{ "property_id":1, "property_label":"pen name", "@value": "op:split_values-->Pen names", "type":"literal", "lang":"detect" }]
+    },
+    "update": {}
+  },
+  "life_event": {
+    "create": {},
+    "update": {}
+  },
+  "organisation":{
+    "create": {},
+    "update": {}
+  },
+  "publisher":{
+    "create": {},
+    "update": {}
+  },
+  "lit_event":{
+    "create": {},
+    "update": {}
+  }
+}
