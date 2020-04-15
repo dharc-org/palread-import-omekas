@@ -1,17 +1,44 @@
 {
   "person": {
     "create": {
-      "wdp:P2561":[{ "property_id":1, "property_label":"person name", "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
-                   { "property_id":2, "property_label":"person name", "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
+      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
+                   { "property_id":2, "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
                  ],
-      "wdp:P214":[{ "property_id":1, "property_label":"VIAF ID", "@id": "op:expand_viaf-->VIAF", "type":"uri" }],
-      "wdp:P742":[{ "property_id":1, "property_label":"pen name", "@value": "op:split_values-->Pen names", "type":"literal", "lang":"detect" }],
-      "wdp:P21":[{ "property_id":1, "property_label":"gender", "@id": "op:vocabulary-->Gender", "type":"resource:item" }]
+      "wdp:P214":[{ "property_id":1, "@id": "op:expand_viaf-->VIAF", "type":"uri" }],
+      "wdp:P742":[{ "property_id":1, "@value": "op:split_values-->Pen names", "type":"literal", "lang":"detect" }],
+      "wdp:P21":[{ "property_id":1, "@id": "op:vocabulary-->Gender;Gender", "type":"uri" }],
+      "wdp:P140":[{ "property_id":1, "@id": "op:vocabulary-->Religion;Religion", "type":"uri" }],
+      "wdp:P27":[{ "property_id":1, "@id": "op:vocabulary-->Country of citiz. ;Country", "type":"uri" },
+                  { "property_id":2, "@id": "op:vocabulary-->Country of citiz. (2);Country", "type":"uri" }],
+      "wdp:P569":[{ "property_id":1, "@value": "op:date-->Birth  date", "type":"literal" },
+                  { "property_id":2, "@value": "op:date-->Birth year", "type":"literal" }],
+      "wdp:P570":[{ "property_id":1, "@value": "op:date-->Death  date", "type":"literal" },
+                  { "property_id":2, "@value": "op:date-->Death year", "type":"literal" }],
+      "wdp:P19":[{ "property_id":1, "@id": "op:vocabulary-->Birth city;City", "type":"uri" }],
+      "wdp:P20":[{ "property_id":1, "@id": "op:vocabulary-->Death city;City", "type":"uri" }],
+      "wdp:P1196":[{ "property_id":1, "@id": "op:vocabulary-->Manner of death;Manner of death", "type":"uri" }],
+      "wdp:P509":[{ "property_id":1, "@id": "op:vocabulary-->Cause of death;Cause of death", "type":"uri" }],
+      "wdp:P135":[{ "property_id":1, "@id": "op:vocabulary-->Literary  movement;Literary movement", "type":"uri" }],
+      "pr:biography":[{ "property_id":1, "@value": "op:clean_name-->Biography", "type":"literal", "lang":"en" }],
+      "Sources public":[],
+      "Sources private":[],
+      "Other notes":[]
     },
-    "update": {}
+    "update": {
+      "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD Resource ID", "type":"resource" }],
+      "Mother":[],
+      "Father":[],
+      "Siblings":[],
+      "Spouses":[],
+      "Children":[],
+      "Friends":[],
+      "Influenced by person":[]
+    }
   },
   "life_event": {
-    "create": {},
+    "create": {
+      "wdp:P2561":[{ "property_id":1, "@value": "op:create_name-->life_event", "type":"literal", "lang":"en" }]
+    },
     "update": {}
   },
   "organisation":{

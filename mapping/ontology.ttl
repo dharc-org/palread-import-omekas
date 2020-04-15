@@ -4,6 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix pr: <http://w3id.org/palread/> .
 @prefix wdp: <http://www.wikidata.org/prop/> .
 @prefix wps: <http://www.wikidata.org/prop/statement/> .
 @prefix wdq: <http://www.wikidata.org/prop/qualifier/> .
@@ -23,9 +24,44 @@
 
 ###  http://www.wikidata.org/prop/P21
 <http://www.wikidata.org/prop/P21> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The sex or gender of the person." ;
+                                    rdfs:comment "The sex or gender of a person." ;
                                     rdfs:label "gender" .
 
+###  http://www.wikidata.org/prop/P140
+<http://www.wikidata.org/prop/P140> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The religion of a person." ;
+                                    rdfs:label "religion" .
+
+###  http://www.wikidata.org/prop/P27
+<http://www.wikidata.org/prop/P27> rdf:type owl:ObjectProperty ;
+                                   rdfs:comment "The country of citizenship of a person." ;
+                                   rdfs:label "country of citizenship" .
+                                   ###  http://www.wikidata.org/prop/P27
+
+###  http://www.wikidata.org/prop/P19
+<http://www.wikidata.org/prop/P19> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The city of birth of a person." ;
+                                  rdfs:label "birth city" .
+
+###  http://www.wikidata.org/prop/P20
+<http://www.wikidata.org/prop/P20> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The city of death of a person." ;
+                                  rdfs:label "death city" .
+
+###  http://www.wikidata.org/prop/P1196
+<http://www.wikidata.org/prop/P1196> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The manner of death of a person." ;
+                                  rdfs:label "manner of death" .
+
+###  http://www.wikidata.org/prop/P509
+<http://www.wikidata.org/prop/P509> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The cause of death of a person." ;
+                                  rdfs:label "cause of death" .
+
+###  http://www.wikidata.org/prop/P135
+<http://www.wikidata.org/prop/P135> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The literary movement a person is affiliated to." ;
+                                  rdfs:label "literary movement" .
 #################################################################
 #    Data properties
 #################################################################
@@ -40,6 +76,25 @@
                                     rdfs:comment "The pen name or pseudonym of a person" ;
                                     rdfs:label "pen name" .
 
+###  http://www.wikidata.org/prop/P569
+<http://www.wikidata.org/prop/P569> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The date of birth (DD/MM/YYYY or YYYY)" ;
+                                    rdfs:label "birth date" .
+
+###  http://www.wikidata.org/prop/P570
+<http://www.wikidata.org/prop/P570> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The date of death (DD/MM/YYYY or YYYY)" ;
+                                    rdfs:label "death date" .
+
+###  http://w3id.org/palread/id
+<http://w3id.org/palread/id> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The local identifier of a literary event" ;
+                                    rdfs:label "event id" .
+
+###  http://w3id.org/palread/biography
+<http://w3id.org/palread/biography> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Biographical notes" ;
+                                    rdfs:label "biography" .
 #################################################################
 #    Classes
 #################################################################

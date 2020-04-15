@@ -1,6 +1,7 @@
 import os , json , csv ,re , itertools , pprint
 import preprocessing as p
 from langdetect import detect
+from collections import defaultdict
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -29,6 +30,7 @@ def update_item(data_row, item_set_id=None, item_type=None):
 def map_to_entity(filename=None):
     entity = None
     if filename is not None:
+        # TODO make the external mapping
         if filename == 'PalREAD_authorities - People.tsv':
             entity = 'person'
         if filename == 'PalREAD_authorities - Life events.tsv':
@@ -43,10 +45,22 @@ def map_to_entity(filename=None):
 
 def replace_value(val,data_row):
     if '-->' in val:
+        vocab = None
         column = val.split('-->',1)[1] # get column name
+        if ';' in column:
+            column,vocab = column.split(';',1)
         funct = val.split('-->',1)[0].replace("op:","") # call the function specified in preprocessing
-        value = data_row[column]
-        new_val = eval('p.'+funct+'("'+str(value)+'")')  # replace the final json
+        if funct == "create_name":
+            value = "data_row,'"+column+"'"
+        else:
+            value = data_row[column]
+        if vocab is not None:
+            new_val = eval('p.'+funct+'("'+str(value).strip()+'","'+vocab.strip()+'")')
+        else:
+            if funct == "create_name":
+                new_val = eval('p.'+funct+'('+value+')')
+            else:
+                new_val = eval('p.'+funct+'("'+str(value).strip()+'")')  # replace the final json
     if '-->' not in val:
         new_val = data_row[val]
     return new_val
@@ -76,8 +90,6 @@ def fill_json(data_row, item_properties):
                             new_dict = {}
                             if "property_id" in value_dict:
                                 new_dict["property_id"] = count_prop
-                            if "property_label" in value_dict:
-                                new_dict["property_label"] = value_dict["property_label"]
                             new_dict[object] = value
                             if "type" in value_dict:
                                 new_dict["type"] = value_dict["type"]
@@ -90,13 +102,19 @@ def fill_json(data_row, item_properties):
     return item_data
 
 def clean_dict(item_data):
+    new_dict = defaultdict(list)
     for prop, values_list in item_data.items():
         for value_dict in values_list:
-            object = "@value" if "@value" in value_dict else "@id"
-            if "op:" in value_dict[object] or value_dict[object] == '':
+            object = "@value" if "@value" in value_dict.keys() else "@id"
+            if "op:" in value_dict[object] \
+                or len(value_dict[object].strip()) == 0 \
+                or value_dict[object] == 'None' \
+                or value_dict[object] == "''":
                 values_list.remove(value_dict)
-            # change property id
-    return item_data
+            else:
+                new_dict[prop].append(value_dict)
+    clean_dict = dict(new_dict)
+    return clean_dict
 
 def pop_empty(item_data):
     item_data = { k : v for k,v in item_data.items() if v}
@@ -107,7 +125,6 @@ def detect_lang(item_data):
         for value_dict in values_list:
             if "lang" in value_dict and value_dict["lang"] == "detect":
                 lang = detect(value_dict["@value"])
-                print("val",value_dict["@value"] ,"lang",lang)
                 lang = "ar" if lang == 'ar' else "en"
                 value_dict["lang"] = lang
     return item_data
@@ -121,6 +138,7 @@ def change_prop_id(item_data):
 # read tsv files
 def read_tables(tables_folder, item_sets_ids, operation="create"):
     # TODO add param for item ID if it's an update
+    list_items = []
     for filename in os.listdir(tables_folder):
         if filename.endswith(".tsv") and filename != "PalREAD_authorities - Vocabularies.tsv":
             # TODO first upload vocabularies and map cities
@@ -131,10 +149,10 @@ def read_tables(tables_folder, item_sets_ids, operation="create"):
             with open(item_sets_ids) as json_file:
                 data = json.load(json_file)
                 item_set_id = data[entity]
+
             with open(tables_folder+'/'+filename) as tsv_file:
                 next(tsv_file)
                 reader = csv.DictReader(tsv_file, delimiter='\t')
-                list_items = []
                 for row in reader:
                     if operation == 'create':
                         o_item = create_item(row,item_set_id,entity)

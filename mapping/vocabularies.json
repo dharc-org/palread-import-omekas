@@ -1,6 +1,30 @@
 {
-  "Gender":[
-    "Male": "http://omeka/items/full-uri-id",
-    "Female": "http://omeka/items/full-uri-id"
-  ]
+  "Gender":{
+    "Male": "LOC Demographic Group Terms - Gender",
+    "Female": "LOC Demographic Group Terms - Gender"
+  },
+  "Religion":{
+    "Atheism":"LOC Demographic Group Terms - Religion",
+    "Christianity":"LOC Demographic Group Terms - Religion",
+    "Islam":"LOC Demographic Group Terms - Religion"
+  },
+  "Country": {
+    "Palestine":"geonames - country",
+    "Italy":"still geonames - country"
+  },
+  "Palestine district": {
+    "Gaza":"geonames - district"
+  },
+  "City": {
+    "Gaza":"geonames - city"
+  },
+  "Manner of death":{
+    "":""
+  },
+  "Cause of death": {
+    "":""
+  },
+  "Literary movement": {
+    "":""
+  }
 }
