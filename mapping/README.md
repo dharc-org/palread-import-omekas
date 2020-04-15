@@ -4,10 +4,12 @@
 
   1. [?] Create (5) itemsets (in omeka or via API), and save their IDs in `item_sets_id.json` (keep the same structure there is now)
   2. [MARI] Upload in omeka the ontology `ontology.ttl` (to be done in omeka only via file upload)
-  3. [MARI] Create the templates for the itemsets (to be done in omeka, either manually or by uploading a json, we need to decide)
-  4. [?] Upload in omeka the controlled vocabularies (manually or via API, we need to decide): omeka has a predefined set of vocabularies, so new custom vocabularies must be treated as itemsets
+  3. [MARI] Create the templates for the itemsets (to be done in omeka, either manually or by uploading a json, we need to decide) - include valuesuggest
+  4. [?] Upload in omeka the controlled custom vocabularies (manually or via API, we need to decide)
   5. [?] Extract vocabulary terms ID and autopopulate `vocabularies.json` (try to respect the structure):
   this includes both mapping to external URIs (used in valuesuggest) and local IDs of itemsets used as vocabularies
+    * 5.1 Extract properties and classes ids in two json files by calling ``mapping.get_ids(api_url)``
+    * 5.2 Replace properties id in `mapping.json`
   6. [MARI] Download each [sheet](https://docs.google.com/spreadsheets/d/1fn523ktjeLyTytUuPvlOXEvb5A65SxhlKkePKtdWcSQ/edit?usp=sharing) in the folder `tables` as .tsv (do not change the name, and yes, tsv, _NOT_ csv)
   7. [IVAN] Call `mapping.read_tables("tables", "item_sets_id.json", "create")`. It returns a list of dictionaries (a complete dictionary for each new entity, including the itemset, the ID of vocabulary terms and so on)
   8. [IVAN] Iterate over the list and upload each dictionary in omeka as single items (bulk import?)

@@ -106,10 +106,7 @@
                   ],
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
       "wdp:P112":[{ "property_id":1, "value_resource_id": "ADD Founder name @en ID or Founder name @ar ID", "type":"resource" },
-                  { "property_id":2, "value_resource_id": "ADD Founder name 2 @ar ID", "type":"resource" }
-                  ],
-      "Founder name @ar":[],
-      "Founder name 2 @ar":[]
+                  { "property_id":2, "value_resource_id": "ADD Founder name 2 @ar ID", "type":"resource" }]
     }
   },
   "lit_event":{

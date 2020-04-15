@@ -145,6 +145,28 @@ def change_prop_id(item_data):
             values_list[0]["property_id"] = '1'
     return item_data
 
+def get_ids(api_url):
+	lookup=['resource_classes','properties']
+	for l in lookup:
+		id=1
+		id_dict = {}
+		while id <500:
+			this_url = api_url+'%s/%s' %(l,str(id))
+			response = requests.get(this_url)
+			print(id,response)
+			results = json.loads(response.text)
+			code = response.status_code
+			if code == 200:
+				label = results['o:label']
+				term = results['o:term']
+				id_dict[term]={'label':label,'id':id}
+				print(term)
+			id +=1
+
+		d=open('%s_ids.json'%l,'w')
+		d.write(json.dumps(id_dict))
+		d.close()
+
 # read tsv files
 def read_tables(tables_folder, item_sets_ids, operation="create"):
     # TODO add param for item ID if it's an update
