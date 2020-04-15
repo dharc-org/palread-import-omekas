@@ -21,8 +21,8 @@
       "wdp:P135":[{ "property_id":1, "@id": "op:vocabulary-->Literary  movement;Literary movement", "type":"uri" }],
       "pr:biography":[{ "property_id":1, "@value": "op:clean_name-->Biography", "type":"literal", "lang":"detect" }],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect", "is_public":false }],
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect", "is_public":false }]
     },
     "update": {
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
@@ -77,15 +77,40 @@
       "wdp:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
       "wdp:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }]
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect", "is_public":false }]
     },
     "update": {
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }]
     }
   },
   "publisher":{
-    "create": {},
-    "update": {}
+    "create": {
+      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
+                   { "property_id":2, "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
+                 ],
+      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" }],
+      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" }],
+      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
+      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
+      "wdp:P6375":[{ "property_id":1, "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" }],
+      "wdp:P1329":[{"property_id":1, "@value": "op:clean_name-->Phone number", "type":"literal"}],
+      "wdp:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
+      "wdp:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
+      "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect", "is_public":false }],
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Notes", "type":"literal", "lang":"detect", "is_public":false }]
+    },
+    "update": {
+      "wdp:P749":[{ "property_id":1, "value_resource_id": "ADD political affiliation ID", "type":"resource" },
+                  { "property_id":2, "value_resource_id": "ADD union affiliation ID", "type":"resource" }
+                  ],
+      "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
+      "wdp:P112":[{ "property_id":1, "value_resource_id": "ADD Founder name @en ID or Founder name @ar ID", "type":"resource" },
+                  { "property_id":2, "value_resource_id": "ADD Founder name 2 @ar ID", "type":"resource" }
+                  ],
+      "Founder name @ar":[],
+      "Founder name 2 @ar":[]
+    }
   },
   "lit_event":{
     "create": {

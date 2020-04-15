@@ -18,10 +18,11 @@
 
 ## First round upload (before step 7)
 
- * add final vocabulary terms to `vocabularies.json`
- * reconcile LOC gender, religion -- do the mapping and substitute iri in `vocabularies.json`
- * reconcile geonames AND palestine openmaps for places (use also district and places for the reconciliation)
+ * extract final vocabulary terms from spreadsheets to `vocabularies.json`
+ * reconcile manually LOC gender, religion -- do the mapping and substitute iri in `vocabularies.json`
+ * reconcile automatically geonames AND palestine openmaps for places (use also district and places for the reconciliation) in `vocabularies.json`
  * double-check dates validation
+ * change all properties IDs in `mapping.json` by querying the `api/properties`
 
 ## Resource IDs and labels to be returned after the first upload (step 9)
 
@@ -60,6 +61,7 @@
        * "Influenced by person"
          * ID
          * "wdp:P2561" values (either "\@en" or "\@ar")
+
    * Table Life events:
        * "Student of"
          * ID
@@ -72,6 +74,7 @@ There are few specific operations that must be done in this step, so it's very l
 For every row of the tables update relations
 
    * Table People:
+
        * relation to People "Mother",
        * relation to People "Father",
        * relation to People "Siblings",
@@ -79,15 +82,26 @@ For every row of the tables update relations
        * relation to People "Children",
        * relation to People "Friends",
        * relation to People "Influenced by person",
-       * relation to Literary events "Literary event"
+       * relation to Literary events "Literary event" + "Relation to event"
        * relation to Life events "Life event"
 
    * Table Life events:
+
        * relation to Organisations "Organisation or POI"
        * relation to People "Student of"
 
    * Table Organisations:
-       * relation to Literary events "Literary event"
+
+       * relation to Literary events "Literary event" + "Relation to event"
+
+   * Table Publishers:
+
+       * relation to Organisations "Political affiliation"
+       * relation to Organisations "Union affiliation"
+       * relation to Literary events "Literary event" + "Relation to event"
+       * relation to People "Founder name \@en"
+       * relation to People "Founder name \@ar"
+       * relation to People "Founder name 2 \@ar"
 
 ## Removal of temp properties (step 12)
 

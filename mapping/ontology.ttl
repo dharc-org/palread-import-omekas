@@ -135,6 +135,16 @@
                                   rdfs:comment "Type of organisation (select from controlled vocabulary)" ;
                                   rdfs:label "organisation type" .
 
+###  http://www.wikidata.org/prop/P112
+<http://www.wikidata.org/prop/P749> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between an organisation and its funder (select from existing people)" ;
+                                  rdfs:label "funded by" .
+
+###  http://www.wikidata.org/prop/P749
+<http://www.wikidata.org/prop/P749> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between an organisation and a parent one (select from existing organisations)" ;
+                                  rdfs:label "affiliated to" .
+
 #################################################################
 #    Data properties
 #################################################################
