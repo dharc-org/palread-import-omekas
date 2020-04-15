@@ -17,6 +17,10 @@
 #    Object Properties
 #################################################################
 
+####################
+#    People
+####################
+
 ###  http://www.wikidata.org/prop/P214
 <http://www.wikidata.org/prop/P214> rdf:type owl:ObjectProperty ;
                                     rdfs:comment "The numerical part of the VIAF Identifier." ;
@@ -62,9 +66,68 @@
 <http://www.wikidata.org/prop/P135> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "The literary movement a person is affiliated to." ;
                                   rdfs:label "literary movement" .
+
+####################
+#    Life Events
+####################
+
+###  http://w3id.org/palread/life-event-type
+<http://w3id.org/palread/life-event-type> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Type of life event (select from controlled vocabulary)" ;
+                                  rdfs:label "life event type" .
+
+###  http://www.wikidata.org/prop/P106
+<http://www.wikidata.org/prop/P106> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Occupation or role of a person" ;
+                                  rdfs:label "occupation" .
+
+###  http://www.wikidata.org/prop/P102
+<http://www.wikidata.org/prop/P102> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and a membership event" ;
+                                  rdfs:label "membership event" .
+
+###  http://www.wikidata.org/prop/statement/P102
+<http://www.wikidata.org/prop/statement/P102> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a membership event and a political party" ;
+                                  rdfs:label "member of" .
+
+###  http://www.wikidata.org/prop/P69
+<http://www.wikidata.org/prop/P69> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and an educational event" ;
+                                  rdfs:label "education event" .
+
+###  http://www.wikidata.org/prop/statement/P69
+<http://www.wikidata.org/prop/statement/P69> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between an educational event and an institute" ;
+                                  rdfs:label "educated at" .
+
+###  http://www.wikidata.org/prop/P1416
+<http://www.wikidata.org/prop/P1416> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and an employment event" ;
+                                  rdfs:label "employment event" .
+
+###  http://www.wikidata.org/prop/statement/P1416
+<http://www.wikidata.org/prop/statement/P1416> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between an employment event and an organisation" ;
+                                  rdfs:label "employed at" .
+
+###  http://www.wikidata.org/prop/P276
+<http://www.wikidata.org/prop/P276> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Location (city or village) of the event" ;
+                                  rdfs:label "location" .
+
+###  http://www.wikidata.org/prop/P1066
+<http://www.wikidata.org/prop/P1066> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The professor or teacher of a person" ;
+                                    rdfs:label "student of" .
+
 #################################################################
 #    Data properties
 #################################################################
+
+####################
+#    People
+####################
 
 ###  http://www.wikidata.org/prop/P2561
 <http://www.wikidata.org/prop/P2561> rdf:type owl:DatatypeProperty ;
@@ -86,8 +149,8 @@
                                     rdfs:comment "The date of death (DD/MM/YYYY or YYYY)" ;
                                     rdfs:label "death date" .
 
-###  http://w3id.org/palread/id
-<http://w3id.org/palread/id> rdf:type owl:DatatypeProperty ;
+###  http://w3id.org/palread/identifier
+<http://w3id.org/palread/identifier> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "The local identifier of a literary event" ;
                                     rdfs:label "event id" .
 
@@ -95,6 +158,51 @@
 <http://w3id.org/palread/biography> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "Biographical notes" ;
                                     rdfs:label "biography" .
+
+###  http://w3id.org/palread/source
+<http://w3id.org/palread/source> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Sources of the record (including public websites)" ;
+                                    rdfs:label "source (public)" .
+
+###  http://w3id.org/palread/internal-source
+<http://w3id.org/palread/internal-source> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Sources of the record (including links to private attachments)" ;
+                                    rdfs:label "source (internal)" .
+
+###  http://w3id.org/palread/internal-note
+<http://w3id.org/palread/internal-note> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Notes about the record" ;
+                                    rdfs:label "notes (internal)" .
+
+####################
+#    Life events
+####################
+
+###  http://w3id.org/palread/tmp-person
+<http://w3id.org/palread/tmp-person> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Temporary note for import purposes" ;
+                                    rdfs:label "temporary person (internal)" .
+
+###  http://w3id.org/palread/tmp-person-other
+<http://w3id.org/palread/tmp-person-other> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Temporary note for import purposes" ;
+                                    rdfs:label "temporary person other (internal)" .
+
+###  http://w3id.org/palread/tmp-org
+<http://w3id.org/palread/tmp-org> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Temporary note for import purposes" ;
+                                    rdfs:label "temporary organisation (internal)" .
+
+###  http://www.wikidata.org/prop/qualifier/P580
+<http://www.wikidata.org/prop/qualifier/P580> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "started at DD/MM/YYYY or YYYY" ;
+                                    rdfs:label "started at time" .
+
+###  http://www.wikidata.org/prop/qualifier/P582
+<http://www.wikidata.org/prop/qualifier/P582> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Ended at DD/MM/YYYY or YYYY" ;
+                                    rdfs:label "ended at time" .
+
 #################################################################
 #    Classes
 #################################################################

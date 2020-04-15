@@ -19,27 +19,48 @@
       "wdp:P1196":[{ "property_id":1, "@id": "op:vocabulary-->Manner of death;Manner of death", "type":"uri" }],
       "wdp:P509":[{ "property_id":1, "@id": "op:vocabulary-->Cause of death;Cause of death", "type":"uri" }],
       "wdp:P135":[{ "property_id":1, "@id": "op:vocabulary-->Literary  movement;Literary movement", "type":"uri" }],
-      "pr:biography":[{ "property_id":1, "@value": "op:clean_name-->Biography", "type":"literal", "lang":"en" }],
-      "Sources public":[],
-      "Sources private":[],
-      "Other notes":[]
+      "pr:biography":[{ "property_id":1, "@value": "op:clean_name-->Biography", "type":"literal", "lang":"detect" }],
+      "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "update": {
-      "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD Resource ID", "type":"resource" }],
+      "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
+      "Life event(operation to choose the relation)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
       "Mother":[],
       "Father":[],
       "Siblings":[],
       "Spouses":[],
       "Children":[],
       "Friends":[],
-      "Influenced by person":[]
+      "Influenced by person":[],
+      "wdp:P102":[{ "property_id":1, "@id": "ADD membership event ID", "type":"uri" }],
+      "wdp:P69":[{ "property_id":1, "@id": "ADD educational event ID", "type":"uri" }],
+      "wdp:P1416":[{ "property_id":1, "@id": "ADD employment event ID", "type":"uri" }],
+      "wdp:P551":[{ "property_id":1, "@id": "ADD residence event ID", "type":"uri" }]
     }
   },
   "life_event": {
     "create": {
-      "wdp:P2561":[{ "property_id":1, "@value": "op:create_name-->life_event", "type":"literal", "lang":"en" }]
+      "pr:tmp-person":[{ "property_id":1, "@value": "op:clean_name-->Person name @en", "type":"literal", "lang":"detect" },
+                        { "property_id":2, "@value": "op:clean_name-->Person  name @ar", "type":"literal", "lang":"detect" }],
+      "pr:tmp-person-other":[ { "property_id":1, "@value": "op:split_values-->Student of", "type":"literal", "lang":"detect" }],
+      "pr:tmp-org":[{ "property_id":1, "@value": "op:clean_name-->Organisation or POI", "type":"literal", "lang":"en" }],
+      "wdp:P2561":[{ "property_id":1, "@value": "op:create_name-->life_event", "type":"literal", "lang":"en" }],
+      "pr:life-event-type":[{ "property_id":1, "@id": "op:vocabulary-->Event type;Life event type", "type":"uri" }],
+      "wdp:P106":[{ "property_id":1, "@id": "op:vocabulary-->Occupation;Occupation", "type":"uri" }],
+      "wps:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
+      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" },
+                        { "property_id":2, "@value": "op:date-->From date", "type":"literal" }],
+      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
+                        { "property_id":2, "@value": "op:date-->To date", "type":"literal" }]
     },
-    "update": {}
+    "update": {
+      "wps:P102":[{ "property_id":1, "@id": "ADD political party ID if membership", "type":"uri" }],
+      "wps:P69":[{ "property_id":1, "@id": "ADD university ID if education", "type":"uri" }],
+      "wps:P1416":[{ "property_id":1, "@id": "ADD employer ID if employment", "type":"uri" }],
+      "wps:P1066":[{ "property_id":1, "@id": "split values and ADD professor ID", "type":"uri" }]
+    }
   },
   "organisation":{
     "create": {},
@@ -50,7 +71,8 @@
     "update": {}
   },
   "lit_event":{
-    "create": {},
+    "create": {
+    "pr:identifier":[{ "property_id":1, "@value": "op:clean_name-->", "type":"literal", "lang":"en" }]},
     "update": {}
   }
 }

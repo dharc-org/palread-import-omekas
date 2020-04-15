@@ -49,11 +49,13 @@ def replace_value(val,data_row):
         column = val.split('-->',1)[1] # get column name
         if ';' in column:
             column,vocab = column.split(';',1)
+
         funct = val.split('-->',1)[0].replace("op:","") # call the function specified in preprocessing
         if funct == "create_name":
             value = "data_row,'"+column+"'"
         else:
             value = data_row[column]
+
         if vocab is not None:
             new_val = eval('p.'+funct+'("'+str(value).strip()+'","'+vocab.strip()+'")')
         else:
@@ -83,9 +85,12 @@ def fill_json(data_row, item_properties):
                 # pre-processing operations
                 if "split_values" in value_dict[object]:
                     values = replace_value(value_dict[object],data_row)
-                    if len(values) != 0:
+                    if isinstance(values, str):
+                        value_dict[object] = replace_value(value_dict[object],data_row)
+                    elif isinstance(values, list) and len(values) >= 1:
                         count_prop = 0
                         for value in values:
+                            print("value",value)
                             count_prop += 1
                             new_dict = {}
                             if "property_id" in value_dict:
@@ -97,8 +102,10 @@ def fill_json(data_row, item_properties):
                                 if "lang" in value_dict:
                                     new_dict["lang"] = value_dict["lang"]
                             values_list.append(new_dict)
+                            print("new_dict",new_dict)
                 else:
                     value_dict[object] = replace_value(value_dict[object],data_row)
+    print("item_data",item_data)
     return item_data
 
 def clean_dict(item_data):
@@ -107,10 +114,13 @@ def clean_dict(item_data):
         for value_dict in values_list:
             object = "@value" if "@value" in value_dict.keys() else "@id"
             if "op:" in value_dict[object] \
+                or value_dict[object] is None \
                 or len(value_dict[object].strip()) == 0 \
                 or value_dict[object] == 'None' \
                 or value_dict[object] == "''":
-                values_list.remove(value_dict)
+                #values_list.remove(value_dict)
+                print("\nTO BE REMOVED",value_dict)
+                pass
             else:
                 new_dict[prop].append(value_dict)
     clean_dict = dict(new_dict)

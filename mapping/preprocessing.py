@@ -16,9 +16,10 @@ def split_values(stringa):
     if stringa != '' and stringa is not None and stringa != 'None' and ';' in stringa:
         values = stringa.split(';')
         values = [s_strip(val) for val in values]
+        print("values",values)
         return values
     elif stringa != '' and stringa is not None and stringa != 'None' and ';' not in stringa:
-        return [stringa]
+        return stringa
     else:
         return ''
 

@@ -9,22 +9,33 @@
     "Islam":"LOC Demographic Group Terms - Religion"
   },
   "Country": {
-    "Palestine":"geonames - country",
+    "Palestine":"openmaps Palestine - country",
     "Italy":"still geonames - country"
   },
   "Palestine district": {
-    "Gaza":"geonames - district"
+    "Gaza":"openmaps Palestine - district",
+    "Bologna":"geonames - district"
   },
   "City": {
-    "Gaza":"geonames - city"
+    "Gaza":"openmaps Palestine - city",
+    "Bologna":"geonames - city"
   },
   "Manner of death":{
-    "":""
+    "":"custom vocab - Manner"
   },
   "Cause of death": {
-    "":""
+    "":"custom vocab - Cause"
   },
   "Literary movement": {
-    "":""
+    "":"custom vocab - Literary movement"
+  },
+  "Life event type": {
+    "Membership":"custom vocab - life event",
+    "Education":"custom vocab - life event",
+    "Residence":"custom vocab - life event",
+    "Employment":"custom vocab - life event"
+  },
+  "Occupation": {
+    "Writer":"custom vocab - occupation"
   }
 }
