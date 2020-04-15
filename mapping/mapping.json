@@ -49,7 +49,8 @@
       "wdp:P2561":[{ "property_id":1, "@value": "op:create_name-->life_event", "type":"literal", "lang":"en" }],
       "pr:life-event-type":[{ "property_id":1, "@id": "op:vocabulary-->Event type;Life event type", "type":"uri" }],
       "wdp:P106":[{ "property_id":1, "@id": "op:vocabulary-->Occupation;Occupation", "type":"uri" }],
-      "wps:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
+      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
+      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
       "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" },
                         { "property_id":2, "@value": "op:date-->From date", "type":"literal" }],
       "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
@@ -63,8 +64,24 @@
     }
   },
   "organisation":{
-    "create": {},
-    "update": {}
+    "create": {
+      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Organisation or POI", "type":"literal", "lang":"detect" }],
+      "pr:organisation-type":[{ "property_id":1, "@id": "op:vocabulary-->Type;Type of  institution", "type":"uri" }],
+      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" }],
+      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" }],
+      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
+      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
+      "wdp:P6375":[{ "property_id":1, "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" },
+                    { "property_id":2, "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect" }],
+      "wdp:P1329":[{"property_id":1, "@value": "op:clean_name-->Phone number", "type":"literal"}],
+      "wdp:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
+      "wdp:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
+      "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }]
+    },
+    "update": {
+      "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }]
+    }
   },
   "publisher":{
     "create": {},
@@ -72,7 +89,7 @@
   },
   "lit_event":{
     "create": {
-    "pr:identifier":[{ "property_id":1, "@value": "op:clean_name-->", "type":"literal", "lang":"en" }]},
+      "pr:identifier":[{ "property_id":1, "@value": "op:clean_name-->", "type":"literal", "lang":"en" }]},
     "update": {}
   }
 }

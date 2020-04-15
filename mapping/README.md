@@ -72,15 +72,22 @@ There are few specific operations that must be done in this step, so it's very l
 For every row of the tables update relations
 
    * Table People:
-       * "Mother",
-       * "Father",
-       * "Siblings",
-       * "Spouses",
-       * "Children",
-       * "Friends",
-       * "Influenced by person",
-       * relation to rows of "Literary event"
-       * relation to rows of "Life event"
+       * relation to People "Mother",
+       * relation to People "Father",
+       * relation to People "Siblings",
+       * relation to People "Spouses",
+       * relation to People "Children",
+       * relation to People "Friends",
+       * relation to People "Influenced by person",
+       * relation to Literary events "Literary event"
+       * relation to Life events "Life event"
+
+   * Table Life events:
+       * relation to Organisations "Organisation or POI"
+       * relation to People "Student of"
+
+   * Table Organisations:
+       * relation to Literary events "Literary event"
 
 ## Removal of temp properties (step 12)
 

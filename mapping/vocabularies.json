@@ -37,5 +37,8 @@
   },
   "Occupation": {
     "Writer":"custom vocab - occupation"
+  },
+  "Type of  institution":{
+    "Political party":"custom vocab - institution"
   }
 }

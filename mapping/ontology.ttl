@@ -28,43 +28,43 @@
 
 ###  http://www.wikidata.org/prop/P21
 <http://www.wikidata.org/prop/P21> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The sex or gender of a person." ;
+                                    rdfs:comment "The sex or gender of a person (select from controlled vocabulary)" ;
                                     rdfs:label "gender" .
 
 ###  http://www.wikidata.org/prop/P140
 <http://www.wikidata.org/prop/P140> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The religion of a person." ;
+                                    rdfs:comment "The religion of a person (select from controlled vocabulary)" ;
                                     rdfs:label "religion" .
 
 ###  http://www.wikidata.org/prop/P27
 <http://www.wikidata.org/prop/P27> rdf:type owl:ObjectProperty ;
-                                   rdfs:comment "The country of citizenship of a person." ;
+                                   rdfs:comment "The country of citizenship of a person (select from controlled vocabulary)" ;
                                    rdfs:label "country of citizenship" .
                                    ###  http://www.wikidata.org/prop/P27
 
 ###  http://www.wikidata.org/prop/P19
 <http://www.wikidata.org/prop/P19> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "The city of birth of a person." ;
+                                  rdfs:comment "The city of birth of a person (select from controlled vocabulary)" ;
                                   rdfs:label "birth city" .
 
 ###  http://www.wikidata.org/prop/P20
 <http://www.wikidata.org/prop/P20> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "The city of death of a person." ;
+                                  rdfs:comment "The city of death of a person (select from controlled vocabulary)" ;
                                   rdfs:label "death city" .
 
 ###  http://www.wikidata.org/prop/P1196
 <http://www.wikidata.org/prop/P1196> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "The manner of death of a person." ;
+                                  rdfs:comment "The manner of death of a person (select from controlled vocabulary)" ;
                                   rdfs:label "manner of death" .
 
 ###  http://www.wikidata.org/prop/P509
 <http://www.wikidata.org/prop/P509> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "The cause of death of a person." ;
+                                  rdfs:comment "The cause of death of a person (select from controlled vocabulary)" ;
                                   rdfs:label "cause of death" .
 
 ###  http://www.wikidata.org/prop/P135
 <http://www.wikidata.org/prop/P135> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "The literary movement a person is affiliated to." ;
+                                  rdfs:comment "The literary movement a person is affiliated to (select from controlled vocabulary)" ;
                                   rdfs:label "literary movement" .
 
 ####################
@@ -78,48 +78,62 @@
 
 ###  http://www.wikidata.org/prop/P106
 <http://www.wikidata.org/prop/P106> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Occupation or role of a person" ;
+                                  rdfs:comment "Occupation or role of a person (select from controlled vocabulary)" ;
                                   rdfs:label "occupation" .
 
 ###  http://www.wikidata.org/prop/P102
 <http://www.wikidata.org/prop/P102> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a person and a membership event" ;
+                                  rdfs:comment "Relation between a person and a membership event (select from existing life events)" ;
                                   rdfs:label "membership event" .
 
 ###  http://www.wikidata.org/prop/statement/P102
 <http://www.wikidata.org/prop/statement/P102> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a membership event and a political party" ;
+                                  rdfs:comment "Relation between a membership event and a political party (select from existing organisations)" ;
                                   rdfs:label "member of" .
 
 ###  http://www.wikidata.org/prop/P69
 <http://www.wikidata.org/prop/P69> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a person and an educational event" ;
+                                  rdfs:comment "Relation between a person and an educational event (select from existing life events)" ;
                                   rdfs:label "education event" .
 
 ###  http://www.wikidata.org/prop/statement/P69
 <http://www.wikidata.org/prop/statement/P69> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between an educational event and an institute" ;
+                                  rdfs:comment "Relation between an educational event and an institute (select from existing organisations)" ;
                                   rdfs:label "educated at" .
 
 ###  http://www.wikidata.org/prop/P1416
 <http://www.wikidata.org/prop/P1416> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a person and an employment event" ;
+                                  rdfs:comment "Relation between a person and an employment event (select from existing life events)" ;
                                   rdfs:label "employment event" .
 
 ###  http://www.wikidata.org/prop/statement/P1416
 <http://www.wikidata.org/prop/statement/P1416> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between an employment event and an organisation" ;
+                                  rdfs:comment "Relation between an employment event and an organisation (select from existing organisations)" ;
                                   rdfs:label "employed at" .
 
 ###  http://www.wikidata.org/prop/P276
 <http://www.wikidata.org/prop/P276> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Location (city or village) of the event" ;
+                                  rdfs:comment "Location, city or village (select from controlled vocabulary)" ;
                                   rdfs:label "location" .
+
+###  http://www.wikidata.org/prop/P17
+<http://www.wikidata.org/prop/P17> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Country (select from controlled vocabulary)" ;
+                                  rdfs:label "country" .
 
 ###  http://www.wikidata.org/prop/P1066
 <http://www.wikidata.org/prop/P1066> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The professor or teacher of a person" ;
+                                    rdfs:comment "The professor or teacher of a person (select from existing people)" ;
                                     rdfs:label "student of" .
+
+####################
+#    Organisations
+####################
+
+###  http://w3id.org/palread/organisation-type
+<http://w3id.org/palread/organisation-type> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Type of organisation (select from controlled vocabulary)" ;
+                                  rdfs:label "organisation type" .
 
 #################################################################
 #    Data properties
@@ -196,12 +210,36 @@
 ###  http://www.wikidata.org/prop/qualifier/P580
 <http://www.wikidata.org/prop/qualifier/P580> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "started at DD/MM/YYYY or YYYY" ;
-                                    rdfs:label "started at time" .
+                                    rdfs:label "from year or date" .
 
 ###  http://www.wikidata.org/prop/qualifier/P582
 <http://www.wikidata.org/prop/qualifier/P582> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "Ended at DD/MM/YYYY or YYYY" ;
-                                    rdfs:label "ended at time" .
+                                    rdfs:label "to year or date" .
+
+####################
+#    Organisations
+####################
+
+###  http://www.wikidata.org/prop/P6375
+<http://www.wikidata.org/prop/P6375> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Street address (house num, street)" ;
+                                    rdfs:label "street address" .
+
+###  http://www.wikidata.org/prop/P1329
+<http://www.wikidata.org/prop/P1329> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The phone number of the organisation or person" ;
+                                    rdfs:label "phone number" .
+
+###  http://www.wikidata.org/prop/P968
+<http://www.wikidata.org/prop/P968> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The email address of the organisation or person" ;
+                                    rdfs:label "email" .
+
+###  http://www.wikidata.org/prop/P856
+<http://www.wikidata.org/prop/P856> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The website URL (start with http://)" ;
+                                    rdfs:label "website" .
 
 #################################################################
 #    Classes
