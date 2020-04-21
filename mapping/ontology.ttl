@@ -145,6 +145,20 @@
                                   rdfs:comment "Relation between an organisation and a parent one (select from existing organisations)" ;
                                   rdfs:label "affiliated to" .
 
+
+####################
+#    Literary Events
+####################
+
+###  http://w3id.org/palread/literary-event-type
+<http://w3id.org/palread/literary-event-type> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Type of literary event (select from controlled vocabulary)" ;
+                                  rdfs:label "literary event type" .
+
+###  http://www.wikidata.org/prop/P2257
+<http://www.wikidata.org/prop/P2257> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Interval between scheduled or regularly recurring events (select from controlled vocabulary)" ;
+                                  rdfs:label "periodicity" .
 #################################################################
 #    Data properties
 #################################################################
@@ -250,6 +264,15 @@
 <http://www.wikidata.org/prop/P856> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "The website URL (start with http://)" ;
                                     rdfs:label "website" .
+
+####################
+#    Literary Events
+####################
+
+###  http://w3id.org/palread/tmp-event
+<http://w3id.org/palread/tmp-event> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Temporary note for import purposes" ;
+                                    rdfs:label "temporary event (internal)" .
 
 #################################################################
 #    Classes

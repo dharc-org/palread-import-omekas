@@ -111,7 +111,23 @@
   },
   "lit_event":{
     "create": {
-      "pr:identifier":[{ "property_id":1, "@value": "op:clean_name-->", "type":"literal", "lang":"en" }]},
-    "update": {}
+      "pr:identifier":[{ "property_id":1, "@value": "op:clean_name-->Event  ID", "type":"literal", "lang":"en" }],
+      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Event name", "type":"literal", "lang":"detect" }],
+      "pr:literary-event-type":[{ "property_id":1, "@id": "op:vocabulary-->Event  Type;Lit. event type", "type":"uri" }],
+      "wdp:P2257":[{ "property_id":1, "@id": "op:vocabulary-->Periodicity;Periodicity", "type":"uri" }],
+      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
+      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
+      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" },
+                        { "property_id":2, "@value": "op:date-->From date", "type":"literal" }],
+      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
+                        { "property_id":2, "@value": "op:date-->To date", "type":"literal" }],
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect", "is_public":false }],
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Notes on related works", "type":"literal", "lang":"detect", "is_public":false }]
+
+    },
+    "update": {
+      "Related  event":[],
+      "parent event":[]
+    }
   }
 }

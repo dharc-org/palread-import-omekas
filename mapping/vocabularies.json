@@ -40,5 +40,11 @@
   },
   "Type of  institution":{
     "Political party":"custom vocab - institution"
+  },
+  "Lit. event type":{
+    "Public presentation": "custom vocab - literary event"
+  },
+  "Periodicity":{
+    "Annual": "custom vocab - Periodicity"
   }
 }

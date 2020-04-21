@@ -25,6 +25,9 @@
  * reconcile automatically geonames AND palestine openmaps for places (use also district and places for the reconciliation) in `vocabularies.json`
  * double-check dates validation
  * change all properties IDs in `mapping.json` by querying the `api/properties`
+ * distinguish two fields for cities and palestine cities? or two vocabularies?
+ * literary events: look at how they create events, first create the general event in the first upload and then in the update create the relation
+ * finish the mapping for the relations of the update
 
 ## Resource IDs and labels to be returned after the first upload (step 9)
 
@@ -36,11 +39,22 @@
     * "pr:tmp-person" value (to be matched with people "wdp:P2561" values and get the ID)
     * "pr:tmp-org" value (to be matched with organisation "wdp:P2561" values and get the ID)
     * "pr:life-event-type" (to choose the relation)
- * Literary events: ID + "pr:id" value
+    * "pr:tmp-person-other"
+ * Organisations:
+   * ID
+   * "wdp:P2561" value
+ * Publishers:
+   * ID
+   * "wdp:P2561" value
+ * Literary events:
+    * ID
+    * "pr:id" value
+    * "wdp:P2561" value
 
 ## Preliminary work before update (between step 9 and step 10)
 
 * In certain tables (see below) look into a list of fields and check if a record has already been created for that value otherwise create a new item (e.g. mother, father, etc) and return ID and info in the `items_ids.json` as specified before
+
    * Table People:
        * "Mother"
          * ID
@@ -68,6 +82,11 @@
        * "Student of"
          * ID
          * "wdp:P2561" values (either "\@en" or "\@ar")
+
+   * Table Literary events:
+       * "Event name" (if more than one has the same name create the parent event)
+         * ID
+         * "wdp:P2561" value
 
 ## Actual update (step 10)
 
@@ -105,6 +124,10 @@ For every row of the tables update relations
        * relation to People "Founder name \@ar"
        * relation to People "Founder name 2 \@ar"
 
+   * Table Literary events:
+
+       * relation to Literary events "Event name" and "Related event"
+
 ## Removal of temp properties (step 12)
 
 For every item in Omeka, remove the following properties and values
@@ -112,7 +135,21 @@ For every item in Omeka, remove the following properties and values
  * "pr:tmp-person"
  * "pr:tmp-org"
  * "pr:tmp-person-other"
+ * "pr:tmp-event"
 
 ## Notes [MD]
 
  * I need to store original people names if they include dates for disambiguation
+ * private fields for people - sex religion: not queryable!
+ * [ASK Tommy] everything has to be closed!
+    * public API, item private, via authentication to access private is possible?
+    * api in vpn
+    * IP privato sul cloud
+    * white list of IP addresses: scholars, giorgio and matteo for the API
+    SOLUTION
+    * ip Public
+    * default setting private items
+    * API with key and credential to access everything + `pages=*`
+ * how to add new vocabulary terms -- SOLUTION itemset themes can we automatise the import of updates? can be done in the interface?
+ * automatic lookup for VIAF and works
+ * export from omeka to endnote
