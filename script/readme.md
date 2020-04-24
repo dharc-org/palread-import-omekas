@@ -10,7 +10,8 @@
     "KEY_CREDENTIALS": "MY_CREDENTIALS",
     "OMEKA_API_URL": "MY_OMEKAS_API"
 }
-```  To define the configuration parameters of Omeka-S use the following command:
+```  
+To define the configuration parameters of Omeka-S use the following command:
 ```python3 omeka_handler.py -conf <PATH-TO-CONF-FILE>```
 
 * Define the parameters singularly. Use the arguments: ```-api```, ```-kid```, and ```-kcr```. For example: ```omeka_handler.py -api MYURL -kid MYID -kcr MYCREDENTIALS``` 
