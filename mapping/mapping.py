@@ -147,6 +147,7 @@ def change_prop_id(item_data):
 
 def get_ids(api_url):
 	lookup=['resource_classes','properties']
+    files = []
 	for l in lookup:
 		id=1
 		id_dict = {}
@@ -164,8 +165,10 @@ def get_ids(api_url):
 			id +=1
 
 		d=open('%s_ids.json'%l,'w')
+        files.append(id_dict)
 		d.write(json.dumps(id_dict))
 		d.close()
+    return files
 
 # read tsv files
 def read_tables(tables_folder, item_sets_ids, operation="create"):

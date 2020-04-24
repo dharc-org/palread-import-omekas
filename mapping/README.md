@@ -7,9 +7,11 @@
   3. [MARI] Create the templates for the itemsets (to be done in omeka, either manually or by uploading a json, we need to decide) - include valuesuggest
   4. [?] Upload in omeka the controlled custom vocabularies (manually or via API, we need to decide)
   5. [?] Extract vocabulary terms ID and autopopulate `vocabularies.json` (try to respect the structure):
-  this includes both mapping to external URIs (used in valuesuggest) and local IDs of itemsets used as vocabularies
+  this includes both mapping to external URIs (used in valuesuggest) and local IDs of itemsets used as vocabularies, include Palestine Maps custom vocabulary
+
     * 5.1 Extract properties and classes ids in two json files by calling ``mapping.get_ids(api_url)``
     * 5.2 Replace properties id in `mapping.json`
+    * 5.3 distinguish in payload when the vocabulary is an external term or an item (change key:value!!)
   6. [MARI] Download each [sheet](https://docs.google.com/spreadsheets/d/1fn523ktjeLyTytUuPvlOXEvb5A65SxhlKkePKtdWcSQ/edit?usp=sharing) in the folder `tables` as .tsv (do not change the name, and yes, tsv, _NOT_ csv)
   7. [IVAN] Call `mapping.read_tables("tables", "item_sets_id.json", "create")`. It returns a list of dictionaries (a complete dictionary for each new entity, including the itemset, the ID of vocabulary terms and so on)
   8. [IVAN] Iterate over the list and upload each dictionary in omeka as single items (bulk import?)
@@ -21,6 +23,7 @@
 ## First round upload (before step 7)
 
  * extract final vocabulary terms from spreadsheets to `vocabularies.json`
+ * create two fields for cities (city and city in palestine)
  * reconcile manually LOC gender, religion -- do the mapping and substitute iri in `vocabularies.json`
  * reconcile automatically geonames AND palestine openmaps for places (use also district and places for the reconciliation) in `vocabularies.json`
  * double-check dates validation
@@ -28,6 +31,8 @@
  * distinguish two fields for cities and palestine cities? or two vocabularies?
  * literary events: look at how they create events, first create the general event in the first upload and then in the update create the relation
  * finish the mapping for the relations of the update
+ * extract all the links in "Sources public"????
+ * New field "Notes private"????
 
 ## Resource IDs and labels to be returned after the first upload (step 9)
 
