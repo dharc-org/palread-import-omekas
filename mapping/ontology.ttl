@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix pr: <http://w3id.org/palread/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
 @prefix wdp: <http://www.wikidata.org/prop/> .
 @prefix wps: <http://www.wikidata.org/prop/statement/> .
 @prefix wdq: <http://www.wikidata.org/prop/qualifier/> .
@@ -277,3 +278,28 @@
 #################################################################
 #    Classes
 #################################################################
+
+###  http://www.wikidata.org/entity/Q215627
+<http://www.wikidata.org/entity/Q215627> rdf:type owl:Class ;
+      rdfs:comment "A human being" ;
+      rdfs:label "Person" .
+
+###  http://w3id.org/palread/LiteraryEvent
+<http://w3id.org/palread/LiteraryEvent> rdf:type owl:Class ;
+      rdfs:comment "A literary event (e.g. public presentation)" ;
+      rdfs:label "Literary event" .
+
+###  http://w3id.org/palread/LifeEvent
+<http://w3id.org/palread/LifeEvent> rdf:type owl:Class ;
+      rdfs:comment "A life event (e.g. employment, residence, education)" ;
+      rdfs:label "Life event" .
+
+###  http://www.wikidata.org/entity/Q43229
+<http://www.wikidata.org/entity/Q43229> rdf:type owl:Class ;
+      rdfs:comment "An organisation (e.g. political party, trade union)" ;
+      rdfs:label "Organisation" .
+
+###  http://www.wikidata.org/entity/Q2085381
+<http://www.wikidata.org/entity/Q2085381> rdf:type owl:Class ;
+      rdfs:comment "A publishing house" ;
+      rdfs:label "Publisher" .

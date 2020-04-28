@@ -1,7 +1,7 @@
 {
   "Gender":{
-    "Male": "LOC Demographic Group Terms - Gender",
-    "Female": "LOC Demographic Group Terms - Gender"
+    "Male": "http://rdaregistry.info/termList/gender/1002",
+    "Female": "http://rdaregistry.info/termList/gender/1001"
   },
   "Religion":{
     "Atheism":"LOC Demographic Group Terms - Religion",

@@ -33,6 +33,7 @@
  * finish the mapping for the relations of the update
  * extract all the links in "Sources public"????
  * New field "Notes private"????
+ * add classes to mapping json 
 
 ## Resource IDs and labels to be returned after the first upload (step 9)
 
