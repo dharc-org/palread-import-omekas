@@ -1,12 +1,9 @@
 {
   "Gender":{
-    "Male": "http://rdaregistry.info/termList/gender/1002",
-    "Female": "http://rdaregistry.info/termList/gender/1001"
+    "id":7
   },
   "Religion":{
-    "Atheism":"LOC Demographic Group Terms - Religion",
-    "Christianity":"LOC Demographic Group Terms - Religion",
-    "Islam":"LOC Demographic Group Terms - Religion"
+    "id":1
   },
   "Country": {
     "Palestine":"openmaps Palestine - country",
@@ -21,30 +18,27 @@
     "Bologna":"geonames - city"
   },
   "Manner of death":{
-    "":"custom vocab - Manner"
+    "id":1
   },
   "Cause of death": {
-    "":"custom vocab - Cause"
+    "id":1
   },
   "Literary movement": {
-    "":"custom vocab - Literary movement"
+    "id":1
   },
   "Life event type": {
-    "Membership":"custom vocab - life event",
-    "Education":"custom vocab - life event",
-    "Residence":"custom vocab - life event",
-    "Employment":"custom vocab - life event"
+    "id":1
   },
   "Occupation": {
-    "Writer":"custom vocab - occupation"
+    "id":1
   },
-  "Type of  institution":{
-    "Political party":"custom vocab - institution"
+  "Type of institution":{
+    "id":1
   },
-  "Lit. event type":{
-    "Public presentation": "custom vocab - literary event"
+  "Literary event type":{
+    "id":1
   },
   "Periodicity":{
-    "Annual": "custom vocab - Periodicity"
+    "id":1
   }
 }

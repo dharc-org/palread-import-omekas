@@ -6,10 +6,10 @@ from collections import defaultdict
 pp = pprint.PrettyPrinter(indent=4)
 
 # POST /api/:api_resource
-def create_item(item_class,template_id, data_row, item_set_id=None, item_type=None,property_ids=None,classes_ids=None):
+def create_item(item_class,template_id, data_row, item_set_id=None, item_type=None,property_ids=None,classes_ids=None,vocabularies_ids=None):
     with open("mapping.json") as json_file:
         mapping = json.load(json_file)
-    data = prepare_json(data_row, mapping[item_type]["create"],property_ids)
+    data = prepare_json(data_row, mapping[item_type]["create"],property_ids,vocabularies_ids)
     resource_class_id = classes_ids[item_class]
     create_json = {
             "@type":["o:Item",item_class],
@@ -90,15 +90,15 @@ def replace_value(val,data_row):
         new_val = data_row[val]
     return new_val
 
-def prepare_json(data_row,mapping,property_ids):
-    data = fill_json(data_row, mapping)
+def prepare_json(data_row,mapping,property_ids,vocabularies_ids):
+    data = fill_json(data_row, mapping,vocabularies_ids)
     data = clean_dict(data)
     data = pop_empty(data)
     data = detect_lang(data)
     data = change_prop_id(data,property_ids)
     return data
 
-def fill_json(data_row, item_properties):
+def fill_json(data_row, item_properties,vocabularies_ids):
     item_data = {k:v for k,v in item_properties.items()}
     for prop, values_list in item_data.items():
         for value_dict in values_list:
@@ -127,6 +127,9 @@ def fill_json(data_row, item_properties):
                             values_list.append(new_dict)
                             print("new_dict",new_dict)
                 else:
+                    if "customvocab" in value_dict["type"]:
+                        vocab = value_dict["type"].split(":")[1]
+                        value_dict["type"] = "customvocab:"+vocabularies_ids[vocab]["id"]
                     value_dict[object] = replace_value(value_dict[object],data_row)
     print("item_data",item_data)
     return item_data
@@ -195,7 +198,7 @@ def get_ids(api_url):
     return files
 
 # read tsv files
-def read_tables(tables_folder, item_sets_ids, operation="create",property_ids,classes_ids,resource_templates_ids):
+def read_tables(tables_folder, item_sets_ids, operation="create",property_ids,classes_ids,resource_templates_ids,vocabularies_ids):
     # TODO add param for item ID if it's an update
     list_items = []
     for filename in os.listdir(tables_folder):
@@ -215,7 +218,7 @@ def read_tables(tables_folder, item_sets_ids, operation="create",property_ids,cl
                 reader = csv.DictReader(tsv_file, delimiter='\t')
                 for row in reader:
                     if operation == 'create':
-                        o_item = create_item(res_class,template_id,row,item_set_id,entity,property_ids,classes_ids)
+                        o_item = create_item(res_class,template_id,row,item_set_id,entity,property_ids,classes_ids,vocabularies_ids)
                         list_items.append(o_item)
                     if operation == 'update':
                         o_item = update_item(row,item_set_id,entity)

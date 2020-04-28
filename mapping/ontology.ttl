@@ -9,10 +9,10 @@
 @prefix wdp: <http://www.wikidata.org/prop/> .
 @prefix wps: <http://www.wikidata.org/prop/statement/> .
 @prefix wdq: <http://www.wikidata.org/prop/qualifier/> .
-@base <https://w3id.org/palread/ontology> .
+@base <http://w3id.org/palread/ontology> .
 
-<https://w3id.org/palread/ontology> rdf:type owl:Ontology ;
-      owl:versionIRI <https://w3id.org/palread/ontology/2020-04-09> .
+<http://www.wikidata.org/ontology> rdf:type owl:Ontology ;
+      owl:versionIRI <http://www.wikidata.org/2020-04-09> .
 
 #################################################################
 #    Object Properties
@@ -72,11 +72,6 @@
 #    Life Events
 ####################
 
-###  http://w3id.org/palread/life-event-type
-<http://w3id.org/palread/life-event-type> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Type of life event (select from controlled vocabulary)" ;
-                                  rdfs:label "life event type" .
-
 ###  http://www.wikidata.org/prop/P106
 <http://www.wikidata.org/prop/P106> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Occupation or role of a person (select from controlled vocabulary)" ;
@@ -131,11 +126,6 @@
 #    Organisations
 ####################
 
-###  http://w3id.org/palread/organisation-type
-<http://w3id.org/palread/organisation-type> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Type of organisation (select from controlled vocabulary)" ;
-                                  rdfs:label "organisation type" .
-
 ###  http://www.wikidata.org/prop/P112
 <http://www.wikidata.org/prop/P749> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Relation between an organisation and its funder (select from existing people)" ;
@@ -151,10 +141,6 @@
 #    Literary Events
 ####################
 
-###  http://w3id.org/palread/literary-event-type
-<http://w3id.org/palread/literary-event-type> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Type of literary event (select from controlled vocabulary)" ;
-                                  rdfs:label "literary event type" .
 
 ###  http://www.wikidata.org/prop/P2257
 <http://www.wikidata.org/prop/P2257> rdf:type owl:ObjectProperty ;
@@ -188,49 +174,11 @@
                                     rdfs:comment "The date of death (DD/MM/YYYY or YYYY)" ;
                                     rdfs:label "death date" .
 
-###  http://w3id.org/palread/identifier
-<http://w3id.org/palread/identifier> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "The local identifier of a literary event" ;
-                                    rdfs:label "event id" .
 
-###  http://w3id.org/palread/biography
-<http://w3id.org/palread/biography> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Biographical notes" ;
-                                    rdfs:label "biography" .
-
-###  http://w3id.org/palread/source
-<http://w3id.org/palread/source> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Sources of the record (including public websites)" ;
-                                    rdfs:label "source (public)" .
-
-###  http://w3id.org/palread/internal-source
-<http://w3id.org/palread/internal-source> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Sources of the record (including links to private attachments)" ;
-                                    rdfs:label "source (internal)" .
-
-###  http://w3id.org/palread/internal-note
-<http://w3id.org/palread/internal-note> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Notes about the record" ;
-                                    rdfs:label "notes (internal)" .
 
 ####################
 #    Life events
 ####################
-
-###  http://w3id.org/palread/tmp-person
-<http://w3id.org/palread/tmp-person> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Temporary note for import purposes" ;
-                                    rdfs:label "temporary person (internal)" .
-
-###  http://w3id.org/palread/tmp-person-other
-<http://w3id.org/palread/tmp-person-other> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Temporary note for import purposes" ;
-                                    rdfs:label "temporary person other (internal)" .
-
-###  http://w3id.org/palread/tmp-org
-<http://w3id.org/palread/tmp-org> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Temporary note for import purposes" ;
-                                    rdfs:label "temporary organisation (internal)" .
 
 ###  http://www.wikidata.org/prop/qualifier/P580
 <http://www.wikidata.org/prop/qualifier/P580> rdf:type owl:DatatypeProperty ;
@@ -270,10 +218,6 @@
 #    Literary Events
 ####################
 
-###  http://w3id.org/palread/tmp-event
-<http://w3id.org/palread/tmp-event> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Temporary note for import purposes" ;
-                                    rdfs:label "temporary event (internal)" .
 
 #################################################################
 #    Classes
@@ -284,15 +228,6 @@
       rdfs:comment "A human being" ;
       rdfs:label "Person" .
 
-###  http://w3id.org/palread/LiteraryEvent
-<http://w3id.org/palread/LiteraryEvent> rdf:type owl:Class ;
-      rdfs:comment "A literary event (e.g. public presentation)" ;
-      rdfs:label "Literary event" .
-
-###  http://w3id.org/palread/LifeEvent
-<http://w3id.org/palread/LifeEvent> rdf:type owl:Class ;
-      rdfs:comment "A life event (e.g. employment, residence, education)" ;
-      rdfs:label "Life event" .
 
 ###  http://www.wikidata.org/entity/Q43229
 <http://www.wikidata.org/entity/Q43229> rdf:type owl:Class ;

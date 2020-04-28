@@ -22,10 +22,8 @@
 
 ## First round upload (before step 7)
 
- * extract final vocabulary terms from spreadsheets to `vocabularies.json`
- * create two fields for cities (city and city in palestine)
- * reconcile manually LOC gender, religion -- do the mapping and substitute iri in `vocabularies.json`
- * reconcile automatically geonames AND palestine openmaps for places (use also district and places for the reconciliation) in `vocabularies.json`
+ * upload vocabulary terms from spreadsheets and save their IDs in `vocabularies_ids.json`
+ * reconcile geonames for places (use also district and places for the reconciliation) in `vocabularies.json`
  * double-check dates validation
  * change all properties IDs in `mapping.json` by querying the `api/properties`
  * distinguish two fields for cities and palestine cities? or two vocabularies?
@@ -33,7 +31,7 @@
  * finish the mapping for the relations of the update
  * extract all the links in "Sources public"????
  * New field "Notes private"????
- * add classes to mapping json 
+ * add classes to mapping json
 
 ## Resource IDs and labels to be returned after the first upload (step 9)
 
