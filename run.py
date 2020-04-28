@@ -70,9 +70,17 @@ items = open("created_items.json")
 items.write(json.dumps(data))
 items.close()
 
-# TODO lookup update
+# 15. lookup for certain tables/rows
 
-# patch
+# 16. if entities do not exist, create them
+
+# 17. dump (overwrite) data created in "created_items.json"
+
+# 18. query again tables and create payloads
 # update_data = m.read_tables("tables", "item_sets_id.json", "update")
+
+# 19. iterate over payloads and upload
 # for payload, resource_id in update_data:
 #     response = REQ_SESSION.patch('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],resource_id), json=payload, params=params)
+
+# 14. dump (overwrite) data created in "created_items.json"

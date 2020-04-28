@@ -21,23 +21,22 @@
       "wdp:P135":[{ "property_id":1, "@value": "op:clean_name-->Literary  movement", "type":"customvocab:Literary movement" }],
       "pr:biography":[{ "property_id":1, "@value": "op:clean_name-->Biography", "type":"literal", "lang":"detect" }],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect", "is_public":false }],
-      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect", "is_public":false }]
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "update": {
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
-      "Life event(operation to choose the relation)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
-      "Mother":[ "use 'value_resource_id' key for Omeka items "],
-      "Father":[],
-      "Siblings":[],
-      "Spouses":[],
-      "Children":[],
-      "Friends":[],
-      "Influenced by person":[],
-      "wdp:P102":[{ "property_id":1, "@id": "ADD membership event ID", "type":"uri" }],
-      "wdp:P69":[{ "property_id":1, "@id": "ADD educational event ID", "type":"uri" }],
-      "wdp:P1416":[{ "property_id":1, "@id": "ADD employment event ID", "type":"uri" }],
-      "wdp:P551":[{ "property_id":1, "@id": "ADD residence event ID", "type":"uri" }]
+      "wdp:P25":[ {"property_id":1, "value_resource_id": "Mother id", "type":"resource" }],
+      "wdp:P22":[ {"property_id":1, "value_resource_id": "Father id", "type":"resource" }],
+      "wdp:P3373":[{"property_id":1, "value_resource_id": "op:split_values-->Siblings ids", "type":"resource" }],
+      "wdp:P26":[{"property_id":1, "value_resource_id": "op:split_values-->Spouses ids", "type":"resource" }],
+      "wdp:P40":[{"property_id":1, "value_resource_id": "op:split_values-->Children ids", "type":"resource" }],
+      "wdp:P3342":[{"property_id":1, "value_resource_id": "op:split_values-->Friends ids", "type":"resource" }],
+      "wdp:P737":[{"property_id":1, "value_resource_id": "op:split_values-->Influenced by person ids", "type":"resource" }],
+      "wdp:P102":[{ "property_id":1, "@id": "distinguish membership event ID", "type":"uri" }],
+      "wdp:P69":[{ "property_id":1, "@id": "distinguish educational event ID", "type":"uri" }],
+      "wdp:P1416":[{ "property_id":1, "@id": "distinguish employment event ID", "type":"uri" }],
+      "wdp:P551":[{ "property_id":1, "@id": "distinguish residence event ID", "type":"uri" }]
     }
   },
   "life_event": {
@@ -77,7 +76,7 @@
       "wdp:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
       "wdp:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect", "is_public":false }]
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect"}]
     },
     "update": {
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }]
@@ -97,8 +96,8 @@
       "wdp:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
       "wdp:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect", "is_public":false }],
-      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Notes", "type":"literal", "lang":"detect", "is_public":false }]
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Notes", "type":"literal", "lang":"detect" }]
     },
     "update": {
       "wdp:P749":[{ "property_id":1, "value_resource_id": "ADD political affiliation ID", "type":"resource" },
@@ -121,8 +120,8 @@
                         { "property_id":2, "@value": "op:date-->From date", "type":"literal" }],
       "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
                         { "property_id":2, "@value": "op:date-->To date", "type":"literal" }],
-      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect", "is_public":false }],
-      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Notes on related works", "type":"literal", "lang":"detect", "is_public":false }]
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Notes on related works", "type":"literal", "lang":"detect" }]
 
     },
     "update": {

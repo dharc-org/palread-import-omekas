@@ -21,6 +21,40 @@
 ####################
 #    People
 ####################
+###  http://www.wikidata.org/prop/P737
+<http://www.wikidata.org/prop/P737> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The person who influenced a person." ;
+                                    rdfs:label "influenced by" .
+
+###  http://www.wikidata.org/prop/P3342
+<http://www.wikidata.org/prop/P3342> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The friend or acquaintance of a person." ;
+                                    rdfs:label "friend" .
+
+###  http://www.wikidata.org/prop/P40
+<http://www.wikidata.org/prop/P40> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The child of a person." ;
+                                    rdfs:label "child" .
+
+###  http://www.wikidata.org/prop/P26
+<http://www.wikidata.org/prop/P26> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The spouse of a person." ;
+                                    rdfs:label "spouse" .
+
+###  http://www.wikidata.org/prop/P3373
+<http://www.wikidata.org/prop/P3373> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The sister or brother of a person." ;
+                                    rdfs:label "sibling" .
+
+###  http://www.wikidata.org/prop/P22
+<http://www.wikidata.org/prop/P22> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The father of a person." ;
+                                    rdfs:label "father" .
+
+###  http://www.wikidata.org/prop/P25
+<http://www.wikidata.org/prop/P25> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The mother of a person." ;
+                                    rdfs:label "mother" .
 
 ###  http://www.wikidata.org/prop/P214
 <http://www.wikidata.org/prop/P214> rdf:type owl:ObjectProperty ;
