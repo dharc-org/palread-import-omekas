@@ -1,24 +1,24 @@
 {
   "person": {
     "create": {
-      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
+      "wd:P2561":[{ "property_id":1, "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
                    { "property_id":2, "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
                  ],
-      "wdp:P214":[{ "property_id":1, "@id": "op:expand_viaf-->VIAF", "type":"uri" }],
-      "wdp:P742":[{ "property_id":1, "@value": "op:split_values-->Pen names", "type":"literal", "lang":"detect" }],
-      "wdp:P21":[{ "property_id":1, "@value": "op:clean_name-->Gender", "type":"customvocab:Gender" }],
-      "wdp:P140":[{ "property_id":1, "@value": "op:clean_name-->Religion", "type":"customvocab:Religion" }],
-      "wdp:P27":[{ "property_id":1, "@id": "op:vocabulary-->Country of citiz. ;Country", "type":"uri" },
-                  { "property_id":2, "@id": "op:vocabulary-->Country of citiz. (2);Country", "type":"uri" }],
-      "wdp:P569":[{ "property_id":1, "@value": "op:date-->Birth  date", "type":"literal" },
+      "wd:P214":[{ "property_id":1, "@id": "op:expand_viaf-->VIAF", "type":"uri" }],
+      "wd:P742":[{ "property_id":1, "@value": "op:split_values-->Pen names", "type":"literal", "lang":"detect" }],
+      "wd:P21":[{ "property_id":1, "@value": "op:clean_name-->Gender", "type":"customvocab:Gender" }],
+      "wd:P140":[{ "property_id":1, "@value": "op:clean_name-->Religion", "type":"customvocab:Religion" }],
+      "wd:P27":[{ "property_id":1, "@id": "op:vocabulary-->Country of citiz. ;Country", "type":"valuesuggest:geonames:geonames" },
+                  { "property_id":2, "@id": "op:vocabulary-->Country of citiz. (2);Country", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P569":[{ "property_id":1, "@value": "op:date-->Birth  date", "type":"literal" },
                   { "property_id":2, "@value": "op:date-->Birth year", "type":"literal" }],
-      "wdp:P570":[{ "property_id":1, "@value": "op:date-->Death  date", "type":"literal" },
+      "wd:P570":[{ "property_id":1, "@value": "op:date-->Death  date", "type":"literal" },
                   { "property_id":2, "@value": "op:date-->Death year", "type":"literal" }],
-      "wdp:P19":[{ "property_id":1, "@id": "op:vocabulary-->Birth city;City", "type":"uri" }],
-      "wdp:P20":[{ "property_id":1, "@id": "op:vocabulary-->Death city;City", "type":"uri" }],
-      "wdp:P1196":[{ "property_id":1, "@value": "op:clean_name-->Manner of death", "type":"customvocab:Manner of death" }],
-      "wdp:P509":[{ "property_id":1, "@value": "op:clean_name-->Cause of death", "type":"customvocab:Cause of death" }],
-      "wdp:P135":[{ "property_id":1, "@value": "op:clean_name-->Literary  movement", "type":"customvocab:Literary movement" }],
+      "wd:P19":[{ "property_id":1, "@id": "op:vocabulary-->Birth city;City", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P20":[{ "property_id":1, "@id": "op:vocabulary-->Death city;City", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P1196":[{ "property_id":1, "@value": "op:clean_name-->Manner of death", "type":"customvocab:Manner of death" }],
+      "wd:P509":[{ "property_id":1, "@value": "op:clean_name-->Cause of death", "type":"customvocab:Cause of death" }],
+      "wd:P135":[{ "property_id":1, "@value": "op:clean_name-->Literary  movement", "type":"customvocab:Literary movement" }],
       "pr:biography":[{ "property_id":1, "@value": "op:clean_name-->Biography", "type":"literal", "lang":"detect" }],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
@@ -26,17 +26,17 @@
     },
     "update": {
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
-      "wdp:P25":[ {"property_id":1, "value_resource_id": "Mother id", "type":"resource" }],
-      "wdp:P22":[ {"property_id":1, "value_resource_id": "Father id", "type":"resource" }],
-      "wdp:P3373":[{"property_id":1, "value_resource_id": "op:split_values-->Siblings ids", "type":"resource" }],
-      "wdp:P26":[{"property_id":1, "value_resource_id": "op:split_values-->Spouses ids", "type":"resource" }],
-      "wdp:P40":[{"property_id":1, "value_resource_id": "op:split_values-->Children ids", "type":"resource" }],
-      "wdp:P3342":[{"property_id":1, "value_resource_id": "op:split_values-->Friends ids", "type":"resource" }],
-      "wdp:P737":[{"property_id":1, "value_resource_id": "op:split_values-->Influenced by person ids", "type":"resource" }],
-      "wdp:P102":[{ "property_id":1, "@id": "distinguish membership event ID", "type":"uri" }],
-      "wdp:P69":[{ "property_id":1, "@id": "distinguish educational event ID", "type":"uri" }],
-      "wdp:P1416":[{ "property_id":1, "@id": "distinguish employment event ID", "type":"uri" }],
-      "wdp:P551":[{ "property_id":1, "@id": "distinguish residence event ID", "type":"uri" }]
+      "wd:P25":[ {"property_id":1, "value_resource_id": "Mother id", "type":"resource" }],
+      "wd:P22":[ {"property_id":1, "value_resource_id": "Father id", "type":"resource" }],
+      "wd:P3373":[{"property_id":1, "value_resource_id": "op:split_values-->Siblings ids", "type":"resource" }],
+      "wd:P26":[{"property_id":1, "value_resource_id": "op:split_values-->Spouses ids", "type":"resource" }],
+      "wd:P40":[{"property_id":1, "value_resource_id": "op:split_values-->Children ids", "type":"resource" }],
+      "wd:P3342":[{"property_id":1, "value_resource_id": "op:split_values-->Friends ids", "type":"resource" }],
+      "wd:P737":[{"property_id":1, "value_resource_id": "op:split_values-->Influenced by person ids", "type":"resource" }],
+      "pr:membership-event":[{ "property_id":1, "@id": "distinguish membership event ID", "type":"uri" }],
+      "pr:education-event":[{ "property_id":1, "@id": "distinguish educational event ID", "type":"uri" }],
+      "pr:employment-event":[{ "property_id":1, "@id": "distinguish employment event ID", "type":"uri" }],
+      "wd:P551":[{ "property_id":1, "@id": "distinguish residence event ID", "type":"uri" }]
     }
   },
   "life_event": {
@@ -45,36 +45,36 @@
                         { "property_id":2, "@value": "op:clean_name-->Person  name @ar", "type":"literal", "lang":"detect" }],
       "pr:tmp-person-other":[ { "property_id":1, "@value": "op:split_values-->Student of", "type":"literal", "lang":"detect" }],
       "pr:tmp-org":[{ "property_id":1, "@value": "op:clean_name-->Organisation or POI", "type":"literal", "lang":"en" }],
-      "wdp:P2561":[{ "property_id":1, "@value": "op:create_name-->life_event", "type":"literal", "lang":"en" }],
+      "wd:P2561":[{ "property_id":1, "@value": "op:create_name-->life_event", "type":"literal", "lang":"en" }],
       "pr:life-event-type":[{ "property_id":1, "@value": "op:clean_name-->Event type", "type":"customvocab:Life event type" }],
-      "wdp:P106":[{ "property_id":1, "@value": "op:clean_name-->Occupation", "type":"customvocab:Occupation" }],
-      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
-      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
-      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" },
+      "wd:P106":[{ "property_id":1, "@value": "op:clean_name-->Occupation", "type":"customvocab:Occupation" }],
+      "wd:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" },
                         { "property_id":2, "@value": "op:date-->From date", "type":"literal" }],
-      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
+      "wd:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
                         { "property_id":2, "@value": "op:date-->To date", "type":"literal" }]
     },
     "update": {
-      "wps:P102":[{ "property_id":1, "@id": "ADD political party ID if membership", "type":"uri" }],
-      "wps:P69":[{ "property_id":1, "@id": "ADD university ID if education", "type":"uri" }],
-      "wps:P1416":[{ "property_id":1, "@id": "ADD employer ID if employment", "type":"uri" }],
-      "wps:P1066":[{ "property_id":1, "@id": "split values and ADD professor ID", "type":"uri" }]
+      "wd:P102":[{ "property_id":1, "@id": "ADD political party ID if membership", "type":"uri" }],
+      "wd:P69":[{ "property_id":1, "@id": "ADD university ID if education", "type":"uri" }],
+      "wd:P1416":[{ "property_id":1, "@id": "ADD employer ID if employment", "type":"uri" }],
+      "wd:P1066":[{ "property_id":1, "@id": "split values and ADD professor ID", "type":"uri" }]
     }
   },
   "organisation":{
     "create": {
-      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Organisation or POI", "type":"literal", "lang":"detect" }],
+      "wd:P2561":[{ "property_id":1, "@value": "op:clean_name-->Organisation or POI", "type":"literal", "lang":"detect" }],
       "pr:organisation-type":[{ "property_id":1, "@value": "op:clean_name-->Type", "type":"customvocab:Type of institution" }],
-      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" }],
-      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" }],
-      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
-      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
-      "wdp:P6375":[{ "property_id":1, "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" },
+      "wd:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" }],
+      "wd:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" }],
+      "wd:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P6375":[{ "property_id":1, "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" },
                     { "property_id":2, "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect" }],
-      "wdp:P1329":[{"property_id":1, "@value": "op:clean_name-->Phone number", "type":"literal"}],
-      "wdp:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
-      "wdp:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
+      "wd:P1329":[{"property_id":1, "@value": "op:clean_name-->Phone number", "type":"literal"}],
+      "wd:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
+      "wd:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect"}]
     },
@@ -84,49 +84,50 @@
   },
   "publisher":{
     "create": {
-      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
+      "wd:P2561":[{ "property_id":1, "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
                    { "property_id":2, "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
                  ],
-      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" }],
-      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" }],
-      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
-      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
-      "wdp:P6375":[{ "property_id":1, "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" }],
-      "wdp:P1329":[{"property_id":1, "@value": "op:clean_name-->Phone number", "type":"literal"}],
-      "wdp:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
-      "wdp:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
-      "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Notes", "type":"literal", "lang":"detect" }]
+      "wd:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" }],
+      "wd:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" }],
+      "wd:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P6375":[{ "property_id":1, "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" }],
+      "wd:P1329":[{"property_id":1, "@value": "op:clean_name-->Phone number", "type":"literal"}],
+      "wd:P968":[{"property_id":1, "@value": "op:clean_name-->Email", "type":"literal"}],
+      "wd:P856":[{"property_id":1, "@value": "op:clean_name-->Webpage", "type":"literal"}],
+      "pr:source":[{ "property_id":1, "@value": "op:split_values-->Sources public", "type":"uri", "lang":"detect" }],
+      "pr:internal-source":[{ "property_id":1, "@value": "op:split_values-->Sources private", "type":"uri", "lang":"detect" }],
+      "pr:note":[{ "property_id":1, "@value": "op:clean_name-->Notes", "type":"literal", "lang":"detect" }],
+      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Notes private", "type":"literal", "lang":"detect" }]
     },
     "update": {
-      "wdp:P749":[{ "property_id":1, "value_resource_id": "ADD political affiliation ID", "type":"resource" },
+      "wd:P749":[{ "property_id":1, "value_resource_id": "ADD political affiliation ID", "type":"resource" },
                   { "property_id":2, "value_resource_id": "ADD union affiliation ID", "type":"resource" }
                   ],
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],
-      "wdp:P112":[{ "property_id":1, "value_resource_id": "ADD Founder name @en ID or Founder name @ar ID", "type":"resource" },
+      "wd:P112":[{ "property_id":1, "value_resource_id": "ADD Founder name @en ID or Founder name @ar ID", "type":"resource" },
                   { "property_id":2, "value_resource_id": "ADD Founder name 2 @ar ID", "type":"resource" }]
     }
   },
   "lit_event":{
     "create": {
       "pr:identifier":[{ "property_id":1, "@value": "op:clean_name-->Event  ID", "type":"literal", "lang":"en" }],
-      "wdp:P2561":[{ "property_id":1, "@value": "op:clean_name-->Event name", "type":"literal", "lang":"detect" }],
+      "wd:P2561":[{ "property_id":1, "@value": "op:clean_name-->Event name", "type":"literal", "lang":"detect" }],
       "pr:literary-event-type":[{ "property_id":1, "@value": "op:clean_name-->Event  Type", "type":"customvocab:Literary event type" }],
-      "wdp:P2257":[{ "property_id":1, "@value": "op:clean_name-->Periodicity", "type":"customvocab:Periodicity" }],
-      "wdp:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"uri" }],
-      "wdp:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
-      "wdq:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" },
+      "wd:P2257":[{ "property_id":1, "@value": "op:clean_name-->Periodicity", "type":"customvocab:Periodicity" }],
+      "wd:P276":[{ "property_id":1, "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
+      "wd:P17":[{ "property_id":1, "@id": "op:vocabulary-->Country;Country", "type":"uri" }],
+      "wd:P580":[{ "property_id":1, "@value": "op:date-->From year", "type":"literal" },
                         { "property_id":2, "@value": "op:date-->From date", "type":"literal" }],
-      "wdq:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
+      "wd:P582":[{ "property_id":1, "@value": "op:date-->To year", "type":"literal" },
                         { "property_id":2, "@value": "op:date-->To date", "type":"literal" }],
-      "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect" }],
+      "pr:note":[{ "property_id":1, "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Notes on related works", "type":"literal", "lang":"detect" }]
 
     },
     "update": {
-      "Related  event":[],
-      "parent event":[]
+      "pr:parent-event":[ {"property_id":1, "value_resource_id": "Related  event", "type":"resource" }],
+      "pr:related-event":[{"property_id":1, "value_resource_id": "parent event", "type":"resource" }]
     }
   }
 }

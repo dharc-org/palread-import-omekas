@@ -3,7 +3,7 @@
     "id":7
   },
   "Religion":{
-    "id":1
+    "id":8
   },
   "Country": {
     "Palestine":"openmaps Palestine - country",
@@ -18,27 +18,27 @@
     "Bologna":"geonames - city"
   },
   "Manner of death":{
-    "id":1
+    "id":9
   },
   "Cause of death": {
-    "id":1
+    "id":10
   },
   "Literary movement": {
-    "id":1
+    "id":15
   },
   "Life event type": {
-    "id":1
+    "id":11
   },
   "Occupation": {
-    "id":1
+    "id":14
   },
   "Type of institution":{
-    "id":1
+    "id":16
   },
   "Literary event type":{
-    "id":1
+    "id":12
   },
   "Periodicity":{
-    "id":1
+    "id":13
   }
 }

@@ -1,5 +1,6 @@
-import os , json , csv ,re , itertools , pprint
-import preprocessing as p
+import os , json , csv ,re , itertools , pprint , requests
+import mapping.preprocessing as p
+import conf as c
 from langdetect import detect
 from collections import defaultdict
 
@@ -7,12 +8,12 @@ pp = pprint.PrettyPrinter(indent=4)
 
 # POST /api/:api_resource
 def create_item(item_class,template_id, data_row, item_set_id=None, item_type=None,property_ids=None,classes_ids=None,vocabularies_ids=None):
-    with open("mapping.json") as json_file:
+    with open("mapping/mapping.json") as json_file:
         mapping = json.load(json_file)
     data = prepare_json(data_row, mapping[item_type]["create"],property_ids,vocabularies_ids)
-    resource_class_id = classes_ids[item_class]
+    resource_class_id = classes_ids[item_class]["id"]
     create_json = {
-            "@type":["o:Item",item_class],
+            "@type":["o:Item"],
             "o:resource_class": {
                 "o:id": resource_class_id,
                 '@id': '{}/resource_class/{}'.format(c.CONF["OMEKA_API_URL"], resource_class_id)},
@@ -24,6 +25,7 @@ def create_item(item_class,template_id, data_row, item_set_id=None, item_type=No
              }
     for k,v in data.items():
         create_json[k] = v
+    print("resource_class_id",resource_class_id)
     return create_json
 
 # PATCH /api/:api_resource/:id
@@ -35,36 +37,36 @@ def update_item(data_row, item_set_id=None, item_type=None):
     update_json = 'TODO'
     return update_json
 
-def map_to_entity(filename=None):
-    entity,template_id = None
+def map_to_entity(filename=None,resource_templates_ids=None):
+    entity,template_id,e_class = None,None,None
     if filename is not None:
         # TODO make the external mapping
         if filename == 'PalREAD_authorities - People.tsv':
-            entity = 'wd:Q215627'
-            for templ in resource_templates_ids:
-                if templ["o:label"] == 'Person':
-                    template_id = templ["o:id"]
+            entity,e_class = 'person', 'wd:Q215627'
+            for t_key,templ in resource_templates_ids.items():
+                if templ["label"] == 'Person':
+                    template_id = templ["id"]
         if filename == 'PalREAD_authorities - Life events.tsv':
-            entity = 'pr:LifeEvent'
-            for templ in resource_templates_ids:
-                if templ["o:label"] == 'Life event':
-                    template_id = templ["o:id"]
+            entity,e_class = 'life_event', 'pr:LifeEvent'
+            for t_key,templ in resource_templates_ids.items():
+                if templ["label"] == 'Life event':
+                    template_id = templ["id"]
         if filename == 'PalREAD_authorities - Organisations.tsv':
-            entity = 'wd:Q43229'
-            for templ in resource_templates_ids:
-                if templ["o:label"] == 'Organisation':
-                    template_id = templ["o:id"]
+            entity,e_class = 'organisation', 'wd:Q43229'
+            for t_key,templ in resource_templates_ids.items():
+                if templ["label"] == 'Organisation':
+                    template_id = templ["id"]
         if filename == 'PalREAD_authorities - Publishers.tsv':
-            entity = 'wd:Q2085381'
-            for templ in resource_templates_ids:
-                if templ["o:label"] == 'Publisher':
-                    template_id = templ["o:id"]
+            entity,e_class = 'publisher', 'wd:Q2085381'
+            for t_key,templ in resource_templates_ids.items():
+                if templ["label"] == 'Publisher':
+                    template_id = templ["id"]
         if filename == 'PalREAD_authorities - Literary events.tsv':
-            entity = 'pr:LiteraryEvent'
-            for templ in resource_templates_ids:
-                if templ["o:label"] == 'Literary event':
-                    template_id = templ["o:id"]
-    return entity, template_id
+            entity,e_class = 'lit_event', 'pr:LiteraryEvent'
+            for t_key,templ in resource_templates_ids.items():
+                if templ["label"] == 'Literary event':
+                    template_id = templ["id"]
+    return e_class,template_id, entity
 
 def replace_value(val,data_row):
     if '-->' in val:
@@ -129,7 +131,7 @@ def fill_json(data_row, item_properties,vocabularies_ids):
                 else:
                     if "customvocab" in value_dict["type"]:
                         vocab = value_dict["type"].split(":")[1]
-                        value_dict["type"] = "customvocab:"+vocabularies_ids[vocab]["id"]
+                        value_dict["type"] = "customvocab:"+str(vocabularies_ids[vocab]["id"])
                     value_dict[object] = replace_value(value_dict[object],data_row)
     print("item_data",item_data)
     return item_data
@@ -172,45 +174,44 @@ def change_prop_id(item_data,property_ids):
         #     values_list[0]["property_id"] = '1'
     return item_data
 
-def get_ids(api_url):
-	lookup=['resource_classes','properties','resource_templates']
+def get_ids(api_url,what):
+    lookup=[what]
     files = []
-	for l in lookup:
-		id=1
-		id_dict = {}
-		while id <500:
-			this_url = api_url+'%s/%s' %(l,str(id))
-			response = requests.get(this_url)
-			print(id,response)
-			results = json.loads(response.text)
-			code = response.status_code
-			if code == 200:
-				label = results['o:label']
-				term = results['o:term']
-				id_dict[term]={'label':label,'id':id}
-				print(term)
-			id +=1
+    for l in lookup:
+        id=1
+        id_dict = {}
+        while id <500: # TODO make a decent function without random range
+            this_url = api_url+'/%s/%s' %(l,str(id))
+            response = requests.get(this_url)
+            print(id,this_url,response)
+            results = json.loads(response.text)
+            code = response.status_code
+            if code == 200:
+                label = results['o:label']
+                term = results['o:term'] if "o:term" in results.keys() else label
+                id_dict[term]={'label':label,'id':id}
+                print(term)
+            id +=1
 
-		d=open('%s_ids.json'%l,'w')
+        d=open('%s_ids.json'%l,'w')
         files.append(id_dict)
-		d.write(json.dumps(id_dict))
-		d.close()
+        d.write(json.dumps(id_dict))
+        d.close()
     return files
 
 # read tsv files
-def read_tables(tables_folder, item_sets_ids, operation="create",property_ids,classes_ids,resource_templates_ids,vocabularies_ids):
+def read_tables(tables_folder, item_sets_ids,property_ids,classes_ids,resource_templates_ids,vocabularies_ids, operation="create"):
     # TODO add param for item ID if it's an update
     list_items = []
     for filename in os.listdir(tables_folder):
         if filename.endswith(".tsv") and filename != "PalREAD_authorities - Vocabularies.tsv":
             # TODO first upload vocabularies and map cities
-            res_class,template_id = map_to_entity(filename,resource_templates_ids)
+            res_class,template_id,entity = map_to_entity(filename,resource_templates_ids)
             # Note for the future me: the mapping implies that for each table (tsv) corresponds _only one_ entity
             # To reuse this code in the future, the 1-to-1 relation (table-entity) must be respected
 
             with open(item_sets_ids) as json_file:
                 data = json.load(json_file)
-                #item_set_id = data[entity]
                 item_set_id = data["palread"]
 
             with open(tables_folder+'/'+filename) as tsv_file:

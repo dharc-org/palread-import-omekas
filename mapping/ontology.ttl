@@ -111,35 +111,28 @@
                                   rdfs:comment "Occupation or role of a person (select from controlled vocabulary)" ;
                                   rdfs:label "occupation" .
 
-###  http://www.wikidata.org/prop/P102
-<http://www.wikidata.org/prop/P102> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a person and a membership event (select from existing life events)" ;
-                                  rdfs:label "membership event" .
 
 ###  http://www.wikidata.org/prop/statement/P102
 <http://www.wikidata.org/prop/statement/P102> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Relation between a membership event and a political party (select from existing organisations)" ;
                                   rdfs:label "member of" .
 
-###  http://www.wikidata.org/prop/P69
-<http://www.wikidata.org/prop/P69> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a person and an educational event (select from existing life events)" ;
-                                  rdfs:label "education event" .
-
 ###  http://www.wikidata.org/prop/statement/P69
 <http://www.wikidata.org/prop/statement/P69> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Relation between an educational event and an institute (select from existing organisations)" ;
                                   rdfs:label "educated at" .
 
-###  http://www.wikidata.org/prop/P1416
-<http://www.wikidata.org/prop/P1416> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a person and an employment event (select from existing life events)" ;
-                                  rdfs:label "employment event" .
 
 ###  http://www.wikidata.org/prop/statement/P1416
 <http://www.wikidata.org/prop/statement/P1416> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Relation between an employment event and an organisation (select from existing organisations)" ;
                                   rdfs:label "employed at" .
+
+
+###  http://www.wikidata.org/prop/P551
+<http://www.wikidata.org/prop/P551> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and a residence event (select from existing life events)" ;
+                                  rdfs:label "residence event" .
 
 ###  http://www.wikidata.org/prop/P276
 <http://www.wikidata.org/prop/P276> rdf:type owl:ObjectProperty ;
@@ -190,8 +183,8 @@
 
 ###  http://www.wikidata.org/prop/P2561
 <http://www.wikidata.org/prop/P2561> rdf:type owl:DatatypeProperty ;
-                                     rdfs:comment "The full name of a person (Lastname, middlename firstname)" ;
-                                     rdfs:label "person name" .
+                                     rdfs:comment "The full name of the object at hand" ;
+                                     rdfs:label "name" .
 
 ###  http://www.wikidata.org/prop/P742
 <http://www.wikidata.org/prop/P742> rdf:type owl:DatatypeProperty ;
