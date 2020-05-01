@@ -6,9 +6,26 @@ from collections import defaultdict
 
 pp = pprint.PrettyPrinter(indent=4)
 
+# prepare the item-set payload
+def prepare_item_set(a_value, property_ids):
+    with open(c.ITEM_SETS_INDEX) as json_file:
+        item_sets_ids = json.load(json_file)
+    item_set_id = "none"
+    payload = {
+        "dcterms:title": [{
+            "type": "literal",
+            "property_id": int(property_ids["dcterms:title"]["id"]),
+            "@value": a_value
+        }]
+    }
+    if a_value in item_sets_ids:
+        item_set_id = item_sets_ids[a_value]
+
+    return (item_set_id,payload)
+
 # POST /api/:api_resource
 def create_item(item_class,template_id, data_row, item_set_id=None, item_type=None,property_ids=None,classes_ids=None,vocabularies_ids=None):
-    with open("mapping/mapping.json") as json_file:
+    with open(c.MAPPING_INDEX) as json_file:
         mapping = json.load(json_file)
     data = prepare_json(data_row, mapping[item_type]["create"],property_ids,vocabularies_ids)
     resource_class_id = classes_ids[item_class]["id"]
@@ -25,48 +42,26 @@ def create_item(item_class,template_id, data_row, item_set_id=None, item_type=No
              }
     for k,v in data.items():
         create_json[k] = v
-    print("resource_class_id",resource_class_id)
     return create_json
 
 # PATCH /api/:api_resource/:id
 def update_item(data_row, item_set_id=None, item_type=None):
     # TODO other stuff before
-    with open("mapping.json") as json_file:
+    with open(c.MAPPING_INDEX) as json_file:
         mapping = json.load(json_file)
     data = fill_json(data_row, mapping[item_type]["update"])
     update_json = 'TODO'
     return update_json
 
 def map_to_entity(filename=None,resource_templates_ids=None):
-    entity,template_id,e_class = None,None,None
+    entity,template_id,e_class,item_set = None,None,None,None
     if filename is not None:
-        # TODO make the external mapping
-        if filename == 'PalREAD_authorities - People.tsv':
-            entity,e_class = 'person', 'wd:Q215627'
-            for t_key,templ in resource_templates_ids.items():
-                if templ["label"] == 'Person':
-                    template_id = templ["id"]
-        if filename == 'PalREAD_authorities - Life events.tsv':
-            entity,e_class = 'life_event', 'pr:LifeEvent'
-            for t_key,templ in resource_templates_ids.items():
-                if templ["label"] == 'Life event':
-                    template_id = templ["id"]
-        if filename == 'PalREAD_authorities - Organisations.tsv':
-            entity,e_class = 'organisation', 'wd:Q43229'
-            for t_key,templ in resource_templates_ids.items():
-                if templ["label"] == 'Organisation':
-                    template_id = templ["id"]
-        if filename == 'PalREAD_authorities - Publishers.tsv':
-            entity,e_class = 'publisher', 'wd:Q2085381'
-            for t_key,templ in resource_templates_ids.items():
-                if templ["label"] == 'Publisher':
-                    template_id = templ["id"]
-        if filename == 'PalREAD_authorities - Literary events.tsv':
-            entity,e_class = 'lit_event', 'pr:LiteraryEvent'
-            for t_key,templ in resource_templates_ids.items():
-                if templ["label"] == 'Literary event':
-                    template_id = templ["id"]
-    return e_class,template_id, entity
+        if filename in c.TABLES_DICT:
+            table_dict = c.TABLES_DICT[filename]
+            entity, e_class, item_set = table_dict["entity"], table_dict["e_class"], table_dict["item_set"]
+            if table_dict["label"] in resource_templates_ids:
+                template_id = resource_templates_ids[table_dict["label"]]["id"]
+    return e_class,template_id, entity, item_set
 
 def replace_value(val,data_row):
     if '-->' in val:
@@ -133,7 +128,7 @@ def fill_json(data_row, item_properties,vocabularies_ids):
                         vocab = value_dict["type"].split(":")[1]
                         value_dict["type"] = "customvocab:"+str(vocabularies_ids[vocab]["id"])
                     value_dict[object] = replace_value(value_dict[object],data_row)
-    print("item_data",item_data)
+    #print("item_data",item_data)
     return item_data
 
 def clean_dict(item_data):
@@ -174,58 +169,118 @@ def change_prop_id(item_data,property_ids):
         #     values_list[0]["property_id"] = '1'
     return item_data
 
-def get_ids(api_url,what):
-    lookup=[what]
-    files = []
-    for l in lookup:
-        id=1
-        id_dict = {}
-        while id <500: # TODO make a decent function without random range
-            this_url = api_url+'/%s/%s' %(l,str(id))
-            response = requests.get(this_url)
-            print(id,this_url,response)
-            results = json.loads(response.text)
-            code = response.status_code
-            if code == 200:
-                label = results['o:label']
-                term = results['o:term'] if "o:term" in results.keys() else label
-                id_dict[term]={'label':label,'id':id}
-                print(term)
-            id +=1
+def get_ids(api_url,lookup):
+    res = {}
+    for api_opr in lookup:
+        res[api_opr] = {}
+        f_name = c.INDEX_DATA_PATH+"/"+api_opr+"_ids"+".json"
+        if os.path.isfile(f_name):
+            with open(f_name) as json_file:
+                res[api_opr] = json.load(json_file)
+        else:
+            response = requests.get(api_url+"/"+api_opr)
+            elems_dict = {}
+            if response.status_code == 200:
+                l_elems = json.loads(response.text)
+                ##print(response.text)
+                ##iterate over all elems
+                for elem in l_elems:
+                    id = elem["o:id"]
+                    label = elem['o:label']
+                    term = elem['o:term'] if "o:term" in elem.keys() else label
+                    elems_dict[term]={'label':label,'id':id}
 
-        d=open('%s_ids.json'%l,'w')
-        files.append(id_dict)
-        d.write(json.dumps(id_dict))
-        d.close()
-    return files
+            #the json file is empty in case of an error with the request
+            res[api_opr] = elems_dict
+            d=open(f_name,'w')
+            d.write(json.dumps(elems_dict))
+            d.close()
+
+    return res
 
 # read tsv files
-def read_tables(tables_folder, item_sets_ids,property_ids,classes_ids,resource_templates_ids,vocabularies_ids, operation="create"):
+def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids, operation="create"):
     # TODO add param for item ID if it's an update
     list_items = []
-    for filename in os.listdir(tables_folder):
-        if filename.endswith(".tsv") and filename != "PalREAD_authorities - Vocabularies.tsv":
+    for filename in os.listdir(c.TABLES_DATA_PATH):
+        if filename.endswith(".tsv") and filename in c.TABLES_DICT:
             # TODO first upload vocabularies and map cities
-            res_class,template_id,entity = map_to_entity(filename,resource_templates_ids)
+            res_class,template_id,entity,item_set = map_to_entity(filename,resource_templates_ids)
+            print("resource_class, template_id, entity, item_set:", res_class,template_id,entity,item_set)
             # Note for the future me: the mapping implies that for each table (tsv) corresponds _only one_ entity
             # To reuse this code in the future, the 1-to-1 relation (table-entity) must be respected
 
-            with open(item_sets_ids) as json_file:
-                data = json.load(json_file)
-                item_set_id = data["palread"]
+            #Check if the addressed item set is already created
+            item_set_id = None
+            with open(c.ITEM_SETS_INDEX) as json_file:
+                item_sets_data = json.load(json_file)
+                if item_set in item_sets_data:
+                    item_set_id = item_sets_data[item_set]
 
-            with open(tables_folder+'/'+filename) as tsv_file:
+            #if no item set or template id is provided for the examined table move to next one
+            if item_set_id == None or template_id == None:
+                continue
+                #return "Error: the item set does not exist"
+
+            with open(c.TABLES_DATA_PATH+'/'+filename) as tsv_file:
                 next(tsv_file)
                 reader = csv.DictReader(tsv_file, delimiter='\t')
                 for row in reader:
                     if operation == 'create':
                         o_item = create_item(res_class,template_id,row,item_set_id,entity,property_ids,classes_ids,vocabularies_ids)
-                        list_items.append(o_item)
+                        #print("item payload: ",o_item)
+                        # The Item should be added (inserted in list_items) only if not already in Omeka
+                        id_in_omeka = get_item_id(o_item,classes_ids)
+                        if id_in_omeka == None:
+                            list_items.append(o_item)
                     if operation == 'update':
                         o_item = update_item(row,item_set_id,entity)
-    print("\n\n\nlist_items")
-    pp.pprint(list_items)
+
+    #pp.pprint(list_items)
     return list_items
+
+
+# Build a key to use inside the created_items.json according to the c.KEYS_INDEX
+# Format: (<resource_class>,<property_value>)
+def build_key(item, resource_classes):
+    rsc_class = None
+    for rsc_class_k, rsc_class_k_val in resource_classes.items():
+        if rsc_class_k_val["id"] == item["o:resource_class"]["o:id"]:
+            rsc_class = rsc_class_k
+
+    if (rsc_class != None) and (rsc_class in c.KEYS_INDEX):
+        prop = c.KEYS_INDEX[rsc_class]
+        prop_val = item[prop]
+        if prop_val != None:
+            ##Take only first elem of the property
+            prop_val = prop_val[0]["@value"]
+        return (prop,prop_val)
+    return None
+
+# Backup the created items in the created_items.json file
+# Format: {<Key>:<PAYLOAD>}
+def backup_items(l_omeka_items, resource_classes):
+    dict_omeka_items = {}
+    for omeka_item in l_omeka_items:
+        #define the key#
+        build_key(omeka_item, resource_classes)
+        dict_omeka_items[a_key] = omeka_item
+    #write
+    with open(c.ITEMS_INDEX,"w") as items_index_file:
+        items_index_file.write(json.dumps(dict_omeka_items))
+    items_index_file.close()
+
+# Returns the item id if is already in omeka (and in created_items.json)
+# else returns None
+def get_item_id(item, resource_classes):
+    item_key = build_key(item, resource_classes)
+    with open(c.ITEMS_INDEX) as json_file:
+        created_items = json.load(json_file)
+    if item_key in created_items:
+        return created_items[item_key]["o:id"]
+    else:
+        return None
+
 
 # save tables as tsv in the same folder
 # fill the json file with ids of itemsets

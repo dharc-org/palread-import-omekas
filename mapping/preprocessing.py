@@ -1,4 +1,6 @@
 import json
+import conf as c
+
 def clean_name(stringa):
     #clean_stringa = s_strip(stringa.replace(r"\(.*\)","")) if stringa != '' and stringa != 'None' else ''
     clean_stringa = s_strip(stringa)
@@ -31,7 +33,7 @@ def date(stringa):
         return ''
 
 def vocabulary(stringa,vocab):
-    with open("vocabularies.json") as json_file:
+    with open(c.VOCABULARIES_INDEX) as json_file:
         vocabularies = json.load(json_file)
 
     term_URI = [iri for voc,terms in vocabularies.items() for term,iri in terms.items() if term == stringa and voc == vocab]
