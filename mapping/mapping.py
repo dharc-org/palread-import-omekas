@@ -18,6 +18,7 @@ def prepare_item_set(a_value, property_ids):
             "@value": a_value
         }]
     }
+    print(a_value,item_sets_ids)
     if a_value in item_sets_ids:
         item_set_id = item_sets_ids[a_value]
 
@@ -216,7 +217,7 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
                 item_sets_data = json.load(json_file)
                 if item_set in item_sets_data:
                     item_set_id = item_sets_data[item_set]
-
+            print("item_set_id",item_set_id)
             #if no item set or template id is provided for the examined table move to next one
             if item_set_id == None or template_id == None:
                 continue
@@ -233,6 +234,13 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
                         id_in_omeka = get_item_id(o_item,classes_ids)
                         if id_in_omeka == None:
                             list_items.append(o_item)
+                    if operation == 'lookup':
+                        pass
+                        # add in mapping.json which fields to check, and which property
+                        # CONF KEY INDEXES maybe does not make sense now
+                        # return list of tuples, e.g.(Maria, class_person, prop_name)
+                        # lookup in data dump if exist otherwise create and do a new backup dump (overwrite)
+                        ## TODO control if uploaded classes for resources!
                     if operation == 'update':
                         o_item = update_item(row,item_set_id,entity)
 

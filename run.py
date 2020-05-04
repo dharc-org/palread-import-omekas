@@ -46,6 +46,7 @@ for itemset_val in c.ITEM_SETS:
     if itemset_id == "none":
         response = REQ_SESSION.post('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
         if response.status_code == 200:
+            ids_dict = {}
             omeka_res_data = response.json()
             itemset_id = omeka_res_data['o:id']
             ids_dict[itemset_val] = itemset_id

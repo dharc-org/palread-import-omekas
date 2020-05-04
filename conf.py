@@ -24,7 +24,7 @@ KEYS_INDEX = {
     "pr:LifeEvent":"wd:P2561",
     "wd:Q43229":"wd:P2561",
     "wd:Q2085381":"wd:P2561",
-    "pr:LiteraryEvent":"wd:P2561",
+    "pr:LiteraryEvent":"pr:identifier",
 }
 
 
