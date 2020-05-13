@@ -14,7 +14,8 @@ params = {
     'key_identity': c.CONF["KEY_IDENTITY"],
     'key_credential': c.CONF["KEY_CREDENTIALS"]
 }
-print("\nc.CONF",c.CONF)
+#print("\nc.CONF",c.CONF)
+print("\n")
 ########################
 ############ manually
 ########################
@@ -32,50 +33,89 @@ print("\nc.CONF",c.CONF)
 
 # 7. call properties, classes and resource templates APIs, store ids in dedicated json files, return dictionaries 'resource_classes','properties','resource_templates'
 #--- e.g. dict_ids["resource_classes"] -> a dict of all the resource_classes in Omeka
+print("Get from Omeka the 'resource_classes', 'properties', and 'resource_templates' ...")
 dict_ids = m.get_ids(c.CONF["OMEKA_API_URL"],['resource_classes','properties','resource_templates'])
-#print(dict_ids)
+print("-> Done\n")
 
 # 8. open vocabularies.json
 with open(c.VOCABULARIES_INDEX) as json_file:
     vocabularies_ids = json.load(json_file)
-#print("\n\n\nvocab_ids",vocabularies_ids)
 
-# 9, 10, 11. create the item-sets (in this case only 1 itemset called "palread") and get its id
+
+# 9, 10, 11. create the item-sets and get the ids
+print("Add item-sets ...")
+all_item_sets = dict()
+response = REQ_SESSION.get('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]))
+for an_items_set in response.json():
+    all_item_sets[an_items_set["o:title"]] = an_items_set["o:id"]
+
+my_item_sets = {}
 for itemset_val in c.ITEM_SETS:
-    itemset_id,payload = m.prepare_item_set(itemset_val, dict_ids["properties"])
-    if itemset_id == "none":
+    if itemset_val not in all_item_sets:
+        payload = m.prepare_item_set(itemset_val, dict_ids["properties"])
         response = REQ_SESSION.post('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
         if response.status_code == 200:
-            ids_dict = {}
             omeka_res_data = response.json()
             itemset_id = omeka_res_data['o:id']
-            ids_dict[itemset_val] = itemset_id
-            with open(c.ITEM_SETS_INDEX,"w") as itemsets_file:
-                itemsets_file.write(json.dumps(ids_dict))
-            itemsets_file.close()
         else:
             #an error occured STOP the process
             sys.exit("Error while creating the Item-set!")
+    else:
+        itemset_id = all_item_sets[itemset_val]
+    my_item_sets[itemset_val] = itemset_id
 
+with open(c.ITEM_SETS_INDEX,"w") as itemsets_file:
+    itemsets_file.write(json.dumps(my_item_sets))
+itemsets_file.close()
 
+print("-> Done\n")
+
+## -------
+## CREATE
+## -------
+print("Add items ...")
 # 12. query tables, create payloads, wherein substitute all properties IDs, classes and vocabularies IDs with the one mapped in the json files
+print("-> read the tables")
 data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "create")
-##print("\n\n\n\ndata",data)
 
 # 13. iterate over payloads and upload
+print("-> add [",len(data), "] item/s to Omeka")
 for payload in data:
     response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
 
 # 14. dump data created in "created_items.json"
+print("-> backup all the items in Omeka")
 dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
-m.backup_items(dataset.json(), dict_ids["resource_classes"])
+dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
+m.backup_items(dataset)
 
-# 15. lookup for certain tables/rows
-# 16. if entities do not exist, create them
-# 17. dump (overwrite) data created in "created_items.json"
+print("-> Done\n")
+
+## -------
+## Lookup
+## -------
+print("Items lookup ...")
+# 15. lookup for certain tables/rows following the rules in mapping.json; if entities do not exist, create them
+print("-> read the tables")
+data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "lookup")
+
+# 16. iterate over payloads and upload
+print("-> add [",len(data), "] new item/s to Omeka")
+for payload in data:
+    response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
+
+# 17. dump data created in "created_items.json"
+print("-> backup all the items in Omeka")
+dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
+dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
+m.backup_items(dataset)
+print("-> Done\n")
 
 
-
+## -------
+## Update
+## -------
+#print("Update ...")
 # 18. query again tables and create payloads
 # update_data = m.read_tables("item_sets_id.json", "update")
 

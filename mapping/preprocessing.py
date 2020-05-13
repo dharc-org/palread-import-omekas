@@ -7,7 +7,7 @@ def clean_name(stringa):
     return clean_stringa
 
 def expand_viaf(stringa):
-    stringa = s_strip("http://viaf.org/viaf/"+stringa) if stringa != '' else ''
+    stringa = s_strip("http://viaf.org/viaf/"+stringa) if stringa != '' and stringa != "None" else ''
     return stringa
 
 def s_strip(stringa):

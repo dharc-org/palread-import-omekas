@@ -8,21 +8,13 @@ pp = pprint.PrettyPrinter(indent=4)
 
 # prepare the item-set payload
 def prepare_item_set(a_value, property_ids):
-    with open(c.ITEM_SETS_INDEX) as json_file:
-        item_sets_ids = json.load(json_file)
-    item_set_id = "none"
-    payload = {
+    return {
         "dcterms:title": [{
             "type": "literal",
             "property_id": int(property_ids["dcterms:title"]["id"]),
             "@value": a_value
         }]
     }
-    print(a_value,item_sets_ids)
-    if a_value in item_sets_ids:
-        item_set_id = item_sets_ids[a_value]
-
-    return (item_set_id,payload)
 
 # POST /api/:api_resource
 def create_item(item_class,template_id, data_row, item_set_id=None, item_type=None,property_ids=None,classes_ids=None,vocabularies_ids=None):
@@ -54,15 +46,14 @@ def update_item(data_row, item_set_id=None, item_type=None):
     update_json = 'TODO'
     return update_json
 
-def map_to_entity(filename=None,resource_templates_ids=None):
-    entity,template_id,e_class,item_set = None,None,None,None
-    if filename is not None:
-        if filename in c.TABLES_DICT:
-            table_dict = c.TABLES_DICT[filename]
-            entity, e_class, item_set = table_dict["entity"], table_dict["e_class"], table_dict["item_set"]
-            if table_dict["label"] in resource_templates_ids:
-                template_id = resource_templates_ids[table_dict["label"]]["id"]
-    return e_class,template_id, entity, item_set
+def map_to_entity(entity_index,resource_templates_ids=None):
+    entity_obj = c.ENTITIES[entity_index]
+    entity_obj["id"] = c.ENTITIES[entity_index]
+    template_id,e_class,item_set = None,None,None
+    e_class, item_set = entity_obj["e_class"], entity_obj["item_set"]
+    if entity_obj["label"] in resource_templates_ids:
+        template_id = resource_templates_ids[entity_obj["label"]]["id"]
+    return e_class,template_id, entity_index, item_set
 
 def replace_value(val,data_row):
     if '-->' in val:
@@ -175,29 +166,74 @@ def get_ids(api_url,lookup):
     for api_opr in lookup:
         res[api_opr] = {}
         f_name = c.INDEX_DATA_PATH+"/"+api_opr+"_ids"+".json"
-        if os.path.isfile(f_name):
-            with open(f_name) as json_file:
-                res[api_opr] = json.load(json_file)
-        else:
-            response = requests.get(api_url+"/"+api_opr)
-            elems_dict = {}
-            if response.status_code == 200:
-                l_elems = json.loads(response.text)
-                ##print(response.text)
-                ##iterate over all elems
-                for elem in l_elems:
-                    id = elem["o:id"]
-                    label = elem['o:label']
-                    term = elem['o:term'] if "o:term" in elem.keys() else label
-                    elems_dict[term]={'label':label,'id':id}
 
-            #the json file is empty in case of an error with the request
-            res[api_opr] = elems_dict
-            d=open(f_name,'w')
-            d.write(json.dumps(elems_dict))
-            d.close()
+        elems_dict = {}
+        l_elems = get_from_omeka(api_url,api_opr)
+
+        ##iterate over all elems
+        for elem in l_elems:
+            id = elem["o:id"]
+            label = elem['o:label']
+            term = elem['o:term'] if "o:term" in elem.keys() else label
+            elems_dict[term]={'label':label,'id':id}
+
+        #the json file is empty in case of an error with the request
+        res[api_opr] = elems_dict
+        d=open(f_name,'w')
+        d.write(json.dumps(elems_dict))
+        d.close()
 
     return res
+
+
+# checks if any item in <items> with resouce_template = <template_id> has a property <prop_k> == <prop_v>
+def get_item_id(prop_k, val, items, template_id):
+    for i_item in range(0,len(items)):
+        item = items[i_item]
+        if "o:resource_template" in item:
+            if "o:id" in item["o:resource_template"]:
+                if item["o:resource_template"]["o:id"] == template_id:
+                    if prop_k in item:
+                        #check if one of the property values == <val>
+                        for a_prop in item[prop_k]:
+                            if a_prop["@value"] == val:
+                                return i_item
+    return None
+
+
+def lookup_item(list_lookup_items,item,item_type,resource_templates_ids, property_ids, classes_ids, vocabularies_ids):
+    with open(c.MAPPING_INDEX) as mapping_file:
+        mapping = json.load(mapping_file)
+    with open(c.ITEMS_INDEX) as items_file:
+        items = json.load(items_file)
+
+    new_items = []
+    for k,v in mapping[item_type]["lookup"].items():
+        if k in item:
+            lookup_prop_v = item[k]
+            ## Take only first elem of the property
+            ## NOTE: Maybe we must check all valeues
+            lookup_prop_v = lookup_prop_v[0]["@value"]
+            dest_prop = v["dest_prop"]
+            res_class, template_id, entity, item_set = map_to_entity(v["entity"],resource_templates_ids)
+            item_set_id = get_item_set_id(item_set)
+
+            if item_set_id != None and template_id != None:
+                #Check the lookup mapping rule
+                item_id_index = get_item_id(dest_prop, lookup_prop_v, items, template_id)
+                #Check if item has been already added during the process
+                item_id_lookup = get_item_id(dest_prop, lookup_prop_v, list_lookup_items, template_id)
+                #print(k,lookup_prop_v,dest_prop,item_id_index,item_id_lookup)
+
+                #add it in case item does not exist in <items> and <list_lookup_items>
+                if item_id_index == None and item_id_lookup == None:
+                    ## CREATE a ROW and change the property value
+                    row = gen_table_row(v["entity"])
+                    row[v["column"]] = lookup_prop_v
+                    o_item = create_item(res_class, template_id, row, item_set_id, entity, property_ids, classes_ids, vocabularies_ids)
+                    new_items.append(o_item)
+
+    return new_items
 
 # read tsv files
 def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids, operation="create"):
@@ -206,18 +242,16 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
     for filename in os.listdir(c.TABLES_DATA_PATH):
         if filename.endswith(".tsv") and filename in c.TABLES_DICT:
             # TODO first upload vocabularies and map cities
-            res_class,template_id,entity,item_set = map_to_entity(filename,resource_templates_ids)
-            print("resource_class, template_id, entity, item_set:", res_class,template_id,entity,item_set)
+
+            entity_index = c.TABLES_DICT[filename]
+            res_class,template_id,entity,item_set = map_to_entity(entity_index,resource_templates_ids)
+            #print("resource_class, template_id, entity, item_set:", res_class,template_id,entity,item_set)
             # Note for the future me: the mapping implies that for each table (tsv) corresponds _only one_ entity
             # To reuse this code in the future, the 1-to-1 relation (table-entity) must be respected
 
-            #Check if the addressed item set is already created
-            item_set_id = None
-            with open(c.ITEM_SETS_INDEX) as json_file:
-                item_sets_data = json.load(json_file)
-                if item_set in item_sets_data:
-                    item_set_id = item_sets_data[item_set]
-            print("item_set_id",item_set_id)
+            #Get the item set ID
+            item_set_id = get_item_set_id(item_set)
+
             #if no item set or template id is provided for the examined table move to next one
             if item_set_id == None or template_id == None:
                 continue
@@ -227,20 +261,13 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
                 next(tsv_file)
                 reader = csv.DictReader(tsv_file, delimiter='\t')
                 for row in reader:
+                    o_item = create_item(res_class,template_id,row,item_set_id,entity,property_ids,classes_ids,vocabularies_ids)
                     if operation == 'create':
-                        o_item = create_item(res_class,template_id,row,item_set_id,entity,property_ids,classes_ids,vocabularies_ids)
-                        #print("item payload: ",o_item)
-                        # The Item should be added (inserted in list_items) only if not already in Omeka
-                        id_in_omeka = get_item_id(o_item,classes_ids)
-                        if id_in_omeka == None:
-                            list_items.append(o_item)
+                        list_items.append(o_item)
                     if operation == 'lookup':
-                        pass
-                        # add in mapping.json which fields to check, and which property
-                        # CONF KEY INDEXES maybe does not make sense now
-                        # return list of tuples, e.g.(Maria, class_person, prop_name)
-                        # lookup in data dump if exist otherwise create and do a new backup dump (overwrite)
-                        ## TODO control if uploaded classes for resources!
+                        list_lookup_items = lookup_item(list_items,o_item,entity,resource_templates_ids, property_ids, classes_ids, vocabularies_ids)
+                        for item in list_lookup_items:
+                            list_items.append(item)
                     if operation == 'update':
                         o_item = update_item(row,item_set_id,entity)
 
@@ -248,48 +275,56 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
     return list_items
 
 
-# Build a key to use inside the created_items.json according to the c.KEYS_INDEX
-# Format: (<resource_class>,<property_value>)
-def build_key(item, resource_classes):
-    rsc_class = None
-    for rsc_class_k, rsc_class_k_val in resource_classes.items():
-        if rsc_class_k_val["id"] == item["o:resource_class"]["o:id"]:
-            rsc_class = rsc_class_k
+#Backup only the items included in <ITEM_SETS> (congiguration file)
+def backup_items(d):
+    with open(c.ITEM_SETS_INDEX) as json_file:
+        item_sets_ids = json.load(json_file)
 
-    if (rsc_class != None) and (rsc_class in c.KEYS_INDEX):
-        prop = c.KEYS_INDEX[rsc_class]
-        prop_val = item[prop]
-        if prop_val != None:
-            ##Take only first elem of the property
-            prop_val = prop_val[0]["@value"]
-        return (prop,prop_val)
-    return None
+    ready_for_file = []
+    for item in d:
+        if "o:item_set" in item:
+            for item_set in item["o:item_set"]:
+                if item_set["o:id"] in item_sets_ids.values():
+                    ready_for_file.append(item)
+                    break
 
-# Backup the created items in the created_items.json file
-# Format: {<Key>:<PAYLOAD>}
-def backup_items(l_omeka_items, resource_classes):
-    dict_omeka_items = {}
-    for omeka_item in l_omeka_items:
-        #define the key#
-        build_key(omeka_item, resource_classes)
-        dict_omeka_items[a_key] = omeka_item
-    #write
     with open(c.ITEMS_INDEX,"w") as items_index_file:
-        items_index_file.write(json.dumps(dict_omeka_items))
+        items_index_file.write(json.dumps(ready_for_file))
     items_index_file.close()
 
-# Returns the item id if is already in omeka (and in created_items.json)
-# else returns None
-def get_item_id(item, resource_classes):
-    item_key = build_key(item, resource_classes)
-    with open(c.ITEMS_INDEX) as json_file:
-        created_items = json.load(json_file)
-    if item_key in created_items:
-        return created_items[item_key]["o:id"]
+
+def get_from_omeka(api_url, api_opr, curr_page=1, curr_data=[]):
+    response = requests.get(api_url+"/"+api_opr+"?page="+str(curr_page))
+    if response.status_code == 200:
+        l_elems = json.loads(response.text)
+        if len(l_elems) == 0:
+            return curr_data
+        else:
+            return get_from_omeka(api_url, api_opr, curr_page+1, curr_data + l_elems)
     else:
+        return curr_data
+
+def get_item_set_id(item_set_name):
+    item_set_id = None
+    with open(c.ITEM_SETS_INDEX) as json_file:
+        item_sets_data = json.load(json_file)
+        if item_set_name in item_sets_data:
+            item_set_id = item_sets_data[item_set_name]
+    return item_set_id
+
+def gen_table_row(res_class):
+    a_table = None
+    for k,v in c.TABLES_DICT.items():
+        if v == res_class:
+            a_table = k
+
+    if a_table == None:
         return None
 
-
-# save tables as tsv in the same folder
-# fill the json file with ids of itemsets
-# call read_tables to create a list of items
+    with open(c.TABLES_DATA_PATH+'/'+a_table) as tsv_file:
+        next(tsv_file)
+        reader = csv.DictReader(tsv_file, delimiter='\t')
+        for row in reader:
+            header = row
+            break
+    return dict.fromkeys(header, None)

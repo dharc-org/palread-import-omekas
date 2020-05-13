@@ -1,32 +1,43 @@
 # OMEKA Configurations
 CONF = {
     "CONTENT_TYPE": "application/json",
-    "KEY_IDENTITY": "R5gHxiJaUyrNDDPP86IrlTWzldmtjaH4",
-    "KEY_CREDENTIALS": "HpqKENp75D8gfdgZFdoDfMVSbEge3I6L",
-    "OMEKA_API_URL": "http://137.204.168.20/api"
-    #"OMEKA_API_URL": "https://dl.ficlit.unibo.it/api"
+
+    # ## DL test version
+    # ## ---------------
+    # "KEY_IDENTITY": "R5gHxiJaUyrNDDPP86IrlTWzldmtjaH4",
+    # "KEY_CREDENTIALS": "HpqKENp75D8gfdgZFdoDfMVSbEge3I6L",
+    # "OMEKA_API_URL": "http://137.204.168.20/api",
+
+    ## DL production version
+    ## ---------------
+    "KEY_IDENTITY": "GXcCjZm5RAPi1THZgrW3BBMIWFMJkb97",
+    "KEY_CREDENTIALS": "zDPuS0Q04wMusERac70ssovZHhd3iJ0f",
+    "OMEKA_API_URL": "https://dl.ficlit.unibo.it/api",
+
+    # ## Palread test
+    # ## ---------------
+    # "KEY_IDENTITY": "sXZFH1iSBoeOAp3wVab0T0DujU9ef7R5",
+    # "KEY_CREDENTIALS": "subH7hl1n2x2iZVxRg86D3xrUY5dFvRd",
+    # "OMEKA_API_URL": "https://137.204.168.11/palread/api"
 }
 
 
 # Script Configurations
 ITEM_SETS = ["palread"]
+ENTITIES = {
+    "person": {"e_class": "wd:Q215627", "label": "Person", "item_set":"palread"},
+    "life_event": {"e_class":"pr:LifeEvent", "label": "Life event", "item_set":"palread"},
+    "organisation": {"e_class": "wd:Q43229", "label": "Organisation", "item_set":"palread"},
+    "publisher": {"e_class":"wd:Q2085381", "label":"Publisher", "item_set":"palread"},
+    "lit_event": {"e_class":"pr:LiteraryEvent", "label": "Literary event", "item_set":"palread"}
+}
 TABLES_DICT = {
-    "PalREAD_authorities - People.tsv": {"entity": "person", "e_class": "wd:Q215627", "label": "Person", "item_set":"palread"},
-    "PalREAD_authorities - Life events.tsv": {"entity": "life_event", "e_class":"pr:LifeEvent", "label": "Life event", "item_set":"palread"},
-    "PalREAD_authorities - Organisations.tsv": {"entity": "organisation", "e_class": "wd:Q43229", "label": "Organisation", "item_set":"palread"},
-    "PalREAD_authorities - Publishers.tsv": {"entity": "publisher","e_class":"wd:Q2085381", "label":"Publisher", "item_set":"palread"},
-    "PalREAD_authorities - Literary events.tsv": {"entity": "lit_event", "e_class":"pr:LiteraryEvent", "label": "Literary event", "item_set":"palread"}
+    "PalREAD_authorities - People.tsv": "person",
+    "PalREAD_authorities - Life events.tsv": "life_event",
+    "PalREAD_authorities - Organisations.tsv": "organisation",
+    "PalREAD_authorities - Publishers.tsv": "publisher",
+    "PalREAD_authorities - Literary events.tsv": "lit_event"
 }
-# An index of keys. Each item will have a key defined as a tuple of its resource_class and a particular property
-# the defined key is used also in the ITEMS_INDEX file.
-KEYS_INDEX = {
-    "wd:Q215627":"wd:P2561",
-    "pr:LifeEvent":"wd:P2561",
-    "wd:Q43229":"wd:P2561",
-    "wd:Q2085381":"wd:P2561",
-    "pr:LiteraryEvent":"pr:identifier",
-}
-
 
 #PATHS
 DATA_PATH = "data"
@@ -38,3 +49,4 @@ ITEM_SETS_INDEX = INDEX_DATA_PATH+"/item_sets_ids.json"
 MAPPING_INDEX = INDEX_DATA_PATH+"/mapping.json"
 VOCABULARIES_INDEX = INDEX_DATA_PATH+"/vocabularies.json"
 ITEMS_INDEX = INDEX_DATA_PATH+"/created_items.json"
+RESOURCE_TEMPLATES_INDEX = INDEX_DATA_PATH+"/resource_templates_ids.json"
