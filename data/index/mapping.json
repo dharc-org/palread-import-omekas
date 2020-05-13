@@ -19,16 +19,13 @@
       "wd:P1196":[{ "property_id":1, "@value": "op:clean_name-->Manner of death", "type":"customvocab:Manner of death" }],
       "wd:P509":[{ "property_id":1, "@value": "op:clean_name-->Cause of death", "type":"customvocab:Cause of death" }],
       "wd:P135":[{ "property_id":1, "@value": "op:clean_name-->Literary  movement", "type":"customvocab:Literary movement" }],
-      "wd:P3373":[{ "property_id":1, "@value": "op:clean_name-->Siblings", "type":"literal","lang":"en"}],
       "pr:biography":[{ "property_id":1, "@value": "op:clean_name-->Biography", "type":"literal", "lang":"detect" }],
       "pr:source":[{ "property_id":1, "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "property_id":1, "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
       "pr:internal-note":[{ "property_id":1, "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup":{
-      "wd:P25": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"},
-      "wd:P22": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"},
-      "wd:P3373": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"}
+      "op:split_values-->Siblings": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"}
     },
     "update": {
       "Literary event(operation to choose the relation, plus split)":[{ "property_id":1, "value_resource_id": "ADD event ID", "type":"resource" }],

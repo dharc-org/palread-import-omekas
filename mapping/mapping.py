@@ -201,7 +201,7 @@ def get_item_id(prop_k, val, items, template_id):
     return None
 
 
-def lookup_item(list_lookup_items,item,item_type,resource_templates_ids, property_ids, classes_ids, vocabularies_ids):
+def lookup_item(list_lookup_items,data_row,item_type,resource_templates_ids, property_ids, classes_ids, vocabularies_ids):
     with open(c.MAPPING_INDEX) as mapping_file:
         mapping = json.load(mapping_file)
     with open(c.ITEMS_INDEX) as items_file:
@@ -209,27 +209,27 @@ def lookup_item(list_lookup_items,item,item_type,resource_templates_ids, propert
 
     new_items = []
     for k,v in mapping[item_type]["lookup"].items():
-        if k in item:
-            lookup_prop_v = item[k]
-            ## Take only first elem of the property
-            ## NOTE: Maybe we must check all valeues
-            lookup_prop_v = lookup_prop_v[0]["@value"]
-            dest_prop = v["dest_prop"]
-            res_class, template_id, entity, item_set = map_to_entity(v["entity"],resource_templates_ids)
-            item_set_id = get_item_set_id(item_set)
 
-            if item_set_id != None and template_id != None:
+        res_class, template_id, entity, item_set = map_to_entity(v["entity"],resource_templates_ids)
+        item_set_id = get_item_set_id(item_set)
+
+        if item_set_id != None and template_id != None:
+            #<k>: operation and Column name
+            lookup_prop_vals = replace_value(k, data_row)
+
+            for part_v in lookup_prop_vals:
+                dest_prop = v["dest_prop"]
                 #Check the lookup mapping rule
-                item_id_index = get_item_id(dest_prop, lookup_prop_v, items, template_id)
+                item_id_index = get_item_id(dest_prop, part_v, items, template_id)
                 #Check if item has been already added during the process
-                item_id_lookup = get_item_id(dest_prop, lookup_prop_v, list_lookup_items, template_id)
+                item_id_lookup = get_item_id(dest_prop, part_v, list_lookup_items, template_id)
                 #print(k,lookup_prop_v,dest_prop,item_id_index,item_id_lookup)
 
                 #add it in case item does not exist in <items> and <list_lookup_items>
                 if item_id_index == None and item_id_lookup == None:
                     ## CREATE a ROW and change the property value
                     row = gen_table_row(v["entity"])
-                    row[v["column"]] = lookup_prop_v
+                    row[v["column"]] = part_v
                     o_item = create_item(res_class, template_id, row, item_set_id, entity, property_ids, classes_ids, vocabularies_ids)
                     new_items.append(o_item)
 
@@ -261,11 +261,11 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
                 next(tsv_file)
                 reader = csv.DictReader(tsv_file, delimiter='\t')
                 for row in reader:
-                    o_item = create_item(res_class,template_id,row,item_set_id,entity,property_ids,classes_ids,vocabularies_ids)
                     if operation == 'create':
+                        o_item = create_item(res_class,template_id,row,item_set_id,entity,property_ids,classes_ids,vocabularies_ids)
                         list_items.append(o_item)
                     if operation == 'lookup':
-                        list_lookup_items = lookup_item(list_items,o_item,entity,resource_templates_ids, property_ids, classes_ids, vocabularies_ids)
+                        list_lookup_items = lookup_item(list_items,row,entity,resource_templates_ids, property_ids, classes_ids, vocabularies_ids)
                         for item in list_lookup_items:
                             list_items.append(item)
                     if operation == 'update':
