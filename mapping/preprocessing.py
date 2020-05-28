@@ -1,4 +1,4 @@
-import json
+import json , re
 import conf as c
 
 def clean_name(stringa):
@@ -7,7 +7,7 @@ def clean_name(stringa):
     return clean_stringa
 
 def expand_viaf(stringa):
-    stringa = s_strip("http://viaf.org/viaf/"+stringa) if stringa != '' and stringa != "None" else ''
+    stringa = s_strip("http://viaf.org/viaf/"+stringa) if (stringa != '' and stringa != "None") else ''
     return stringa
 
 def s_strip(stringa):
@@ -54,6 +54,8 @@ def create_name(data_row,entity):
             name += ' employed at '
             if data_row["Organisation or POI"] is not None:
                 name += clean_name(data_row["Organisation or POI"])
+            if data_row["Work title"] is not None:
+                name += clean_name(data_row["Work title"])
         if data_row["Event type"] == "Education":
             name += ' studied at '
             if data_row["Organisation or POI"] is not None:

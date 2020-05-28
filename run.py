@@ -16,6 +16,7 @@ params = {
 }
 #print("\nc.CONF",c.CONF)
 print("\n")
+
 ########################
 ############ manually
 ########################
@@ -24,8 +25,10 @@ print("\n")
 # 2. upload custom controlled vocabularies: use the same names as in vocabularies.json
 # 3. copy the ids of vocabularies in vocabularies.json and substitute IDs in "templates" folder (except for City,District,Country)
 # 4. reconcile City,District,Country to geonames and save mappings in vocabularies.json
-# 5. upload templates where vocabularies are already selected (import in next instances -- control vocab ids)
+# 5. upload templates where vocabularies are already selected (import in next instances -- control vocab ids match with correct number)
 # 6. download google spreadsheet tables as tsv in "tables" folder
+
+# !!! doublecheck API url and credentials in conf.py
 
 ########################
 ############ import
@@ -75,8 +78,8 @@ print("-> Done\n")
 ## -------
 print("Add items ...")
 # 12. query tables, create payloads, wherein substitute all properties IDs, classes and vocabularies IDs with the one mapped in the json files
-print("-> read the tables")
 data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "create")
+print("-> tables read")
 
 # 13. iterate over payloads and upload
 print("-> add [",len(data), "] item/s to Omeka")
@@ -88,8 +91,6 @@ print("-> backup all the items in Omeka")
 dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
 dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
 m.backup_items(dataset)
-
-print("-> Done\n")
 
 ## -------
 ## Lookup
@@ -115,14 +116,21 @@ print("-> Done\n")
 ## -------
 ## Update
 ## -------
-#print("Update ...")
-# 18. query again tables and create payloads
-# update_data = m.read_tables("item_sets_id.json", "update")
 
-# 19. iterate over payloads and upload
-# for payload, resource_id in update_data:
-#     response = REQ_SESSION.patch('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],resource_id), json=payload, params=params)
+# 18. update data
+print("Update items...")
+updated_data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "update")
+print("-> tables read")
+for payload in updated_data:
+    response = REQ_SESSION.patch('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
+print("-> data updated!")
 
-# 20. dump (overwrite) data created in "created_items.json"
+# 19. dump data created in "created_items.json"
+print("-> backup all the items in Omeka")
+dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
+dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
+m.backup_items(dataset)
+print("-> Done\n")
 
-# 21. remove temporary properties (or not?)
+# TODO
+# 20. remove temporary properties (or not?)

@@ -1,0 +1,71 @@
+{
+    "o:label": "Activity timespan",
+    "o:resource_template_property": [
+        {
+            "o:alternate_label": "A given name of the activity timespan. Include dates and places (if applicable)",
+            "o:alternate_comment": null,
+            "o:is_required": true,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P2561",
+            "label": "name"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P580",
+            "label": "from year or date"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P582",
+            "label": "to year or date"
+        },
+        {
+            "o:alternate_label": "city",
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "valuesuggest:geonames:geonames",
+            "data_type_label": "Geonames: The GeoNames geographical database",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P276",
+            "label": "location"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "valuesuggest:geonames:geonames",
+            "data_type_label": "Geonames: The GeoNames geographical database",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P17",
+            "label": "country"
+        }
+    ],
+    "o:resource_class": {
+        "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+        "vocabulary_label": "wikidata",
+        "local_name": "Q55579539",
+        "label": "Activity timespan"
+    }
+}

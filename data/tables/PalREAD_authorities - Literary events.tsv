@@ -1,18 +1,33 @@
-Use this ID  in table People and Organisations	sub-events share the same  name of the recurrent event	general association  (in context of, related to, part of)			Places related to the event	Fill in only if  Palestine		Fill in either years or dates. If the event happened in a specific date or year, fill in only "From year/date" column				Free text	Free text (include ISBN, DOI  or bibl. references)
-Event  ID	Event name	Related  event 	Event  Type	Periodicity	City	District	Country	From year	To year	From date	To date	Description	Notes on related works
-private-meet-gaza-1980	poetry Saloon	private-meet-gaza-1983	Public presentation	Annual				1980					
-private-meet-gaza-1983	poetry Saloon		Public presentation	Annual				1983					
-private-meet-gaza-1985	poetry Saloon		Public presentation	Annual				1985					
-L4	tour	private-meet-gaza-1980											
-L5	tour												
-L6	tour												
-L7	tour												
-L8	one-shot event	private-meet-gaza-1980			Gaza			1982					
-L9	one-shot event												
-L10													
-L11													
-L12													
-L13													
-L14													
-L15													
-L16													
+Use this ID  in table People and Organisations	sub-events share the same  name of the recurrent event	general association  (in context of, related to, part of)			Places related to the event	Fill in only if  Palestine		Fill in either years or dates. If the event happened in a specific date or year, fill in only "From year/date" column				Free text	Free text (include ISBN, DOI  or bibl. references)	free-text: sources  and links (private)	free-text: sources  and links (public)	any other note (private)
+Event  ID	Event name	Related  event 	Event  Type	Periodicity	City	District	Country	From year	To year	From date	To date	Description	Notes on related works	Sources private	Sources public	Other notes
+private-meet-gaza-1980	poetry Saloon	private-meet-gaza-1983	Public presentation	Annual				1980								
+private-meet-gaza-1983	poetry Saloon		Public presentation	Annual				1983								
+private-meet-gaza-1985	poetry Saloon		Public presentation	Annual				1985								
+L4	tour	private-meet-gaza-1980														
+L5	tour															
+L6	tour															
+L7	tour															
+L8	one-shot event	private-meet-gaza-1980		Annual	Gaza			1982								
+L9	one-shot event															
+L3000	معرض الكتاب العربي الفلسطيني الأول		Book Fair		Jerusalem		Palestine			1946-10-11	1946-10-20	A guide was published for the books on display with over 800 titles by Palestinian authors	https://books.google.de/books/about/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A_%D8%A7%D9%84%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A_%D9%83%D9%85%D8%A7.html?id=hygjzQEACAAJ&redir_esc=y			
+L3001	meeting in cafe		Private meeting		Jerusalem		Palestine					Meeting between Hanna Abu Hanna and Mohammed Hassan Alaa al-Din				
+L3002	meeting in book club		Public presentation		Nazareth		Palestine	1944	1944			Hanna Abu Hanna attends a talk by Mikhail Naima				
+L3003	meeting at magazine office		Private meeting		Jerusalem		Palestine	1946	1946			Hanna Abu Hanna vists al-ghad magazine and meets Mukhlis Amr				
+L3004	ملتقى أدبي		Private meeting		Nazareth		Palestine	1948	1948			A literary salon on world literature hosted by Najwa Kawar Farah in her home	Reading Goethe's Faust			
+L3005	جنازة عبد الرحيم محمود		Funeral		Nazareth		Palestine			1948-07-14	1948-07-14					
+L1000	Poetry salon Shi2r Group		Private meeting	Weekly	Beirut		Lebanon	1960	1969							
+L10 - Kafr  Yasif Poetry Festival 1957		L11 - Kafr  Yasif Poetry Festival 1958	Poetry Festival	Annual	Kafr Yasif		Israel	1957	1957							
+L11 - Kafr  Yasif Poetry Festival 1958		L10 - Kafr  Yasif Poetry Festival 1957	Poetry Festival	Annual	Kafr Yasif		Israel	1958	1958	21468	21468	Poetry festival attended by more than 800 people				
+L12 - Akka Poetry Festival 1958		L11 - Kafr  Yasif Poetry Festival 1958	Poetry Festival		Acre		Israel	1958	1958							
+L13 - Communist Conference in Sofia			Conference	Annual	Sofia		Bulgaria	1962	1962			Annual Communist Youth conference with literary events	Source: Nassar,			
+L14 - Seventh World Festival for Youth and Students			Poetry Festival	Annual	Vienna		Austria	1959	1959							
+L15 - Haifa Poetry Festival			Poetry Festival	Annual	Haifa		Israel	1955	1955			First poetry festival held in Israel/post-48 Palestine	Source: Furani 2012, Chapter 3, endnote 16			
+L16 - Poetry festival sponsored by Al-Jadeed		L15 - Haifa Poetry Festival	Poetry Festival	Annual	Haifa		Israel	1958	1958	21400	21400	First poetry festival sponsored by Al-Jadeed literary journal	Source: Furani 2012, Chapter 3, endnote 16			
+L17 - Nazareth Poetry Festival			Poetry Festival		Nazareth		Israel	1955	1955			Poetry festival held in summer 1955	Source: Furani 2012, Chapter 3, endnote 16			
+L18 - Second Palestinian Poetry Festival		L21 - First Palestinian Poetry Festival	Poetry Festival		Tamra		Israel	2001	2001	9/14/2001	9/16/2001	Second Palestinian Poetry festival pf this name held in Israel	Source: Furani 2012, Chapter 4, p60			
+L19 - Al-Aqsa Festival			Cultural Festival													
+L20 - Parliament of World Writers			Poetry Festival					2002	2002	3/24/2002	3/24/2002		Sources: Furani 2012, Chapter 11, 200-215			
+L21 - First Palestinian Poetry Festival		L18 - Second Palestinian Poetry Festival	Poetry Festival		Kafr Manda		Israel	2000	2000			First Palestinian Poetry festival of this name held in Israel				
+L22 - Cairo International Book Fair	Thirty-Fourth Cairo International Book Fair		Book Fair		Cairo		Egypt	2003	2003			Large-scale book fair, important meeting point	https://arablit.org/2019/02/16/cairo-international-book-fair-at-50-new-life-or-more-of-the-same/			
+L23 - International Parliament of Writers	International Parliament of World Writers solidarity delegation 2002		Conference		Ramallah		Palestine	2002	2002	3/28/2002	3/28/2002	International cultural network seeking to protect writers, esp. in situations of censorship	درويش, محمودgave a keynote reading at this solidarity event			
+L1002	Incident with Laure Ghrayyib	L1000	Private meeting	One-Off	Beirut		Lebanon					evening chaired by Adonis, debate on whether poetry written in French should be considered Lebanese, French or Arabic				

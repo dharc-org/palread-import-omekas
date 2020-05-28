@@ -19,41 +19,137 @@
 #################################################################
 
 ####################
+#    Publications
+####################
+
+###  http://www.wikidata.org/prop/P958
+<http://www.wikidata.org/prop/P958> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The section that the article is part of." ;
+                                    rdfs:label "section name" .
+
+###  http://www.wikidata.org/prop/P170
+<http://www.wikidata.org/prop/P170> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The team member that curated the record at hand" ;
+                                    rdfs:label "data curator" .
+
+###  http://www.wikidata.org/prop/P921
+<http://www.wikidata.org/prop/P921> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "A real entity addressed in the work, namely: persons, events, organisations, works (select from existing items)." ;
+                                    rdfs:label "subject entity" .
+
+###  http://www.wikidata.org/prop/P527
+<http://www.wikidata.org/prop/P527> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The work included in the work at hand, e.g. a book in a book series, an article in journal (select from existing works)." ;
+                                    rdfs:label "has part" .
+
+###  http://www.wikidata.org/prop/P1433
+<http://www.wikidata.org/prop/P1433> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The work including the work at hand, e.g. book series, journals (select from existing works)." ;
+                                    rdfs:label "part of" .
+
+###  http://www.wikidata.org/prop/P485
+<http://www.wikidata.org/prop/P485> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The institution holding copies of the publication (select from existing organisations; to detail gaps use the Activity span template instead)." ;
+                                    rdfs:label "holding institution" .
+
+###  http://www.wikidata.org/prop/P123
+<http://www.wikidata.org/prop/P123> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The publisher of the publication (select from existing publishers)." ;
+                                    rdfs:label "publisher" .
+
+
+###  http://www.wikidata.org/prop/P291
+<http://www.wikidata.org/prop/P291> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The place of publication of the publication." ;
+                                    rdfs:label "publication place" .
+
+###  http://www.wikidata.org/prop/P767
+<http://www.wikidata.org/prop/P767> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of a contributor of the publication (to detail contributions use the Contribution template instead)." ;
+                                    rdfs:label "contributor" .
+
+###  http://www.wikidata.org/prop/P110
+<http://www.wikidata.org/prop/P110> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of the illustrator that contributed to the publication (select from existing people)." ;
+                                    rdfs:label "illustrator" .
+
+###  http://www.wikidata.org/prop/P736
+<http://www.wikidata.org/prop/P736> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of the artist that realised the cover of the publication (select from existing people)." ;
+                                    rdfs:label "cover artist" .
+
+###  http://www.wikidata.org/prop/P2679
+<http://www.wikidata.org/prop/P2679> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of the author of foreword (or introduction) of the publication (select from existing people)." ;
+                                    rdfs:label "author of foreword (or introduction)" .
+
+###  http://www.wikidata.org/prop/P655
+<http://www.wikidata.org/prop/P655> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of the translator of the publication (select from existing people)." ;
+                                    rdfs:label "translator" .
+
+###  http://www.wikidata.org/prop/P5769
+<http://www.wikidata.org/prop/P5769> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of the editor-in-chief of the periodical (select from existing people)." ;
+                                    rdfs:label "editor-in-chief" .
+
+###  http://www.wikidata.org/prop/P3320
+<http://www.wikidata.org/prop/P3320> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of the editorial board member of the publication (select from existing people)." ;
+                                    rdfs:label "editorial board member" .
+
+###  http://www.wikidata.org/prop/P98
+<http://www.wikidata.org/prop/P98> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name of the editor of the publication (select from existing people)." ;
+                                    rdfs:label "editor" .
+
+###  http://www.wikidata.org/prop/P50
+<http://www.wikidata.org/prop/P50> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The name (or pen name) of the author of the publication (select from existing people)." ;
+                                    rdfs:label "author" .
+
+
+
+####################
 #    People
 ####################
 ###  http://www.wikidata.org/prop/P737
 <http://www.wikidata.org/prop/P737> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The person who influenced a person." ;
+                                    rdfs:comment "The person who influenced a person (select from existing people)." ;
                                     rdfs:label "influenced by" .
 
+###  http://www.wikidata.org/prop/P1344
+<http://www.wikidata.org/prop/P1344> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The event that the subject at hand participated in (select from existing events)." ;
+                                    rdfs:label "participant in" .
 ###  http://www.wikidata.org/prop/P3342
 <http://www.wikidata.org/prop/P3342> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The friend or acquaintance of a person." ;
+                                    rdfs:comment "The friend or acquaintance of a person (select from existing people)." ;
                                     rdfs:label "friend" .
 
 ###  http://www.wikidata.org/prop/P40
 <http://www.wikidata.org/prop/P40> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The child of a person." ;
+                                    rdfs:comment "The child of a person (select from existing people)." ;
                                     rdfs:label "child" .
 
 ###  http://www.wikidata.org/prop/P26
 <http://www.wikidata.org/prop/P26> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The spouse of a person." ;
+                                    rdfs:comment "The spouse of a person (select from existing people)." ;
                                     rdfs:label "spouse" .
 
 ###  http://www.wikidata.org/prop/P3373
 <http://www.wikidata.org/prop/P3373> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The sister or brother of a person." ;
+                                    rdfs:comment "The sister or brother of a person (select from existing people)." ;
                                     rdfs:label "sibling" .
 
 ###  http://www.wikidata.org/prop/P22
 <http://www.wikidata.org/prop/P22> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The father of a person." ;
+                                    rdfs:comment "The father of a person (select from existing people)." ;
                                     rdfs:label "father" .
 
 ###  http://www.wikidata.org/prop/P25
 <http://www.wikidata.org/prop/P25> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "The mother of a person." ;
+                                    rdfs:comment "The mother of a person (select from existing people)." ;
                                     rdfs:label "mother" .
 
 ###  http://www.wikidata.org/prop/P214
@@ -114,7 +210,7 @@
 
 ###  http://www.wikidata.org/prop/statement/P102
 <http://www.wikidata.org/prop/statement/P102> rdf:type owl:ObjectProperty ;
-                                  rdfs:comment "Relation between a membership event and a political party (select from existing organisations)" ;
+                                  rdfs:comment "Relation between a membership event and an organisation (select from existing organisations)" ;
                                   rdfs:label "member of" .
 
 ###  http://www.wikidata.org/prop/statement/P69
@@ -154,7 +250,7 @@
 ####################
 
 ###  http://www.wikidata.org/prop/P112
-<http://www.wikidata.org/prop/P749> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P112> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Relation between an organisation and its funder (select from existing people)" ;
                                   rdfs:label "funded by" .
 
@@ -165,12 +261,92 @@
 
 
 ####################
+#    Publications
+####################
+
+
+###  http://www.wikidata.org/prop/P7535
+<http://www.wikidata.org/prop/P7535> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The abstract of the publication at hand." ;
+                                    rdfs:label "abstract" .
+
+###  http://www.wikidata.org/prop/P6962
+<http://www.wikidata.org/prop/P6962> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The theme (different from entities described in the database) addressed in the publication at hand (select from vocabulary)." ;
+                                    rdfs:label "theme" .
+
+###  http://www.wikidata.org/prop/P136
+<http://www.wikidata.org/prop/P136> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The genre of the publication at hand (select from vocabulary)." ;
+                                    rdfs:label "genre" .
+
+###  http://www.wikidata.org/prop/P304
+<http://www.wikidata.org/prop/P304> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The page numbers of the publication." ;
+                                    rdfs:label "page(s)" .
+
+###  http://www.wikidata.org/prop/P393
+<http://www.wikidata.org/prop/P393> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The edition number of the publication." ;
+                                    rdfs:label "edition" .
+
+###  http://www.wikidata.org/prop/P577
+<http://www.wikidata.org/prop/P577> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The publication date or year of the publication." ;
+                                    rdfs:label "publication date" .
+
+###  http://www.wikidata.org/prop/P433
+<http://www.wikidata.org/prop/P433> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The issue number of the publication." ;
+                                    rdfs:label "issue" .
+
+###  http://www.wikidata.org/prop/P478
+<http://www.wikidata.org/prop/P478> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The volume of the publication." ;
+                                    rdfs:label "volume" .
+
+###  http://www.wikidata.org/prop/P478
+<http://www.wikidata.org/prop/P478> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The volume of the publication." ;
+                                    rdfs:label "volume" .
+
+###  http://www.wikidata.org/prop/P356
+<http://www.wikidata.org/prop/P356> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The DOI of a publication." ;
+                                    rdfs:label "DOI" .
+
+###  http://www.wikidata.org/prop/P236
+<http://www.wikidata.org/prop/P236> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The ISSN of a periodical." ;
+                                    rdfs:label "ISSN" .
+
+###  http://www.wikidata.org/prop/P957
+<http://www.wikidata.org/prop/P957> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The ISBN of a book or book series." ;
+                                    rdfs:label "ISBN" .
+
+###  http://www.wikidata.org/prop/P1680
+<http://www.wikidata.org/prop/P1680> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "The subtitle of the work at hand." ;
+                                  rdfs:label "subtitle" .
+
+###  http://www.wikidata.org/prop/P1476
+<http://www.wikidata.org/prop/P1476> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "The title of the work at hand." ;
+                                  rdfs:label "title" .
+
+###  http://www.wikidata.org/prop/P7937
+<http://www.wikidata.org/prop/P7937> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "The format the work at hand (select from controlled vocabulary)." ;
+                                  rdfs:label "format" .
+
+####################
 #    Literary Events
 ####################
 
 
 ###  http://www.wikidata.org/prop/P2257
-<http://www.wikidata.org/prop/P2257> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P2257> rdf:type owl:DatatypeProperty ;
                                   rdfs:comment "Interval between scheduled or regularly recurring events (select from controlled vocabulary)" ;
                                   rdfs:label "periodicity" .
 #################################################################
@@ -250,6 +426,36 @@
 #    Classes
 #################################################################
 
+###  http://www.wikidata.org/entity/Q28869365
+<http://www.wikidata.org/entity/Q28869365> rdf:type owl:Class ;
+      rdfs:comment "Issue of a periodical, such as journals, magazines, and newspapers." ;
+      rdfs:label "Issue" .
+
+###  http://www.wikidata.org/entity/Q191067
+<http://www.wikidata.org/entity/Q191067> rdf:type owl:Class ;
+      rdfs:comment "A written text that is part of a periodical." ;
+      rdfs:label "Article" .
+
+###  http://www.wikidata.org/entity/Q277759
+<http://www.wikidata.org/entity/Q277759> rdf:type owl:Class ;
+      rdfs:comment "A sequence of books." ;
+      rdfs:label "Book series" .
+
+###  http://www.wikidata.org/entity/Q571
+<http://www.wikidata.org/entity/Q571> rdf:type owl:Class ;
+      rdfs:comment "A written text in the form of a book." ;
+      rdfs:label "Book" .
+
+###  http://www.wikidata.org/entity/Q47461344
+<http://www.wikidata.org/entity/Q47461344> rdf:type owl:Class ;
+      rdfs:comment "A written text that is part of another work (e.g. a chapter, a journal section)" ;
+      rdfs:label "Contribution" .
+
+###  http://www.wikidata.org/entity/Q1523267
+<http://www.wikidata.org/entity/Q1523267> rdf:type owl:Class ;
+      rdfs:comment "Item expected to have short-term usefulness." ;
+      rdfs:label "Ephemera" .
+
 ###  http://www.wikidata.org/entity/Q215627
 <http://www.wikidata.org/entity/Q215627> rdf:type owl:Class ;
       rdfs:comment "A human being" ;
@@ -265,3 +471,14 @@
 <http://www.wikidata.org/entity/Q2085381> rdf:type owl:Class ;
       rdfs:comment "A publishing house" ;
       rdfs:label "Publisher" .
+
+###  http://www.wikidata.org/entity/Q1002697
+<http://www.wikidata.org/entity/Q1002697> rdf:type owl:Class ;
+      rdfs:comment "A periodical work, such as a journal, magazine or newspaper" ;
+      rdfs:label "Periodical" .
+
+
+###  http://www.wikidata.org/entity/Q55579539
+<http://www.wikidata.org/entity/Q55579539> rdf:type owl:Class ;
+      rdfs:comment "The activity period of an organisation or the publication years of a periodical" ;
+      rdfs:label "Activity timespan" .

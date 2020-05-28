@@ -1,9 +1,39 @@
 {
   "Gender":{
-    "id":7
+    "id":1
+  },
+  "Language":{
+    "id":2
   },
   "Religion":{
+    "id":3
+  },
+  "Manner of death":{
+    "id":4
+  },
+  "Cause of death": {
+    "id":5
+  },
+  "Life event type": {
+    "id":6
+  },
+  "Literary event type":{
+    "id":7
+  },
+  "Periodicity":{
     "id":8
+  },
+  "Occupation": {
+    "id":9
+  },
+  "Literary movement": {
+    "id":10
+  },
+  "Type of institution":{
+    "id":11
+  },
+  "Work type":{
+    "id":12
   },
   "Country": {
     "Palestine":"openmaps Palestine - country",
@@ -16,29 +46,5 @@
   "City": {
     "Gaza":"openmaps Palestine - city",
     "Bologna":"geonames - city"
-  },
-  "Manner of death":{
-    "id":9
-  },
-  "Cause of death": {
-    "id":10
-  },
-  "Literary movement": {
-    "id":15
-  },
-  "Life event type": {
-    "id":11
-  },
-  "Occupation": {
-    "id":14
-  },
-  "Type of institution":{
-    "id":16
-  },
-  "Literary event type":{
-    "id":12
-  },
-  "Periodicity":{
-    "id":13
   }
 }

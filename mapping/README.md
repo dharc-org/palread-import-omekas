@@ -40,6 +40,7 @@
     * "wdp:P2561" values (either "\@en" or "\@ar")
  * Life events:
     * ID
+    * "wdp:P2561" value
     * "pr:tmp-person" value (to be matched with people "wdp:P2561" values and get the ID)
     * "pr:tmp-org" value (to be matched with organisation "wdp:P2561" values and get the ID)
     * "pr:life-event-type" (to choose the relation)
@@ -87,10 +88,6 @@
          * ID
          * "wdp:P2561" values (either "\@en" or "\@ar")
 
-   * Table Literary events:
-       * "Event name" (if more than one has the same name create the parent event)
-         * ID
-         * "wdp:P2561" value
 
 ## Actual update (step 10)
 
@@ -131,6 +128,8 @@ For every row of the tables update relations
    * Table Literary events:
 
        * relation to Literary events "Event name" and "Related event"
+       * "Event name" (if more than one has the same name create the parent event)
+
 
 ## Removal of temp properties (step 12)
 

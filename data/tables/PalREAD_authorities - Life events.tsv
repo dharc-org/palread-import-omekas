@@ -1,6 +1,91 @@
-Person (use one the names used in table People, you  can repeat the person name in several rows)			The organisation to which the person  is related (if applicable)		Places related to the event	Fill in only if  Palestine		Fill in either years or dates. If the event happened in a specific date or year, fill in only "From year/date" column				Only for  educational events
-Person name @en	Person  name @ar	Event type	Organisation or POI	Occupation	City	District	Country	From year	To year	From date	To date	Student of
-Heibi, Ivan		Membership	Palestine Liberation Organisation	Writer	Gaza	Gaza	Palestine	1986	2019	1986-11-28	2019-01-01	Tomasi, Francesca; Peroni, Silvio
-Heibi, Ivan		Education										Tomasi, Francesca
-Heibi, Ivan		Employment										
-Heibi, Ivan		Residence			Gaza		Palestine					
+Person (use one the names used in table People, you  can repeat the person name in several rows)			The organisation to which the person  is related (if applicable)	This field is alternative to column D! e.g. magazine title		Places related to the event	Fill in only if  Palestine		Fill in either years or dates. If the event happened in a specific date or year, fill in only "From year/date" column				Only for  educational events	free-text: sources  and links (public)	free-text: sources and links (private)	any other note (private)
+Person name @en	Person  name @ar	Event type	Organisation or POI	Work title	Occupation	City	District	Country	From year	To year	From date	To date	Student of	Sources public	Sources private	Other notes
+	أبو حنا، حنا	Education	المدرسة الابتدائية بحيفا			Haifa		Palestine	1934	1935						
+	أبو حنا، حنا	Education	مدرسة اللاتين بالناصرة			Nazareth		Palestine	1936	1939						
+	أبو حنا، حنا	Education	مدرسة المعارف بالناصرة			Nazareth		Palestine	1939	1943			صباغ، سليم، نعمه؛ سليمان، خليل؛ رمضان، نصر			
+	أبو حنا، حنا	Education	الكلية العربية بالقدس			Jerusalem		Palestine	1943	1947			الحسيني، موسى، إسحاق؛ بوشناق، عبد الرحمن؛ زيادة، نقولا؛ الخالدي، سامح، أحمد			
+	أبو حنا، حنا	Employment	المدرسة الثانوية بالناصرة		Teacher	Nazareth		Palestine	1947	1950						
+	أبو حنا، حنا	Membership	اتحاد الشبيبة الديمقراطية بالناصرة			Nazareth		Palestine	1948	1948						
+	أبو حنا، حنا	Membership	الحزب الشيوعي الإسرائيلي					Israel	1948	1983						
+	أبو حنا، حنا	Employment	صحيفة الاتحاد		Writer	Haifa		Israel	1950	1983						
+	أبو حنا، حنا	Employment	مجلة الجديد		Editor	Haifa		Israel	1951	1983						
+	أبو حنا، حنا	Employment	الكلية الأرثوذكسية العربية في حيفا		Teacher	Haifa		Israel	1959	1987						
+	أبو حنا، حنا	Employment	جامعة حيفا		Lecturer	Haifa		Israel	1974	1993						
+	أبو حنا، حنا	Employment	مجلة المواكب		Editor	Nazareth		Israel	1984	1988						
+	أبو حنا، حنا	Employment	كلية المعلمين العرب		Lecturer	Haifa		Israel	1987	1995						
+	أبو حنا، حنا	Employment	مجلة مواقف		Editor	Nazareth		Israel	1995	2007						
+	أبو حنا، حنا	Residence				Al-Reina	Nazareth	Palestine	1928	1930						
+	أبو حنا، حنا	Residence				Ramallah		Palestine	1930	1930						
+	أبو حنا، حنا	Residence				Jerusalem		Palestine	1932	1933						
+	أبو حنا، حنا	Residence				Isdud		Palestine	1933	1933						
+	أبو حنا، حنا	Residence				Najd	Gaza	Palestine	1934	1934						
+	أبو حنا، حنا	Residence				Haifa		Palestine	1934	1935						
+	أبو حنا، حنا	Residence				Nazareth		Palestine	1936	1943						
+	أبو حنا، حنا	Residence				Jerusalem		Palestine	1943	1947						
+	أبو حنا، حنا	Residence				Nazareth		Palestine	1947	1950						
+	أبو حنا، حنا	Residence				Haifa		Israel	1950							
+	بوشناق، عبد الرحمن	Employment	مجلة المنتدى		Editor	Jerusalem		Palestine			1943-04-01	1947-03-28				
+	عمرو، مخلص	Employment	مجلة الغد		Editor	Jerusalem		Palestine	1944	1946						
+	عمرو، مخلص	Membership	عصبة التحرر الوطني					Palestine	1945	1947						
+	عمرو، مخلص	Membership	رابطة المثقفين العرب					Palestine		1948						
+	قعوار فرح، نجوى	Education	دار المعلمات بالقدس			Jerusalem		Palestine								
+	قعوار فرح، نجوى	Residence				Nazareth		Palestine								
+	قعوار فرح، نجوى	Residence				Jerusalem		Palestine								
+	قعوار فرح، نجوى	Residence				Nazareth		Palestine	1947	1950						
+	قعوار فرح، نجوى	Residence				Haifa		Israel	1950	1965						
+	قعوار فرح، نجوى	Residence				Jerusalem		Palestine	1965	1968						
+	قعوار فرح، نجوى	Residence				Ramallah		Palestine	1968	1977						
+	قعوار فرح، نجوى	Residence				Beirut		Lebanon	1977	1985						
+	قعوار فرح، نجوى	Residence				London		United Kingdom	1986	1998						
+	قعوار فرح، نجوى	Residence				Toronto		Canada	1998	2015						
+	خميس، صليبا	Membership	عصبة التحرر الوطني					Palestine	1948	1949						
+	خميس، صليبا	Membership	الحزب الشيوعي الإسرائيلي			Nazareth		Israel	1949	1989						
+	خميس، صليبا	Employment	صحيفة الاتحاد		Editor	Haifa		Israel	1949	1989						
+	خميس، صليبا	Employment	مجلة الجديد		Editor	Haifa		Israel	1951	1989						
+	محمود، عبد الرحيم	Education	مدرسة النجاح الوطنية			Nablus		Palestine	1929	1932			طوقان، إبراهيم			
+	محمود، عبد الرحيم	Education	مدرسة الشرطة			Bethlehem		Palestine	1933	1933						
+	محمود، عبد الرحيم	Employment			Policeman	Nazareth		Palestine	1934	1934						
+	محمود، عبد الرحيم	Employment	مدرسة النجاح الوطنية		Teacher	Nablus		Palestine	1934	1937						
+	محمود، عبد الرحيم	Education	الكلية العسكرية ببغداد			Baghdad		Iraq	1939	1940						
+	محمود، عبد الرحيم	Employment	مدرسة العشار بالبصرة		Teacher	Basra		Iraq	1940	1941						
+	محمود، عبد الرحيم	Employment	كلية النجاح الوطنية		Teacher	Nablus		Palestine	1942	1947						
+	محمود، عبد الرحيم	Employment	صحيفة الاتحاد		Writer	Haifa		Palestine	1944	1948						
+	محمود، عبد الرحيم	Employment	مجلة الغد		Writer	Jerusalem		Palestine	1944	1946						
+	محمود، عبد الرحيم	Residence				Anabta	Tulkarm	Palestine	1913	1929						
+	محمود، عبد الرحيم	Residence				Nablus		Palestine	1929	1932						
+	محمود، عبد الرحيم	Residence				Damascus		Syria	1937	1938						
+	محمود، عبد الرحيم	Residence				Baghdad		Iraq	1938	1940						
+	محمود، عبد الرحيم	Residence				Basra		Iraq	1940	1941						
+	محمود، عبد الرحيم	Residence				Baghdad		Iraq	1941	1942						
+	محمود، عبد الرحيم	Residence				Nablus		Palestine	1942	1948						
+	الخضراء الجيوسي، سلملى	Education	المدرسة المأمونية		Primary Pupil	Jerusalem		Israel								
+	الخضراء الجيوسي، سلملى	Education	مدرسة الحكومة في عكا		Primary Pupil	Acre		Israel								
+	الخضراء الجيوسي، سلملى	Education	كلية شميدت للبنات		Secondary Pupil	Jerusalem		Israel								
+	الخضراء الجيوسي، سلملى	Education	American University of Beirut		Student	Beirut		Lebanon		1945			Smith, A.			
+	الخضراء الجيوسي، سلملى	Education	University of London		Doctoral Researcher	London		United Kingdom		1970			Arafat, W.			
+	الخضراء الجيوسي، سلملى	Employment	Teachers College for Women Jerusalem		Teacher	Jerusalem		Israel	1945	1947						
+	الخضراء الجيوسي، سلملى	Employment	University of Khartoum		Lecturer	Khartoum		Sudan	1970	1973						
+	الخضراء الجيوسي، سلملى	Employment	University of Algiers		Lecturer	Alger		Algeria	1973	1975						
+	الخضراء الجيوسي، سلملى	Employment	University of Constantine		Lecturer	Constantine		Algeria	1973	1975						
+	الخضراء الجيوسي، سلملى	Employment	University of Utah		Lecturer	Salt Lake City		United States	1975							
+	الخضراء الجيوسي، سلملى	Employment	University of Washington		Lecturer	Seattle		United States								
+	الخضراء الجيوسي، سلملى	Employment	University of Texas		Lecturer	Austin		United States								
+	الخضراء الجيوسي، سلملى	Employment	University of Michigan		Lecturer	Ann Arbor		United States	1980							
+	الخضراء الجيوسي، سلملى	Employment	Institute of Higher Studies Berlin		Lecturer	Berlin		Germany	1994	1995						
+	الخضراء الجيوسي، سلملى	Employment	Middle East Studies Association of North America		Lecturer				1973	1973						
+	الخضراء الجيوسي، سلملى	Residence				Bonn		Germany								
+	الخضراء الجيوسي، سلملى	Residence				Beirut		Lebanon								
+	الخضراء الجيوسي، سلملى	Residence				London		United Kingdom								
+	الخضراء الجيوسي، سلملى	Award	Sheikh Zayed Book Award		Cultural Personality of the Year	Abu Dhabi		United Arab Emirates	2020	2020						
+	الخضراء الجيوسي، سلملى	Award	Palestine Liberation Organisation						1991	1991						
+	الخضراء الجيوسي، سلملى	Award	Kuwait Ministry of Culture			Kuwait City		Kuwait	2002	2002						
+	الخضراء الجيوسي، سلملى	Award	Higher Council for Culture in Egypt			Cairo		Egypt	2006	2006						
+	الخضراء الجيوسي، سلملى	Award	Algerian Ministry of Culture			Alger		Algeria	2007	2007						
+	الخضراء الجيوسي، سلملى	Award	King Abdullah Bin Abdulaziz International Award for Translation		Translator	Riyadh		Saudi Arabia	2008	2008						
+	البحري, جميل	Education	مدرسة الروم الكاثوليك بحيفا			Haifa		Palestine								
+	البحري, جميل	Employment	مدرسة الروم الكاثوليك بحيفا		Teacher	Haifa		Palestine	1914	1920						
+	البحري, جميل	Employment	المكتبة الجامعة			Haifa		Palestine	1920	1921						
+	البحري, جميل	Employment	المكتبة الجامعة			Haifa		Palestine	1921	1931						
+																
+Marilena		Employment		Marilena's journal (ISSN:12345)	Editor	Aleppo			1990	1995						
+Marilena		Employment		Marilena's journal (ISSN:12-554)	Editor	Abu Dis			1996	1998						

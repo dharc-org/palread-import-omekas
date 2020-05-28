@@ -2,7 +2,7 @@ import os , json , csv ,re , itertools , pprint , requests
 import mapping.preprocessing as p
 import conf as c
 from langdetect import detect
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -38,13 +38,22 @@ def create_item(item_class,template_id, data_row, item_set_id=None, item_type=No
     return create_json
 
 # PATCH /api/:api_resource/:id
-def update_item(data_row, item_set_id=None, item_type=None):
-    # TODO other stuff before
+def update_item(data_row, item_set_id=None, item_type=None, res_class=None, property_ids=None):
+    # open mapping file
     with open(c.MAPPING_INDEX) as json_file:
         mapping = json.load(json_file)
-    data = fill_json(data_row, mapping[item_type]["update"])
-    update_json = 'TODO'
-    return update_json
+
+    # best match of subject within created items
+    item_id = find_subject_item_id(data_row, res_class, item_type)
+    data = update_json(data_row, item_type, mapping[item_type]["update"],c.VOCABULARY_PROPERTIES)
+    data = change_prop_id(data,property_ids)
+    updated_json = {
+            "@type":["o:Item"],
+            "o:item": [{"o:id": int(item_id)}]
+             }
+    for k,v in data.items():
+        updated_json[k] = v
+    return updated_json
 
 def map_to_entity(entity_index,resource_templates_ids=None):
     entity_obj = c.ENTITIES[entity_index]
@@ -54,6 +63,67 @@ def map_to_entity(entity_index,resource_templates_ids=None):
     if entity_obj["label"] in resource_templates_ids:
         template_id = resource_templates_ids[entity_obj["label"]]["id"]
     return e_class,template_id, entity_index, item_set
+
+def find_subject_item_id(data_row, res_class, item_type):
+    item_id = None
+    lookup_class = res_class
+    lookup_fields_and_prop = c.TABLES_KEYS[item_type]
+    counting_matches = defaultdict(int)
+    with open(c.ITEMS_INDEX,"r") as items_index_file:
+        all_items = json.load(items_index_file)
+        for item in all_items:
+            if lookup_class in item["@type"]:
+                for field, prop in lookup_fields_and_prop.items():
+                    lookup_prop = prop
+                    lookup_value = data_row[field]
+                    if lookup_prop in item and any(dict_value["@value"] == lookup_value for dict_value in item[lookup_prop]):
+                        counting_matches[item["o:id"]] += 1
+    if len(counting_matches) >= 1:
+        max_value = max([x for x in counting_matches.values()])
+        counting_matches = dict(counting_matches)
+        best_matches = [k for k,v in counting_matches.items() if v == max_value]
+        item_id = best_matches[0]
+        return item_id
+    return None
+
+def find_object_item_id(item_type, label=None):
+    item_id = None
+    lookup_class = c.ENTITIES[item_type]["e_class"]
+    lookup_fields_and_prop = c.TABLES_KEYS[item_type]
+    counting_matches = defaultdict(int)
+    with open(c.ITEMS_INDEX,"r") as items_index_file:
+        all_items = json.load(items_index_file)
+        for item in all_items:
+            if lookup_class in item["@type"]:
+                for field, prop in lookup_fields_and_prop.items():
+                    lookup_prop = prop
+                    lookup_value = label
+                    if lookup_prop in item and any(dict_value["@value"] == lookup_value for dict_value in item[lookup_prop]):
+                        counting_matches[item["o:id"]] += 1
+
+    if len(counting_matches) >= 1:
+        max_value = max([x for x in counting_matches.values()])
+        counting_matches = dict(counting_matches)
+        best_matches = [k for k,v in counting_matches.items() if v == max_value]
+        item_id = best_matches[0]
+        return item_id
+    return None
+
+
+def find_objects_ids_by_properties(type_lookup, parameters):
+    lookup_class = c.ENTITIES[type_lookup]["e_class"]
+    items_id = set()
+    with open(c.ITEMS_INDEX,"r") as items_index_file:
+        all_items = json.load(items_index_file)
+        for item in all_items:
+            if lookup_class in item["@type"]:
+                for lookup_prop,lookup_value in parameters.items():
+                    if lookup_prop in item and any(dict_value["@value"] == lookup_value for dict_value in item[lookup_prop]):
+                        items_id.add(item["o:id"])
+    items_id = list(items_id)
+    if len(items_id) >= 1:
+        return items_id
+    return None
 
 def replace_value(val,data_row):
     if '-->' in val:
@@ -74,7 +144,7 @@ def replace_value(val,data_row):
             if funct == "create_name":
                 new_val = eval('p.'+funct+'('+value+')')
             else:
-                new_val = eval('p.'+funct+'("'+str(value).strip()+'")')  # replace the final json
+                new_val = eval('p.'+funct+'('+json.dumps(value)+')')  # replace the final json
     if '-->' not in val:
         new_val = data_row[val]
     return new_val
@@ -87,7 +157,7 @@ def prepare_json(data_row,mapping,property_ids,vocabularies_ids):
     data = change_prop_id(data,property_ids)
     return data
 
-def fill_json(data_row, item_properties,vocabularies_ids):
+def fill_json(data_row, item_properties,vocabularies_ids=None):
     item_data = {k:v for k,v in item_properties.items()}
     for prop, values_list in item_data.items():
         for value_dict in values_list:
@@ -102,7 +172,6 @@ def fill_json(data_row, item_properties,vocabularies_ids):
                     elif isinstance(values, list) and len(values) >= 1:
                         count_prop = 0
                         for value in values:
-                            print("value",value)
                             count_prop += 1
                             new_dict = {}
                             # if "property_id" in value_dict:
@@ -114,14 +183,78 @@ def fill_json(data_row, item_properties,vocabularies_ids):
                                 if "lang" in value_dict:
                                     new_dict["lang"] = value_dict["lang"]
                             values_list.append(new_dict)
-                            print("new_dict",new_dict)
                 else:
                     if "customvocab" in value_dict["type"]:
                         vocab = value_dict["type"].split(":")[1]
                         value_dict["type"] = "customvocab:"+str(vocabularies_ids[vocab]["id"])
                     value_dict[object] = replace_value(value_dict[object],data_row)
-    #print("item_data",item_data)
     return item_data
+
+def update_json(data_row, item_type, item_properties,vocabularies_props):
+    item_data = {k:v for k,v in item_properties.items()}
+    interm_data = {}
+    final_data = defaultdict(list)
+
+    # parse prop if actions are required to define the property - look into vocabularies_props
+    for prop, values_list in item_data.items():
+        new_prop = get_property_from_vocab(data_row[prop.split("-->")[1]],c.VOCABULARY_PROPERTIES) if "op:lookup_relation-->" in prop else prop
+        interm_data[new_prop] = values_list
+
+    entities_id = None
+    # parse value_resource_id
+    for prop, values_list in interm_data.items():
+        for value_dict in values_list:
+            operations = value_dict["value_resource_id"].split(";")
+            if "op:" in operations[0]:
+                # preprocessing on data, e.g. split, clean, that may be followed by crosstable research
+                values = replace_value(operations[0],data_row)
+                lookup_entity_labels = [values] if isinstance(values, str) else values
+                if len(operations) > 1:
+                    # in this case lookup_entity_labels are always input of the second operation
+                    other_op = operations[1]
+                    crosstable_op = other_op[:other_op.find("(")]
+                    type_lookup = other_op[other_op.find("(")+1:other_op.find(")")]
+                    lookup_entity_labels= ",".join(["'"+x+"'" for x in lookup_entity_labels])
+                    entities_id = eval(crosstable_op+'( "'+type_lookup+'", lookup_entity_labels=['+lookup_entity_labels +'])')
+            else:
+                # single operation (cross table lookup without input and with parameters)
+                operation, parameters_list = operations[0].split("//",1)[0], operations[0].split("//",1)[1]
+                crosstable_op = operation[:operation.find("(")]
+                type_lookup = operation[operation.find("(")+1:operation.find(")")]
+                parameters = [x.split('=') for x in parameters_list.split('//')]
+                lookup_properties_values = {l[0]:l[1] for l in parameters}
+                lookup_properties_values = {k:cur_subject_label(v, item_type, data_row) for (k,v) in lookup_properties_values.items()}
+                lookup_properties_values = json.dumps(lookup_properties_values)
+                entities_id = eval(crosstable_op+'('+type_lookup+', parameters='+lookup_properties_values+')')
+
+    for entity_id in entities_id:
+        entity_dict = {}
+        entity_dict["value_resource_id"] = entity_id
+        entity_dict["type"] = "resource"
+        final_data[prop].append(entity_dict)
+    final_data = dict(final_data)
+    return final_data
+
+def crosstable_lookup(type_lookup,lookup_entity_labels=None, parameters=None):
+    if parameters is None:
+        entities_id = [find_object_item_id(type_lookup, lookup_entity_label) for lookup_entity_label in lookup_entity_labels]
+    else:
+        entities_id = find_objects_ids_by_properties(type_lookup, parameters)
+    return entities_id
+
+def cur_subject_label(v, type_lookup, data_row):
+    if v == "$this":
+        lookup_fields = c.TABLES_KEYS[type_lookup].keys()
+        labels = [data_row[lookup_field] for lookup_field in lookup_fields if data_row[lookup_field] != '' and data_row[lookup_field] is not None]
+        v = labels[0]
+    else:
+        v = v
+    return v
+
+def get_property_from_vocab(lookup_prop,vocab):
+    if lookup_prop in vocab:
+        new_prop = vocab[lookup_prop]
+    return new_prop
 
 def clean_dict(item_data):
     new_dict = defaultdict(list)
@@ -148,9 +281,12 @@ def detect_lang(item_data):
     for prop, values_list in item_data.items():
         for value_dict in values_list:
             if "lang" in value_dict and value_dict["lang"] == "detect":
-                lang = detect(value_dict["@value"])
-                lang = "ar" if lang == 'ar' else "en"
-                value_dict["lang"] = lang
+                try:
+                    lang = detect(value_dict["@value"])
+                    lang = "ar" if lang == 'ar' else "en"
+                    value_dict["lang"] = lang
+                except:
+                    value_dict.pop("lang", None)
     return item_data
 
 def change_prop_id(item_data,property_ids):
@@ -223,7 +359,6 @@ def lookup_item(list_lookup_items,data_row,item_type,resource_templates_ids, pro
                 item_id_index = get_item_id(dest_prop, part_v, items, template_id)
                 #Check if item has been already added during the process
                 item_id_lookup = get_item_id(dest_prop, part_v, list_lookup_items, template_id)
-                #print(k,lookup_prop_v,dest_prop,item_id_index,item_id_lookup)
 
                 #add it in case item does not exist in <items> and <list_lookup_items>
                 if item_id_index == None and item_id_lookup == None:
@@ -245,7 +380,6 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
 
             entity_index = c.TABLES_DICT[filename]
             res_class,template_id,entity,item_set = map_to_entity(entity_index,resource_templates_ids)
-            #print("resource_class, template_id, entity, item_set:", res_class,template_id,entity,item_set)
             # Note for the future me: the mapping implies that for each table (tsv) corresponds _only one_ entity
             # To reuse this code in the future, the 1-to-1 relation (table-entity) must be respected
 
@@ -269,9 +403,10 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
                         for item in list_lookup_items:
                             list_items.append(item)
                     if operation == 'update':
-                        o_item = update_item(row,item_set_id,entity)
+                        updated_items = update_item(row,item_set_id,entity, res_class, property_ids)
+                        for item in updated_items:
+                            list_items.append(item)
 
-    #pp.pprint(list_items)
     return list_items
 
 

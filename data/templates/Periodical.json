@@ -1,0 +1,35 @@
+{
+    "o:label": "Periodical",
+    "o:resource_template_property": [
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P1476",
+            "label": "title"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "customvocab:12",
+            "data_type_label": "Work type",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P7937",
+            "label": "work type"
+        }
+    ],
+    "o:resource_class": {
+        "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+        "vocabulary_label": "wikidata",
+        "local_name": "Q1002697",
+        "label": "Periodical"
+    }
+}

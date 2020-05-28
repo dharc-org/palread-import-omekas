@@ -1,0 +1,203 @@
+{
+    "o:label": "Organisation",
+    "o:resource_template_property": [
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": true,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P2561",
+            "label": "name"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "customvocab:11",
+            "data_type_label": "Type of institution",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "organisation-type",
+            "label": "organisation type"
+        },
+        {
+            "o:alternate_label": "city",
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "valuesuggest:geonames:geonames",
+            "data_type_label": "Geonames: The GeoNames geographical database",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P276",
+            "label": "location"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "valuesuggest:geonames:geonames",
+            "data_type_label": "Geonames: The GeoNames geographical database",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P17",
+            "label": "country"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "The earliest date or year  of activity (DD\/MM\/YYYY or YYYY)",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P580",
+            "label": "from year or date"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "The latest date or year of activity (DD\/MM\/YYYY or YYYY)",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P582",
+            "label": "to year or date"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P1329",
+            "label": "phone number"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P968",
+            "label": "email"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P6375",
+            "label": "street address"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "uri",
+            "data_type_label": "URI",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P856",
+            "label": "website"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": null,
+            "data_type_label": null,
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "internal-source",
+            "label": "source (internal)"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": null,
+            "data_type_label": null,
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "source",
+            "label": "source (public)"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": null,
+            "data_type_label": null,
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "internal-note",
+            "label": "notes (internal)"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P1344",
+            "label": "participant in"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "hosted",
+            "label": "hosted"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "organised",
+            "label": "organised"
+        }
+    ],
+    "o:resource_class": {
+        "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+        "vocabulary_label": "wikidata",
+        "local_name": "Q43229",
+        "label": "Organisation"
+    }
+}

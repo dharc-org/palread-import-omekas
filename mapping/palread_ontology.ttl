@@ -19,9 +19,67 @@
 #################################################################
 
 ####################
+#    Publications
+####################
+###  http://w3id.org/palread/subject-of
+<http://w3id.org/palread/subject-of> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "A work addressing (describing, reviewing) the work at hand." ;
+                                    rdfs:label "subject of" .
+
+###  http://w3id.org/palread/subject-place
+<http://w3id.org/palread/subject-place> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "A real place addressed in the work." ;
+                                    rdfs:label "subject place" .
+
+###  http://w3id.org/palread/loc-subject
+<http://w3id.org/palread/loc-subject> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "A subject of the work that is available in the Library of Congress vocabularies." ;
+                                    rdfs:label "LOC subject" .
+
+###  http://w3id.org/palread/publication-location
+<http://w3id.org/palread/publication-location> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The place of publication of the work if different from the publication statement." ;
+                                    rdfs:label "different publication place" .
+
+###   http://w3id.org/palread/author-location
+<http://w3id.org/palread/author-location> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The location of the author of the publication when writing the publication at hand." ;
+                                    rdfs:label "author's location" .
+
+####################
 #    People
 ####################
 
+###  http://w3id.org/palread/banned-from
+<http://w3id.org/palread/banned-from> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The event from which a person is banned from attending (select from existing literary events)" ;
+                                  rdfs:label "banned from" .
+
+###  http://w3id.org/palread/hosted
+<http://w3id.org/palread/hosted> rdf:type owl:ObjectProperty ;
+                                   rdfs:comment "The event hosted by the subject at hand (select from existing literary events)" ;
+                                   rdfs:label "hosted" .
+
+###  http://w3id.org/palread/organised
+<http://w3id.org/palread/organised> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The event organised by the subject at hand  (select from existing literary events)" ;
+                                    rdfs:label "organised" .
+
+###  http://w3id.org/palread/read-poetry-at
+<http://w3id.org/palread/read-poetry-at> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The event where the person at hand gave a poetry reading (select from existing literary events)" ;
+                                    rdfs:label "read poetry at" .
+
+###  http://w3id.org/palread/has-topic
+<http://w3id.org/palread/has-topic> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The event discussed by the person at hand, either verbally or written (select from existing events)" ;
+                                    rdfs:label "has topic" .
+
+
+###  http://w3id.org/palread/reading-event
+<http://w3id.org/palread/reading-event> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "The event where works of the publisher at hand were read (select from existing literary events)" ;
+                                    rdfs:label "works read at" .
 
 ####################
 #    Life Events
@@ -41,11 +99,25 @@
                                   rdfs:comment "Relation between a person and a membership event (select from existing life events)" ;
                                   rdfs:label "membership event" .
 
+###  http://w3id.org/palread/award-event
+<http://w3id.org/palread/award-event> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and an award event (select from existing life events)" ;
+                                  rdfs:label "award event" .
 
 ###  http://w3id.org/palread/life-event-type
 <http://w3id.org/palread/life-event-type> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Type of life event (select from controlled vocabulary)" ;
                                   rdfs:label "life event type" .
+
+###  http://w3id.org/palread/related-periodical
+<http://w3id.org/palread/related-periodical> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The periodical that the employment event is related to, if applicable (select from existing periodicals)" ;
+                                  rdfs:label "periodical" .
+
+###  http://w3id.org/palread/related-organisation
+<http://w3id.org/palread/related-organisation> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The organisation that the event at hand is related to, if applicable (select from existing organisations)" ;
+                                  rdfs:label "organisation" .
 
 ####################
 #    Organisations
@@ -55,6 +127,21 @@
 <http://w3id.org/palread/organisation-type> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Type of organisation (select from controlled vocabulary)" ;
                                   rdfs:label "organisation type" .
+
+###  http://w3id.org/palread/political-affiliation
+<http://w3id.org/palread/political-affiliation> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The political party that the subject at hand is affiliated to (select from existing organisations)" ;
+                                  rdfs:label "political affiliation" .
+
+###  http://w3id.org/palread/union-affiliation
+<http://w3id.org/palread/union-affiliation> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The trade union that the subject at hand is affiliated to (select from existing organisations)" ;
+                                  rdfs:label "union affiliation" .
+
+###  http://w3id.org/palread/activity-span
+<http://w3id.org/palread/activity-span> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The period of activity or publication of the subject at hand (select from existing activity timespans)" ;
+                                  rdfs:label "activity timespan" .
 ####################
 #    Literary Events
 ####################
@@ -66,12 +153,12 @@
 
 ###  http://w3id.org/palread/related-event
 <http://w3id.org/palread/related-event> rdf:type owl:ObjectProperty ;
-                                rdfs:comment "A related event of the event at hand" ;
+                                rdfs:comment "A related event of the event at hand (select from existing literary events)" ;
                                 rdfs:label "related event" .
 
 ###  http://w3id.org/palread/parent-event
 <http://w3id.org/palread/parent-event> rdf:type owl:ObjectProperty ;
-                                rdfs:comment "An umbrella event of the event at hand" ;
+                                rdfs:comment "An umbrella event of the event at hand (select from existing literary events)" ;
                                 rdfs:label "parent event" .
 
 #################################################################
@@ -99,8 +186,28 @@
 
 ###  http://w3id.org/palread/note
 <http://w3id.org/palread/note> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "Notes on public sources of the record" ;
+                                    rdfs:comment "Notes on resources related to the record" ;
                                     rdfs:label "notes" .
+
+###  http://w3id.org/palread/note-contents
+<http://w3id.org/palread/note-contents> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Notes on chronological, visual, historical aspects, themes, literary figures, literary sources, literary references" ;
+                                    rdfs:label "notes on contents" .
+
+###  http://w3id.org/palread/note-holding-institution
+<http://w3id.org/palread/note-holding-institution> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Information on the collection (digital copies available, gaps and available issues/volumes years), and ownership notes (custodial notes, production and credits)" ;
+                                    rdfs:label "notes on holding institution" .
+
+###  http://w3id.org/palread/note-copy
+<http://w3id.org/palread/note-copy> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Information on the scans (scope, gaps and available issues/volumes years), data quality notes, funding and donor" ;
+                                    rdfs:label "notes on the copy" .
+
+###  http://w3id.org/palread/note-trend
+<http://w3id.org/palread/note-trend> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "Notes on topics trends related to the publication at hand." ;
+                                    rdfs:label "notes on trends" .
 
 ###  http://w3id.org/palread/internal-source
 <http://w3id.org/palread/internal-source> rdf:type owl:DatatypeProperty ;
@@ -147,9 +254,44 @@
                                     rdfs:comment "Temporary note for import purposes" ;
                                     rdfs:label "temporary event (internal)" .
 
+####################
+#    Publications
+####################
+###  http://w3id.org/palread/fieldwork-note
+<http://w3id.org/palread/fieldwork-note> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "Other notes, e.g. whether there are literary materials (e.g. sections)" ;
+                                  rdfs:label "fieldwork notes" .
+
+###  http://w3id.org/palread/library-copy-url
+<http://w3id.org/palread/library-copy-url> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "The link to the online library copy of the work at hand" ;
+                                  rdfs:label "fieldwork copy URL" .
+
+###  http://w3id.org/palread/library-loan
+<http://w3id.org/palread/library-loan> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "Information on date of order, return, arrival, and access" ;
+                                  rdfs:label "fieldwork notes on library loan" .
+
+###  http://w3id.org/palread/fieldwork-date
+<http://w3id.org/palread/fieldwork-date> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "The date of the fieldwork (if applicable)" ;
+                                  rdfs:label "fieldwork date" .
+
+###  http://w3id.org/palread/dedication
+<http://w3id.org/palread/dedication> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "A dedication included in the work at hand" ;
+                                  rdfs:label "dedication" .
+
+###  http://w3id.org/palread/publication-type
+<http://w3id.org/palread/publication-type> rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "An additional classification of the work at hand (select from vocabulary)" ;
+                                  rdfs:label "publication type" .
+
+
 #################################################################
 #    Classes
 #################################################################
+
 
 
 ###  http://w3id.org/palread/LiteraryEvent

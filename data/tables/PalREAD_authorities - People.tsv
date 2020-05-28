@@ -1,5 +1,285 @@
 Identifiers: at least one of these fields is mandatory. @en is not mandatory! If the @ar  is available use this across tables. Include (YYYY-YYYY) for omonyms						Current or  last known	Either a prior one  or dual citizenship	year (YYYY) or date (YYYY-MM-DD) are in alternative Fill the district only if Palestine					year (YYYY) or date (YYYY-MM-DD) are in alternative Fill the district only if Palestine.								Relation to table Literary events 		Relatives  (only people recorded in a row)		use the separator ; for multiple values  (please copy & paste to avoid typos)			include acquaintances		free-text (public)	free-text: sources  and links (public)	free-text: sources and links (private)	any other note (private)
 VIAF	Name @en	Name @ar	Pen names	Gender	Religion	Country of citiz. 	Country of citiz. (2)	Birth  date	Birth year	Birth city	Birth district	Birth country	Death  date	Death year	Death city	Death district	Death country	Manner of death	Cause of death	Literary  movement	Literary event	Relation  to event	Mother	Father	Siblings	Spouses	Children	Friends	Influenced by person	Biography	Sources public	Sources private	Other notes
-	Heibi, Ivan		sosgang	Male	Atheism	Italy	Palestine	1986-11-28	1986	Gaza	Gaza	Palestine									private-meet-gaza-19987;L2	has participant			Adam;Aldo
-	Daquino, Marilena																				L1
-		الجيوسي، الخضراء سلمى
+		أبو بكر, وليد		Male		Italy	Palestine	1986-11-28		Gaza		Palestine									private-meet-gaza-19987;L2	has participant			Adam								
+		أبو حسن, عزمي	sosgang	Male																	L1												
+		أبو حلتم, محمد		Male																													
+		أبو دية, حسن		Male																													
+		أبو الرب, عمر		Male																													
+		أبو شومر, توفيق		Male																													
+		أبو صبح, موفق		Male																													
+		أبو غربية,   داود		Male																													
+		ابو غوش, عدنان		Male																													
+		الأسعد, أسعد		Male																													
+		البس, فتحي		Male																													
+		بدارين, لؤي		Male																													
+		برانسي, صالح		Male																													
+		البرغوثي, عبد اللطيف		Male																													
+		بسيسو, فؤاد		Male																													
+		البيشاوي, سعيد		Male																													
+		التالوتي, عبد المالك		Female																													
+		جابر,  محمد		Male																													
+		جبر,  يحيى		Male																													
+		جبرين, عامر		Male																													
+		جبرين, موسى		Male																													
+		جرادات, حسن		Male																													
+		جرادات, نافز		Male																													
+		الجعبة, محمد		Male																													
+		جندي, سمير		Male																													
+		جودة, أكرم		Male																													
+		الجيوسي, محمد		Female																													
+		الحاج, فخري		Male																													
+		حبش, زينب		Male																													
+		حجازي, سعد الدين		Male																													
+		حجازي, يعقوب		Male																													
+		الحسن, إبراهيم		Male																													
+		حسين, ذبلان حسين		Male																													
+		الحسيني,  محمد		Male																													
+		الحلايقة, فرج		Male																													
+		خليل, سميحة		Male																													
+		خميس, وليد		Male																													
+		داود, إبراهيم		Male																													
+		درويش, احمد		Male																													
+		الدلو,  جواد		Male																													
+		دنديس, وائل		Male																													
+		دويدار, عبد الله		Male																													
+		الدويك, وائل		Male																													
+		راحيل, يوسف		Male																													
+		الرفاعي, هبة		Male																													
+		رمضان,  نزار		Male																													
+		زريق, قسطنطين		Male																													
+		زعموري, عودة		Male																													
+		السبع, محمود		Male																													
+		السبعاوي, عبد الكريم		Male																													
+		السقا, عبد الجواد		Female																													
+		سلامة,  أميرة		Male																													
+		سليمان, أحمد		Male																													
+		سماعنة, محمد		Male																													
+		سويف, اهداف		Female																													
+		الشاعر, عماد		Male																													
+		شبلاق, رياض		Male																													
+		شريم, مروان		Male																													
+		الشقيري, احمد		Male																													
+		الشوابكة, جمال		Male																													
+		شبلاق, رياض		Male																													
+		شبيب, سميح		Male																													
+		الشوا, باسم		Male																													
+		صبح,  روحي		Male																													
+		صبح, محمد		Male																													
+		صالح, حسين		Male																													
+		الضامن, غسان		Male																													
+		طعمة, كفاية		Male																													
+		طقاطقة, عيسى		Male																													
+		طه, المتوكل		Male																													
+		الظافر, عمر		Male																													
+		عبد الله, غسان		Male																													
+		عبد الله, مازن		Male																													
+		عبد النجار,عايش		Male																													
+		عبد الهادي, سعد		Female																													
+		عبد الهادي, سميرة		Male																													
+		عدنان, ماهر		Male																													
+		عدوان, مجدي		Male																													
+		عرمان, محمد		Male																													
+		عقل, عبد اللطيف		Male																													
+		علقم, جميلة		Female																													
+		علوش, موسى		Male																													
+		علي, أحمد		Male																													
+		   علي, صبحي محمد  		Male																													
+		عليان, عادل		Male																													
+		عليوي,  ناجح		Male																													
+		عواد, ناصيف		Male																													
+		عواد, يوسف		Male																													
+		عوض, فريد		Male																													
+		عيسى, عبد المنعم		Male																													
+		الغرابلي, محمود		Male																													
+		الغزاوي, عزت		Male																													
+		غنام, تيسير		Male																													
+		الفرارجة, هشام		Male																													
+		قاسم, جهاد		Male																													
+		القبج, سامح		Male																													
+		قطامش, أحمد		Male																													
+		قعوار, جمال		Male																													
+		القلقيلي, عبد الفتاح		Male																													
+		اللبدي, محمد		Male																													
+		مرعي, سامي		Male																													
+		مزعرو , وفاء		Male																													
+		مصلح, روز		Female																													
+		منصور, سمير		Male																													
+		مطور, عمر		Male																													
+		منصور, نادر		Male																													
+		نافع,  حسونة		Male																													
+		الهودلي, عبد الجابر		Male																													
+		الهبيل, عبد الرحيم		Male																													
+		هرماس, غسان		Male																													
+		الهشلمونة, نايف		Female																													
+		هنية, اكرم		Male																													
+		الوحش, سوسن		Male																													
+		ياغي,  صبحي		Male																													
+		  اليازجي, ابراهيم		Male																													
+		يونس, أمين		Male																													
+		يوسف, فوزي		Male																													
+2322948		أبو حنا، حنا		Male	Christianity	Israel	Palestine	1928-10-16		Al-Reina	Nazareth	Palestine								Social Realism	L3000; L3001; 3002; L3003; L3004; L3005	participated in	زايد، نبيهة	أبو حنا، أمين	أبو حنا، إبراهيم؛ أبو حنا، نبيل	فرح، سامية	أبو حنا، أمية؛ أبو حنا، أمين؛ أبو حنا، رباب		أبو سلمى؛ محمود، عبد الرحيم؛ طوقان، إبراهيم؛ نصار، نجيب؛ الخوري، بشارة؛ أبو شبكة، إلياس؛ الخوري، بشارة؛ حسين، طه؛ طه، محمود علي		https://www.paljourneys.org/ar/biography/14215/%D8%AD%D9%86%D9%91%D8%A7-%D8%A3%D8%A8%D9%88-%D8%AD%D9%86%D9%91%D8%A7		سامية فرح (زوجة حنا أبو حنا) هي أخت رفيق فرح (زوج نجوى قعوار فرح)
+20992054		الحسيني، موسى، اسحاق		Male		Palestine			1904	Jerusalem		Palestine	1990-12-17		Jerusalem		Palestine	Natural			L3000	organised by									Mahr al-Bumaby Hanna Abu Hanna, pp. 25, "https://www.paljourneys.org/ar/biography/14256/%D8%A5%D8%B3%D8%AD%D9%82-%D9%85%D9%88%D8%B3%D9%89-%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86%D9%8A"		
+2158259454502302588		بوشناق، عبد الرحمن		Male		Jordan	Palestine		1913	Qisarya	Haifa	Palestine		1999																	Mahr al-Buma by Hanna Abu Hanna, pp. 28		
+		علاء الدين، حسن، محمد		Male		Palestine			1917	Alexandria		Egypt	1973-08-28		Amman		Jordan				L3001	participated in									Mahr al-Buma by Hanna Abu Hanna, pp.39 ; "http://alqudslana.com/index.php?action=individual_details&id=1895", "https://archive.alsharekh.org/Articles/144/14776/332489"	https://box.fu-berlin.de/f/55572214	Poet and Playwright
+		عمرو، مخلص	أبو هشام	Male		Palestine			1908	Hebron		Palestine		1961	Amman		Jordan	Natural	Liver Failure		L3003	participated in									Mahr al-Buma by Hanna Abu Hanna, pp. 60; "https://www.palestinapedia.net/%D9%85%D8%AE%D9%84%D8%B5-%D8%B9%D9%85%D8%B1%D9%88-1908-1961/"		Never published a book, only articles
+63208318		قعوار فرح، نجوى		Female	Christianity	Palestine		1923-04-30		Nazareth		Palestine	2015-08-01		Toronto		Canada	Natural			L3004	organised by			شهيد، عرفان	فرح، رفيق					https://www.legacy.com/obituaries/washingtonpost/obituary.aspx?n=najwa-kawar-farah&pid=175560982		
+		خميس، صليبا		Male		Israel	Palestine	1922-10-20		Nablus		Palestine	1994-08-31		Geneva		Switzerland				L3004; L3005	participated in				مير خميس، آرنه	خميس، سبارتكوس؛ مير خميس، جوليانو؛ خميس، عبير	أبو حنا، حنا؛ توما، اميل؛ حبيبي، اميل؛ خاص، محمد؛ نقولا، جبرا؛ حبيبي، اميل			Mahr al-Buma by Hanna Abu Hanna, pp. 95		
+11170396		محمود، عبد الرحيم		Male		Palestine			1913	Anabta	Tulkarm	Palestine	1948-07-13		Al-Shajara	Tiberias	Palestine	Homocide	Battle Injury		L3005	participated in									Mahr al-Buma by Hanna Abu Hanna, pp. 99, "https://www.paljourneys.org/ar/biography/14590/%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%B1%D8%AD%D9%8A%D9%85-%D9%85%D8%AD%D9%85%D9%88%D8%AF"		
+		الخضراء الجيوسي، سلملى		Female		Jordan	United States	4/16/1925		Al-Salt		Jordan								modernist movement	L1000; L1001	has participant	سليم، يوسف، آنسة	الخضراء، سعيد، ضبحي	الخضراء، فيصل	الجيوسي، كمال، برهان	أسامة؛ لينا؛ ماي		السياب، شاكر، بدر	Salma Khadra Jayyusi was born on 16 April 1925 in the Jordanian city of al-Salt to a Palestinian father and a Lebanese mother. She studied Arabic and English literature at the American University of Beirut. In her early family life with her spouse Burhan Kamal al-Jayyusi, a diplomate, she moved between many places such as Jerusalem, Rome, Madrid, Baghdad and London with their three children Usama, Lina and May. Jayyusi published her first and only collection of poetry, Returning from the Dreamy Fountain in 1960. In 1970, she was awarded her Ph.D. from the School of Oriental and African Studies at the University of London. Her dissertation, entitled Trends and Movements in Modern Arabic Poetry was published in 1977. Afterwards, she pursued teaching at several universities throughout Sudan, Algeria and the United States. Her two main long-term research projects were the Project of Translation from Arabic (PROTA) from 1980 onwards and East-West-Nexus from 1990 onwards. From both projects resulted numerous edited anthologies of Arabic literature in English translation.			
+		إبراهيم, حنا		Male		Palestine		11/1/1927	1927		Galilee	Palestine																					Founded Dar Al-Aswar in 1980; Head Editor of Al-Aswar journal
+		إبراهيم, نوح		Male		Palestine			1913	Wadi Al-Nisnas	Haifa	Palestine		1938	Tamra		Palestine	Homocide	Battle Injury														
+		أبو بكر, وليد		Male		Palestine	Palestine	1986-11-28		Gaza		Palestine									private-meet-gaza-19987;L2	has participant			Adam								
+		أبو حسن, عزمي		Male		Palestine															L1												
+		أبو حلتم, محمد		Male		Palestine																											
+		أبو دية, حسن		Male		Palestine																											
+		أبو الرب, عمر		Male		Palestine																											
+		أبو شومر, توفيق		Male		Palestine																											
+		أبو صبح, موفق		Male		Palestine																											
+		أبو غربية,   داود		Male		Palestine																											
+		ابو غوش, عدنان		Male		Palestine																											
+		أبوهشهش, محمود		Male		Palestine					Hebron																				Furani 2012, Chapter 8, pp. 120-121ك https://www.mc-doualiya.com/programs/hot-coffe-mcd/20180113-%D8%A7%D9%84%D9%83%D8%A7%D8%AA%D8%A8-%D8%A7%D9%84%D8%B4%D8%A7%D8%A8-%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%85%D8%AD%D8%B3%D9%86-%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D9%86-2017		Grew up in Al-Fawwar Refugee Camp
+		اسبر, علي	أدونيس	Male		Syria		1/1/1930	1930	Al-Qassabbin		Syria																					
+		الاسطة, عادل		Male		Palestine																									Furani 202, Bibliography list		    al-Ustta, Adel. 2001. Anta Katiban … Madha Tafʿal fi al-Intifada? Al-Ayyam (September 29), 5. 
+		الأسعد, أسعد		Male		Palestine																											
+		البس, فتحي		Male		Palestine																											
+		بدارين, لؤي		Male		Palestine																											
+		برانسي, صالح		Male		Palestine																											
+		البرغوثي, عبد اللطيف		Male		Palestine																											
+		بسيسو, فؤاد		Male		Palestine																											
+		البرغوثي,حسين		Male		Palestine								2002	Koubar																Furani 2012, Chapter 11, pp. 214-215; https://ultrapal.ultrasawt.com/%D8%B9%D9%86-%D8%AD%D8%B3%D9%8A%D9%86-%D8%A7%D9%84%D8%A8%D8%B1%D8%BA%D9%88%D8%AB%D9%8A-%D8%A7%D9%84%D9%84%D9%87%D9%85%D9%91-%D9%81%D9%84%D8%AA%D8%B4%D9%87%D8%AF-%D9%88%D9%84%D9%8A%D8%BA%D9%86%D9%91-%D8%A7%D9%84%D8%AC%D8%A8%D9%84/%D8%A7%D9%84%D8%AA%D8%B1%D8%A7-%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86/%D8%AB%D9%82%D8%A7%D9%81%D8%A9-%D9%88%D9%81%D9%86/%D9%85%D9%86%D9%88%D8%B9%D8%A7%D8%AA		Poet
+		البرغوثي, مريد		Male		Palestine		7/8/1944	1944	Dayr Ghassana		Palestine														عاشور, رضوى					https://www.marefa.org/%D9%85%D8%B1%D9%8A%D8%AF_%D8%A7%D9%84%D8%A8%D8%B1%D8%BA%D9%88%D8%AB%D9%8A		
+		البطراوي, محمد		Male		Palestine			1929	Isdud		Palestine	3/13/2011	2011	Ramallah		Palestine	Natural	Heart attack												Furani 2012, Chapter 10, pp162; http://info.wafa.ps/persons.aspx?id=490		Poet; one of the first founders of Al-Ittihad
+		البياتي, عبد الوهاب		Male		Iraq		12/19/1926	1926	Baghdad		Iraq	8/3/1999	1999	Damascus		Syria																
+		بيدس, خليل		Male		Palestine			1874	Nazareth		Palestine		1949	Beirut		Lebanon																Prolific translation of Russian literature
+		تركي, داوود		Male		Palestine			1929	Al-Maghar		Palestine	3/8/2009	2009	Haifa		Israel	Natural	Prison-related injuries												Furani 2012, Chapter 5, p84; https://www.arab48.com/%D9%85%D8%AD%D9%84%D9%8A%D8%A7%D8%AA/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-%D9%85%D8%AD%D9%84%D9%8A%D8%A9/2009/03/09/%D8%B1%D8%AD%D9%8A%D9%84-%D8%A7%D9%84%D8%A3%D8%B3%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D8%B1-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B6%D9%84-%D8%AF%D8%A7%D9%88%D9%88%D8%AF-%D8%AA%D8%B1%D9%83%D9%8A-		Wrote first poem in prison, 1974, dedicated to freedom-fighter daughter Ayeda
+		توما, اميل		Male		Palestine	Israel	3/16/1919	1919	Haifa		Palestine	8/27/1985	1985	Budapest		Hungary	Undetermined	Cancer	Marxism											Furani 2012, Bibliography list; Bargouti 2009, 118		1965  ;Head Editor of Al-Ittihad; wrote on developments in Palestinian poetry in Israel in AL-Jadid - 1956, Issue 10, pp10-17; 1965, Issue 1, pp5-8
+		جابر,  محمد		Male		Palestine																											
+		جبر,  يحيى		Male		Palestine																											
+		جبرا, إبراهيم, جبرا		Male		Palestine			1919	Bethlehem		Palestine			Baghdad		Iraq														https://www.paljourneys.org/en/biography/14223/jabra-ibrahim-jabra		
+		جبرين, عامر		Male		Palestine																											
+		جبرين, موسى		Male		Palestine																											
+		جرادات, حسن		Male		Palestine																											
+		جرادات, نافز		Male		Palestine																											
+		جريس, صبري		Male		Palestine			1938	Fassuta		Palestine																			http://jiryis.net/about-me/		
+		حامد, عبد المجيد		Male		Palestine																									http://info.wafa.ps/persons.aspx?id=415		Key sha'abi poet in Mandate occupation era; Was given post-humus award in Jerusalem when it was made City of Culture in 2010,
+		حبش, زينب		Male		Palestine																											
+		حبيبي, اميل		Male		Palestine		1/28/1922	1922	Haifa		Palestine	5/2/1996	1996	Nazareth		Palestine	Natural	Cancer	Marxism													
+		حجازي, سعد الدين		Male		Palestine																											
+		حجازي, يعقوب		Male		Palestine																											
+		حداد, ميشيل		Male		Palestine			1919	Nazareth		Palestine		1997							L17	organised by											
+		الحسن, إبراهيم		Male		Palestine																											
+		حسين, ذبلان حسين		Male		Palestine																											
+		حسين, راشد		Male		Palestine		1/1/1937	1937	Musmus	Umm Al-Fahm	Palestine	2/7/1977	1977	New York		United States of America	Undetermined	House fire (Smoke inhalition/Burning)		L14	read poetry									Nassar 2017, Introduction, p1		
+		الحسيني, عبد القادر		Male		Palestine			1908	Jerusalem		Palestine	8/8/1948	1948	Jerusalem		Palestine	Homocide	Battle Injury												Furani 2012, Chapter 9, pp. 159		Managed Orient House, 2001
+		الحسيني,  محمد		Male		Palestine																											
+		الحلايقة, فرج		Male		Palestine																											
+		خليل, سميحة		Male		Palestine																											
+		الخليلي, علي		Male		Palestine		2/3/1933	1933	Haifa		Palestine	12/17/2017	2017	Nazareth		Palestine														Furani 2012, Chapter 8, pp. 139- 142; http://www.diwanalarab.com/%D8%A5%D8%AF%D9%85%D9%88%D9%86-%D8%B4%D8%AD%D8%A7%D8%AF%D8%A9		PNA; Edited anthology of Palestinian poetry 1999, commissioned by PNA while Amman was city of culture
+		خميس, وليد		Male		Palestine																											
+		خوري, خليل		Male		Palestine																									Furani 2012, Chapter 8, pp. 139- 140; https://www.facebook.com/pg/Khalil-khoury-%D8%AE%D9%84%D9%8A%D9%84-%D8%AE%D9%88%D8%B1%D9%8A-325076358194529/about/?ref=page_internal		Poet
+		خوري, ندى		Female		Palestine		5/5/1945	1945	Koubar		Palestine	1/1/2002	2002	Ramallah		Palestine	Natural	Cancer												Furani 2012, Chapter 11, pp. 214-215		Furani 2016, 177: Hussein Al-Barghouti only started to write poetry in finale decade of his life
+		داود, إبراهيم		Male		Palestine																											
+		دحبور, احمد		Male		Palestine			1946	Wadi Al-Nisnas	Haifa	Palestine	4/8/2017	2017	Ramallah		Palestine	Natural	Illness										قبق, موريس		Furani 2012, Chapter 8, pp. 138-140		Was in Tunisia; then Baghdad: then in Gaza from 2002
+		درويش, احمد		Male		Palestine																											
+		درويش, محمود		Male		Palestine		9/13/1943	1943	Al-Birwa		Palestine	8/9/2008	2008	Houston		United States of America	Natural	Ischemic Heart Disease	Marxism	L13; L23	read poetry							البياتي, عبد الوهاب؛ السياب, شكر, بدر؛		Nassar 2017; Furani 2016; Fasl al-Maqal, March 29, 2003		
+		الدسوقي, محمود		Male		Palestine																											Poet
+		رمضان, عبد المنيم		Male		Palestine																											
+		رمضان,  نزار		Male		Palestine																											
+		زريق, قسطنطين		Male		Palestine																											
+		زعموري, عودة		Male		Palestine																											
+		زياد, توفيق		Male		Palestine		5/7/1929	1929	Nazareth		Palestine	7/5/1994	1994		Ghor Al-Urdun	Palestine	Undetermined	Road Injury		L11	read poetry									Furani 2012, Bibliography list		Zayyad, Tawfiq. 1958. Min Wara' al-Qudban. al-Jadid (6), 38–40.
+		السبع, محمود		Male		Palestine																											
+		السبعاوي, عبد الكريم		Male		Palestine																											
+		السقا, عبد الجواد		Female		Palestine																											
+		سلامة,  أميرة		Male		Palestine																											
+		سليمان, أحمد		Male		Palestine																											
+		سماعنة, محمد		Male		Palestine																											
+		السوداني, مراد		Male		Palestine		6/23/1973	1973	Deir Es Sudan	Ramallah	Palestine																			Furani 2012, Chapter 8, pp. 139- 142; https://www.aljazeera.net/encyclopedia/icons/2014/9/28/%D9%85%D8%B1%D8%A7%D8%AF-%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86%D9%8A		Poet; Wrote to Al-Quds Al-Arabi that the post-Darwish generation of Palestinian poets were ignored in anthology of Palestinian poetry 1999
+		سوميخ، ساسون		Male		Iraq	Israel	9/21/1933	1933	Baghdad		Iraq	8/18/2019	2019	Tel Aviv		Israel	Natural			L17	wrote about									Furani 2012, chapter 3, note 16; Al Jadeed , June 1955, pp56-57		
+		سويف, اهداف		Female		Palestine																											
+		السياب, شكر, بدر		Male		Iraq		12/24/1926	1926	Basra		Iraq	12/24/1964	1964	Kuwait City		Kuwait	Natural	Motor Neurone Disease												https://www.diwanalarab.com/%D8%A8%D8%AF%D8%B1-%D8%B4%D8%A7%D9%83%D8%B1-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%A8		
+		الشاعر, عماد		Male		Palestine																											
+		شبلاق, رياض		Male		Palestine																											
+		شحادة, ادمون		Male		Palestine																							الملائكة, نازك		Furani 2012, Chapter 9, pp. 155- 157		Poet
+		شريم, مروان		Male		Palestine																											
+		الشقيري, احمد		Male		Palestine																											
+		الشوابكة, جمال		Male		Palestine																											
+		شبلاق, رياض		Male		Palestine																											
+		شبيب, سميح		Male		Palestine																											
+		الشوا, باسم		Male		Palestine																											
+		صائغ, توفيق		Male		Palestine			1923	Kharaba		Syria																			Furani 2012, Bibliography list		Sayigh, Tawfiq. 1960. Al-Qasida K. Beirut: Dar al-Maktaba al-ʿAssriyya.
+		صبح,  روحي		Male		Palestine																											
+		صبح, محمد		Male		Palestine																											
+		صالح, حسين		Male		Palestine																											
+		الضامن, غسان		Male		Palestine																											
+		طعمة, كفاية		Male		Palestine																											
+		طقاطقة, عيسى		Male		Palestine																											
+		طوقان, إبراهيم		Male		Palestine			1905	Nablus		Palestine	5/2/1941	1941	Jerusalem		Palestine	Natural	Illness												https://www.paljourneys.org/ar/biography/9722/%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85-%D8%B7%D9%88%D9%82%D8%A7%D9%86		Poet
+		طوقان, فدوى		Female		Palestine			1917	Nablus		Palestine	12/12/2003	2003	Nablus		Palestine	Natural	Stroke										طوقان, إبراهيم		Furani 2012, Bibliography list		Tuqan, Fadwa. 1981. Qasa'id Siyasiyya. Acre: Dar al-Aswar. 
+		طه, المتوكل		Male		Palestine																									Director of Palestinian House of Poetry		
+		الظافر, عمر		Male		Palestine																											
+		عباسي, عصام		Male		Palestine															L11	banned from attending									Furani. 2012, 47		
+		عبد الله, غسان		Male		Palestine																											
+		عبد الله, مازن		Male		Palestine																											
+		عبد النجار,عايش		Male		Palestine																											
+		عبد الهادي, سعد		Female		Palestine																											
+		عبد الهادي, سميرة		Male		Palestine																											
+		عدنان, ماهر		Male		Palestine																											
+		عدوان, مجدي		Male		Palestine																											
+		عرمان, محمد		Male		Palestine																											
+		عزام, سميرة		Female		Palestine		9/13/1927	1927	Acre		Palestine	8/8/1967	1967	Ramtha		Jordan	Natural	Heart attack														Poet
+		علي, محمد, طه		Male		Palestine			1931	Safuriyya		Palestine	10/2/2011	2011	Nazareth		Palestine														https://www.poetryfoundation.org/poets/taha-muhammad-ali		Poet
+		عليان, عادل		Male		Palestine																											
+		العليم, أمين, محمد		Male		Egypt			1922	Cairo				2009															يوسف, سعدي				
+		عليوي,  ناجح		Male		Palestine																											
+		عواد, ناصيف		Male		Palestine																											
+		عواد, يوسف		Male		Palestine																											
+		عوض, فريد		Male		Palestine																											
+		عيسى, عبد المنعم		Male		Palestine																											
+		الغرابلي, محمود		Male		Palestine																											
+		الغزاوي, عزت		Male		Palestine																											
+		غنام, تيسير		Male		Palestine																											
+		الفرارجة, هشام		Male		Palestine																											
+		فوراني, فتحي		Male		Palestine				Haifa		Palestine																			Furani 2012, Chapter 11, pp. 214-215		Poet
+		قاسم, جهاد		Male		Palestine																											
+		القاسم, سميح		Male		Jordan	Israel		1939	Az Zarqa		Jordan		2014	Safad		Palestine	Natural	Cancer	Marxism			فياض, شحادة	آل حسين, القاسم, محمد		حسين, نوال	 محمد ؛ وضاح؛ عمر؛ ياسر.	درويش, محمود			https://www.alarab.com/Article/630990  and https://www.paljourneys.org/ar/biography/14240/%D8%B3%D9%85%D9%8A%D8%AD-%D8%A7%D9%84%D9%82%D8%A7%D8%B3%D9%85		Poet
+		القاسم, نبيه		Male		Palestine			1945	Al-Rama		Palestine		1971	Berkeley		United States of America														Furani 2012, Bibliography list		Wrote in Al-Jadeed, 1975, Issue 3, pp47-66
+		قباني, نزار		Male		Syria		3/21/1923	1923	Damascus		Syria	4/30/1998	1998	London		United Kingdom	Natural	Illness												https://www.aljazeera.net/encyclopedia/icons/2015/10/2/%D9%86%D8%B2%D8%A7%D8%B1-%D9%82%D8%A8%D8%A7%D9%86%D9%8A		
+		القبج, سامح		Male		Palestine																											
+		قبق, موريس		Male		Syria			1932	Masyaf		Syria	1/19/1996	1996																	Furani 2012, Chapter 8, pp. 139- 140; https://www.facebook.com/236626823069908/posts/264903220242268/		Poet
+		قطامش, أحمد		Male		Palestine																											
+		قعوار, جمال		Male		Palestine																											
+		القلقيلي, عبد الفتاح		Male		Palestine															L11	banned from attending											
+		قهوجي, حبيب		Male		Palestine																											
+		كنفاني, غسان		Male		Palestine			1936	Acre		Palestine		1984	Beirut		Lebanon	Homocide	Assassination	Resistance Literature									عزام, سميرة				
+		كيوان, احمد		Male		Palestine																							البطراوي, محمد		Furani 2012, Chapter 9, pp. 159		Poet
+		اللبدي, محمد		Male		Palestine																											
+		الماغوت, محمد		Male		Syria			1936	Salamiyah		Syria	4/3/2006	2006	Damascus		Syria			Free verse													Wrote for Al-Ittihad
+		محمد, زكريا		Male		Palestine			1950																				يوسف, سعدي		Furani 2012, Chapter 11, pp. 214-215; https://www.alhadath.ps/article/113972/%D8%B2%D8%B1%D8%A7%D9%88%D9%86%D8%AF-%D8%AF%D9%8A%D9%88%D8%A7%D9%86-%D9%84%D9%84%D8%B4%D8%A7%D8%B9%D8%B1-%D8%B2%D9%83%D8%B1%D9%8A%D8%A7-%D9%85%D8%AD%D9%85%D8%AF-		Poet
+		مراد, مصطفى		Male		Palestine			1897	Jaffa		Palestine	7/7/1989	1989	Beirut		Lebanon					organised by											
+		الملائكة, نازك		Female		Iraq		8/23/1923	1923	Baghdad		Iraq	6/20/2007	2007	Cairo		Egypt	Natural													https://www.aljazeera.net/news/cultureandart/2019/6/20/%D8%A7%D9%84%D8%B4%D8%A7%D8%B9%D8%B1%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82%D9%8A%D8%A9-%D9%86%D8%A7%D8%B2%D9%83-%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%A6%D9%83%D8%A9-%D8%A7%D9%84%D8%AB%D8%A7%D8%A6%D8%B1%D8%A9-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D9%84%D9%8A%D8%AF		Free verse pioneer; was part of Al-Adab from 1953;
+		مصلح, روز		Female		Palestine																											
+		منصور, سمير		Male		Palestine																											
+		مطور, عمر		Male		Palestine																											
+		معمر, سهيل		Male		Palestine															L17	organised by											
+		منصور, نادر		Male		Palestine																											
+		موريه, شموئيل		Male		Iraq	Israel	12/22/1932	1932	Baghdad		Iraq	9/22/2017	2007	Mevaseret Zion	Jerusalem	Israel	Natural													Furani 2012, Bibliography list; https://haifanet.co.il/archives/14733		Moreh, Shmuel. 1967. Arabic Literature in Israel. Middle Eastern Studies 3 (3), 283–94. الكرمل” للأدباء الفلسطينيِّين في الداخل elected as head in 2015
+		ناصر, امجد		Male		Jordan			1955	Al-Turra				2019	London		United Kingdom	Natural	Cancer												https://www.bbc.com/arabic/trending-50247719		
+		نافع,  حسونة		Male		Palestine																											
+		نعيمة, مخايئل		Male		Palestine		17-10-1889	1889	Baskinta		Lebanon	2/28/1988	1988	Beirut		Lebanon	Natural	Pneumonia	Mahjar													
+		نقارة, حنا		Male		Palestine			1912	Al-Rama		Palestine		1984			Palestine			Marxism													
+		الهودلي, عبد الجابر		Male		Palestine																											
+		الهبيل, عبد الرحيم		Male		Palestine																											
+		هرماس, غسان		Male		Palestine																											
+		الهشلمونة, نايف		Female		Palestine																											
+		هنية, اكرم		Male		Palestine																											
+		الوحش, سوسن		Male		Palestine																											
+		ياغي,  صبحي		Male		Palestine																											
+		  اليازجي, ابراهيم		Male		Palestine																											
+		يونس, أمين		Male		Palestine																											
+		يوسف, سعدي		Male		Iraq			1934	Abu Al Khasib		Iraq																			http://www.saadiyousif.com/new/		
+		يوسف, فوزي		Male		Palestine																											
+	Saramago, José			Male		Portugal		11/16/1922	1922	Azinhaga		Portugal	6/18/2010	2010	Tias		Spain	Natural	Cancer		L23	was participant									https://www.theguardian.com/books/2010/jun/18/jose-saramago-obituary; https://www.mppm-palestina.org/content/cause-palestinian-people-loses-jose-saramago-unconditional-supporter		Attended L23
+	Soyinka, Wole			Male		Nigeria			1934	Abeokuta											L23	was participant									https://www.theguardian.com/books/2002/apr/06/wolesoyinka		Attended L23
+		الخضراء الجيوسي، سلملى																			L1002	participated in											
+		البحري, جميل		Male	Christianity	Palestine		1895-05-12		Haifa		Palestine	1930-09-06		Haifa		Palestine	Homocide	Assassination						البحري, حنا			نصار, نجيب؛ العيسى, عيسى؛ البستاني, وديع			منصور، جوني. 2016. حيفا: الكلمة التي صارت مدينة، ص. 341-343		
