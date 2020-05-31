@@ -43,19 +43,19 @@
       "op:split_values-->Influenced by person": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"}
     },
     "update": {
-      "op:lookup_relation-->Relation  to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource" }],
-      "wd:P25":[ {"value_resource_id": "op:clean_name-->Mother;crosstable_lookup(person)", "type":"resource" }],
-      "wd:P22":[ {"value_resource_id": "op:clean_name-->Father;crosstable_lookup(person)", "type":"resource" }],
-      "wd:P3373":[{"value_resource_id": "op:split_values-->Siblings;crosstable_lookup(person)", "type":"resource" }],
-      "wd:P26":[{"value_resource_id": "op:split_values-->Spouses;crosstable_lookup(person)", "type":"resource" }],
-      "wd:P40":[{"value_resource_id": "op:split_values-->Children;crosstable_lookup(person)", "type":"resource" }],
-      "wd:P3342":[{"value_resource_id": "op:split_values-->Friends;crosstable_lookup(person)", "type":"resource" }],
-      "wd:P737":[{"value_resource_id": "op:split_values-->Influenced by person;crosstable_lookup(person)", "type":"resource" }],
-      "pr:membership-event":[{ "@id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Membership", "type":"resource" }],
-      "pr:education-event":[{ "@id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Education", "type":"resource" }],
-      "pr:employment-event":[{ "@id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Employment", "type":"resource" }],
-      "pr:award-event":[{ "@id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Award", "type":"resource" }],
-      "wd:P551":[{ "@id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Residence", "type":"resource" }
+      "op:lookup_relation-->Relation  to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource:item" }],
+      "wd:P25":[ {"value_resource_id": "op:clean_name-->Mother;crosstable_lookup(person)", "type":"resource:item" }],
+      "wd:P22":[ {"value_resource_id": "op:clean_name-->Father;crosstable_lookup(person)", "type":"resource:item" }],
+      "wd:P3373":[{"value_resource_id": "op:split_values-->Siblings;crosstable_lookup(person)", "type":"resource:item" }],
+      "wd:P26":[{"value_resource_id": "op:split_values-->Spouses;crosstable_lookup(person)", "type":"resource:item" }],
+      "wd:P40":[{"value_resource_id": "op:split_values-->Children;crosstable_lookup(person)", "type":"resource:item" }],
+      "wd:P3342":[{"value_resource_id": "op:split_values-->Friends;crosstable_lookup(person)", "type":"resource:item" }],
+      "wd:P737":[{"value_resource_id": "op:split_values-->Influenced by person;crosstable_lookup(person)", "type":"resource:item" }],
+      "pr:membership-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Membership", "type":"resource:item" }],
+      "pr:education-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Education", "type":"resource:item" }],
+      "pr:employment-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Employment", "type":"resource:item" }],
+      "pr:award-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Award", "type":"resource:item" }],
+      "wd:P551":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Residence", "type":"resource:item" }
       ]
     }
   },
@@ -78,9 +78,9 @@
       "op:split_values-->Student of": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"}
     },
     "update": {
-      "pr:related-organisation":[{ "value_resource_id": "op:clean_name-->Organisation or POI;crosstable_lookup(organisation)", "type":"resource" }],
-      "wd:P1066":[{ "value_resource_id": "op:split_values-->Student of;crosstable_lookup(person)", "type":"resource" }],
-      "pr:related-periodical":[{ "value_resource_id": "op:clean_name-->Work title;crosstable_lookup(work)", "type":"resource" }]
+      "pr:related-organisation":[{ "value_resource_id": "op:clean_name-->Organisation or POI;crosstable_lookup(organisation)", "type":"resource:item" }],
+      "wd:P1066":[{ "value_resource_id": "op:split_values-->Student of;crosstable_lookup(person)", "type":"resource:item" }],
+      "pr:related-periodical":[{ "value_resource_id": "op:clean_name-->Work title;crosstable_lookup(work)", "type":"resource:item" }]
     }
   },
   "organisation":{
@@ -102,7 +102,7 @@
     },
     "lookup": {},
     "update": {
-      "op:lookup_relation-->Relation to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource" }]
+      "op:lookup_relation-->Relation to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource:item" }]
       }
   },
   "publisher":{
@@ -125,12 +125,12 @@
     },
     "lookup": {},
     "update": {
-      "pr:political-affiliation":[{ "value_resource_id": "op:clean_name-->Political affiliation;crosstable_lookup(organisation)", "type":"resource" }],
-      "pr:union-affiliation":[{ "value_resource_id": "op:clean_name-->Union affiliation;crosstable_lookup(organisation)", "type":"resource" }],
-      "op:lookup_relation-->Relation to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource" }],
-      "wd:P112":[{ "value_resource_id": "op:clean_name-->Founder name @en;crosstable_lookup(person)", "type":"resource" },
-                { "value_resource_id": "op:clean_name-->Founder name @ar;crosstable_lookup(person)", "type":"resource" },
-                { "value_resource_id": "op:clean_name-->Founder name 2 @ar;crosstable_lookup(person)", "type":"resource" }]
+      "pr:political-affiliation":[{ "value_resource_id": "op:clean_name-->Political affiliation;crosstable_lookup(organisation)", "type":"resource:item" }],
+      "pr:union-affiliation":[{ "value_resource_id": "op:clean_name-->Union affiliation;crosstable_lookup(organisation)", "type":"resource:item" }],
+      "op:lookup_relation-->Relation to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource:item" }],
+      "wd:P112":[{ "value_resource_id": "op:clean_name-->Founder name @en;crosstable_lookup(person)", "type":"resource:item" },
+                { "value_resource_id": "op:clean_name-->Founder name @ar;crosstable_lookup(person)", "type":"resource:item" },
+                { "value_resource_id": "op:clean_name-->Founder name 2 @ar;crosstable_lookup(person)", "type":"resource:item" }]
     }
   },
   "lit_event":{
@@ -153,7 +153,7 @@
     },
     "lookup": {},
     "update": {
-      "pr:related-event":[{"value_resource_id": "op:clean_name-->Related  event ;crosstable_lookup(lit_event)", "type":"resource" }]
+      "pr:related-event":[{"value_resource_id": "op:clean_name-->Related  event ;crosstable_lookup(lit_event)", "type":"resource:item" }]
     }
   }
 }

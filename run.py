@@ -121,8 +121,19 @@ print("-> Done\n")
 print("Update items...")
 updated_data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "update")
 print("-> tables read")
-for payload in updated_data:
-    response = REQ_SESSION.patch('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
+for update_payload in updated_data:
+    res_id = update_payload["o:item"][0]["o:id"]
+
+    # get item payload to be updated
+    response = REQ_SESSION.get('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id))
+    current_data = response.json()
+    for k,v in update_payload.items():
+        print("\nTO BE ADDED",k,v)
+        current_data[k] = v
+
+    print(current_data)
+    resp = REQ_SESSION.put('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id), json=current_data, params=params)
+    print(resp)
 print("-> data updated!")
 
 # 19. dump data created in "created_items.json"

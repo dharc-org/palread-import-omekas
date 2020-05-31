@@ -45,14 +45,18 @@ def update_item(data_row, item_set_id=None, item_type=None, res_class=None, prop
 
     # best match of subject within created items
     item_id = find_subject_item_id(data_row, res_class, item_type)
-    data = update_json(data_row, item_type, mapping[item_type]["update"],c.VOCABULARY_PROPERTIES)
+    data = update_json(data_row, item_type, mapping[item_type]["update"],c.VOCABULARY_PROPERTIES, property_ids)
+    print("\nupdated_json",data)
     data = change_prop_id(data,property_ids)
+    #data = add_res_id(data)
     updated_json = {
-            "@type":["o:Item"],
+            # "@type":["o:Item"],
             "o:item": [{"o:id": int(item_id)}]
              }
     for k,v in data.items():
-        updated_json[k] = v
+        if v[0]["value_resource_id"] is not None:
+            updated_json[k] = v
+
     return updated_json
 
 def map_to_entity(entity_index,resource_templates_ids=None):
@@ -112,15 +116,24 @@ def find_object_item_id(item_type, label=None):
 
 def find_objects_ids_by_properties(type_lookup, parameters):
     lookup_class = c.ENTITIES[type_lookup]["e_class"]
-    items_id = set()
+    items_id_candidate = defaultdict(list)
+    items_id = []
     with open(c.ITEMS_INDEX,"r") as items_index_file:
         all_items = json.load(items_index_file)
         for item in all_items:
             if lookup_class in item["@type"]:
                 for lookup_prop,lookup_value in parameters.items():
                     if lookup_prop in item and any(dict_value["@value"] == lookup_value for dict_value in item[lookup_prop]):
-                        items_id.add(item["o:id"])
-    items_id = list(items_id)
+                        items_id_candidate[item["o:id"]].append("yes")
+                    else:
+                        items_id_candidate[item["o:id"]].append("no")
+
+    items_id_candidate = dict(items_id_candidate)
+
+    for candidate, props in items_id_candidate.items():
+        if (props.count("yes") == len(props) and len(props) >= 1):
+            items_id.append(candidate)
+
     if len(items_id) >= 1:
         return items_id
     return None
@@ -192,25 +205,26 @@ def fill_json(data_row, item_properties,vocabularies_ids=None):
                     value_dict[object] = replace_value(value_dict[object],data_row)
     return item_data
 
-def update_json(data_row, item_type, item_properties,vocabularies_props):
+def update_json(data_row, item_type, item_properties,vocabularies_props, property_ids):
     item_data = {k:v for k,v in item_properties.items()}
     interm_data = {}
     final_data = defaultdict(list)
     new_prop = None
+    entities_id = None
     # parse prop if actions are required to define the property - look into vocabularies_props
     for prop, values_list in item_data.items():
         new_prop = get_property_from_vocab(data_row[prop.split("-->")[1]],c.VOCABULARY_PROPERTIES) if "op:lookup_relation-->" in prop else prop
         interm_data[new_prop] = values_list
-    entities_id = None
-    if new_prop is not None:
-        # parse value_resource_id
-        for prop, values_list in interm_data.items():
+
+
+    # parse value_resource_id
+    for prop, values_list in interm_data.items():
+        if prop is not None:
             for value_dict in values_list:
                 if "value_resource_id" in value_dict.keys():
                     operations = value_dict["value_resource_id"].split(";")
                     if "op:" in operations[0]:
                         # preprocessing on data, e.g. split, clean, that may be followed by crosstable research
-                        print(operations[0],data_row)
                         lookup_entity_labels = replace_value(operations[0],data_row)
                         #lookup_entity_labels = [values] if isinstance(values, str) else values
                         if len(operations) > 1:
@@ -229,21 +243,25 @@ def update_json(data_row, item_type, item_properties,vocabularies_props):
                         lookup_properties_values = {l[0]:l[1] for l in parameters}
                         lookup_properties_values = {k:cur_subject_label(v, item_type, data_row) for (k,v) in lookup_properties_values.items()}
                         lookup_properties_values = json.dumps(lookup_properties_values)
-                        entities_id = eval(crosstable_op+'('+type_lookup+', parameters='+lookup_properties_values+')')
+                        entities_id = eval(crosstable_op+'("'+type_lookup+'", parameters='+lookup_properties_values+')')
 
-        for entity_id in entities_id:
-            entity_dict = {}
-            entity_dict["value_resource_id"] = entity_id
-            entity_dict["type"] = "resource"
-            final_data[prop].append(entity_dict)
+            if entities_id is not None:
+                for entity_id in entities_id:
+                    entity_dict = {}
+                    entity_dict["value_resource_id"] = entity_id
+                    entity_dict["type"] = "resource:item"
+                    entity_dict["value_resource_name"] = "items"
+                    final_data[prop].append(entity_dict)
     final_data = dict(final_data)
     return final_data
 
 def crosstable_lookup(type_lookup,lookup_entity_labels=None, parameters=None):
     if parameters is None:
         entities_id = [find_object_item_id(type_lookup, lookup_entity_label) for lookup_entity_label in lookup_entity_labels]
+        print("single entities_id",entities_id)
     else:
         entities_id = find_objects_ids_by_properties(type_lookup, parameters)
+        print("multiple entities_id",entities_id)
     return entities_id
 
 def cur_subject_label(v, type_lookup, data_row):
@@ -259,8 +277,6 @@ def get_property_from_vocab(lookup_prop,vocab):
     new_prop = None
     if lookup_prop in vocab:
         new_prop = vocab[lookup_prop]
-        print(lookup_prop)
-        print(new_prop)
     return new_prop
 
 def clean_dict(item_data):
@@ -303,6 +319,16 @@ def change_prop_id(item_data,property_ids):
         # if len(values_list) == 1 and values_list[0]["property_id"] != '1':
         #     values_list[0]["property_id"] = '1'
     return item_data
+
+def add_res_id(item_data):
+    for prop, values_list in item_data.items():
+        for dictionary in values_list:
+            res_id = dictionary["value_resource_id"]
+            dictionary["@id"] = '{}/items/{}'.format(c.CONF["OMEKA_API_URL"], res_id)
+        # if len(values_list) == 1 and values_list[0]["property_id"] != '1':
+        #     values_list[0]["property_id"] = '1'
+    return item_data
+
 
 def get_ids(api_url,lookup):
     res = {}
@@ -409,9 +435,8 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
                         for item in list_lookup_items:
                             list_items.append(item)
                     if operation == 'update':
-                        updated_items = update_item(row,item_set_id,entity, res_class, property_ids)
-                        for item in updated_items:
-                            list_items.append(item)
+                        updated_item = update_item(row,item_set_id,entity, res_class, property_ids)
+                        list_items.append(updated_item)
 
     return list_items
 
