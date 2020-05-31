@@ -1,6 +1,18 @@
 {
-    "o:label": "Person",
+    "o:label": "Ephemera",
     "o:resource_template_property": [
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "customvocab:16",
+            "data_type_label": "Type of ephemeral",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "publication-type",
+            "label": "publication type"
+        },
         {
             "o:alternate_label": null,
             "o:alternate_comment": null,
@@ -10,8 +22,8 @@
             "data_type_label": "Text",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P2561",
-            "label": "name"
+            "local_name": "P1476",
+            "label": "title"
         },
         {
             "o:alternate_label": null,
@@ -22,8 +34,20 @@
             "data_type_label": "Text",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P214",
-            "label": "VIAF ID"
+            "local_name": "P1680",
+            "label": "subtitle"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P50",
+            "label": "author"
         },
         {
             "o:alternate_label": null,
@@ -34,32 +58,44 @@
             "data_type_label": "Text",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P742",
-            "label": "pen name"
+            "local_name": "P577",
+            "label": "publication date"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "If no publication date is known input earliest known date or year (DD\/MM\/YYYY or YYYY)",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P580",
+            "label": "from year or date"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "If no publication date is known input latest known date or year (DD\/MM\/YYYY or YYYY)",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P582",
+            "label": "to year or date"
         },
         {
             "o:alternate_label": null,
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "customvocab:1",
-            "data_type_label": "Gender",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P21",
-            "label": "gender"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "customvocab:3",
-            "data_type_label": "Religion",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P140",
-            "label": "religion"
+            "data_type_name": "valuesuggest:geonames:geonames",
+            "data_type_label": "Geonames: The GeoNames geographical database",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "author-location",
+            "label": "author's location"
         },
         {
             "o:alternate_label": null,
@@ -70,20 +106,20 @@
             "data_type_label": "Geonames: The GeoNames geographical database",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P27",
-            "label": "country of citizenship"
+            "local_name": "P291",
+            "label": "publication place"
         },
         {
             "o:alternate_label": null,
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "literal",
-            "data_type_label": "Text",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P569",
-            "label": "birth date"
+            "data_type_name": "valuesuggest:geonames:geonames",
+            "data_type_label": "Geonames: The GeoNames geographical database",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "publication-location",
+            "label": "different publication place"
         },
         {
             "o:alternate_label": null,
@@ -94,20 +130,44 @@
             "data_type_label": "Geonames: The GeoNames geographical database",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P19",
-            "label": "birth city"
+            "local_name": "P17",
+            "label": "country"
         },
         {
             "o:alternate_label": null,
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "literal",
-            "data_type_label": "Text",
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P570",
-            "label": "death date"
+            "local_name": "P1433",
+            "label": "part of"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P527",
+            "label": "has part"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P921",
+            "label": "subject item"
         },
         {
             "o:alternate_label": null,
@@ -116,130 +176,22 @@
             "o:is_private": false,
             "data_type_name": "valuesuggest:geonames:geonames",
             "data_type_label": "Geonames: The GeoNames geographical database",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P20",
-            "label": "death city"
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "subject-place",
+            "label": "subject place"
         },
         {
             "o:alternate_label": null,
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "customvocab:4",
-            "data_type_label": "Manner of death",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P1196",
-            "label": "manner of death"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "customvocab:5",
-            "data_type_label": "Cause of death",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P509",
-            "label": "cause of death"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P25",
-            "label": "mother"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P22",
-            "label": "father"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P3373",
-            "label": "sibling"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P26",
-            "label": "spouse"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P40",
-            "label": "child"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P3342",
-            "label": "friend"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P737",
-            "label": "influenced by"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "customvocab:10",
-            "data_type_label": "Literary movement",
-            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
-            "vocabulary_label": "wikidata",
-            "local_name": "P135",
-            "label": "literary movement"
+            "data_type_name": "valuesuggest:lc:all",
+            "data_type_label": "LC: All",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "loc-subject",
+            "label": "LOC subject"
         },
         {
             "o:alternate_label": null,
@@ -250,116 +202,32 @@
             "data_type_label": "Item",
             "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
             "vocabulary_label": "palread",
-            "local_name": "education-event",
-            "label": "education event"
+            "local_name": "subject-of",
+            "label": "subject of"
         },
         {
             "o:alternate_label": null,
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
+            "data_type_name": "customvocab:14",
+            "data_type_label": "Theme",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P551",
-            "label": "residence event"
+            "local_name": "P6962",
+            "label": "theme"
         },
         {
             "o:alternate_label": null,
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "employment-event",
-            "label": "employment event"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "membership-event",
-            "label": "membership event"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "award-event",
-            "label": "award event"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
+            "data_type_name": "customvocab:13",
+            "data_type_label": "Genre",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
             "vocabulary_label": "wikidata",
-            "local_name": "P1344",
-            "label": "participant in"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "organised",
-            "label": "organised"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "banned-from",
-            "label": "banned from"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "read-poetry-at",
-            "label": "read poetry at"
-        },
-        {
-            "o:alternate_label": "discussed about event",
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": "resource:item",
-            "data_type_label": "Item",
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "has-topic",
-            "label": "has topic"
+            "local_name": "P136",
+            "label": "genre"
         },
         {
             "o:alternate_label": null,
@@ -370,8 +238,80 @@
             "data_type_label": "Text",
             "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
             "vocabulary_label": "palread",
-            "local_name": "biography",
-            "label": "biography"
+            "local_name": "dedication",
+            "label": "dedication"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P7535",
+            "label": "abstract"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "note-contents",
+            "label": "notes on contents"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "The institution holding copies of the publication.",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P485",
+            "label": "holding institution"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "note-holding-institution",
+            "label": "notes on holding institution"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "note-copy",
+            "label": "notes on the copy"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "note-trend",
+            "label": "notes on trends"
         },
         {
             "o:alternate_label": null,
@@ -402,18 +342,66 @@
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
+            "vocabulary_label": "wikidata",
+            "local_name": "P170",
+            "label": "data curator"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
             "data_type_name": "literal",
             "data_type_label": "Text",
             "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
             "vocabulary_label": "palread",
-            "local_name": "internal-note",
-            "label": "notes (internal)"
+            "local_name": "fieldwork-date",
+            "label": "fieldwork date"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "fieldwork-note",
+            "label": "fieldwork notes"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "library-loan",
+            "label": "fieldwork notes on library loan"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "uri",
+            "data_type_label": "URI",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "library-copy-url",
+            "label": "fieldwork copy URL"
         }
     ],
     "o:resource_class": {
         "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
         "vocabulary_label": "wikidata",
-        "local_name": "Q215627",
-        "label": "Person"
+        "local_name": "Q1523267",
+        "label": "Ephemera"
     }
 }

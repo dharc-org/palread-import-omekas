@@ -46,7 +46,7 @@ TABLES_DICT = {
 TABLES_KEYS = {
     "work": {"Work title":"wd:P1476"},
     "person": {"Name @ar":"wd:P2561","Name @en":"wd:P2561"},
-    "life_event": {"pr:life-event-type": "Event type", "Person  name @ar":"pr:tmp-person","Person  name @en":"pr:tmp-person", "Student of":"pr:tmp-person-other", "Organisation or POI": "pr:tmp-org"},
+    "life_event": {"Event type": "pr:life-event-type", "Person  name @ar":"pr:tmp-person","Person name @en":"pr:tmp-person", "Student of":"pr:tmp-person-other", "Organisation or POI": "pr:tmp-org"},
     "organisation": {"Organisation or POI":"wd:P2561"},
     "publisher":{"Name @ar":"wd:P2561","Name @en":"wd:P2561"},
     "lit_event": {"Event  ID":"pr:identifier"}

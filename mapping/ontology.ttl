@@ -34,8 +34,8 @@
 
 ###  http://www.wikidata.org/prop/P921
 <http://www.wikidata.org/prop/P921> rdf:type owl:ObjectProperty ;
-                                    rdfs:comment "A real entity addressed in the work, namely: persons, events, organisations, works (select from existing items)." ;
-                                    rdfs:label "subject entity" .
+                                    rdfs:comment "An item addressed in the work, namely: persons, events, organisations, works (select from existing items)." ;
+                                    rdfs:label "subject item" .
 
 ###  http://www.wikidata.org/prop/P527
 <http://www.wikidata.org/prop/P527> rdf:type owl:ObjectProperty ;
@@ -153,17 +153,17 @@
                                     rdfs:label "mother" .
 
 ###  http://www.wikidata.org/prop/P214
-<http://www.wikidata.org/prop/P214> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P214> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "The numerical part of the VIAF Identifier." ;
                                     rdfs:label "VIAF ID" .
 
 ###  http://www.wikidata.org/prop/P21
-<http://www.wikidata.org/prop/P21> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P21> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "The sex or gender of a person (select from controlled vocabulary)" ;
                                     rdfs:label "gender" .
 
 ###  http://www.wikidata.org/prop/P140
-<http://www.wikidata.org/prop/P140> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P140> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "The religion of a person (select from controlled vocabulary)" ;
                                     rdfs:label "religion" .
 
@@ -171,7 +171,6 @@
 <http://www.wikidata.org/prop/P27> rdf:type owl:ObjectProperty ;
                                    rdfs:comment "The country of citizenship of a person (select from controlled vocabulary)" ;
                                    rdfs:label "country of citizenship" .
-                                   ###  http://www.wikidata.org/prop/P27
 
 ###  http://www.wikidata.org/prop/P19
 <http://www.wikidata.org/prop/P19> rdf:type owl:ObjectProperty ;
@@ -184,17 +183,17 @@
                                   rdfs:label "death city" .
 
 ###  http://www.wikidata.org/prop/P1196
-<http://www.wikidata.org/prop/P1196> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P1196> rdf:type owl:DatatypeProperty ;
                                   rdfs:comment "The manner of death of a person (select from controlled vocabulary)" ;
                                   rdfs:label "manner of death" .
 
 ###  http://www.wikidata.org/prop/P509
-<http://www.wikidata.org/prop/P509> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P509> rdf:type owl:DatatypeProperty ;
                                   rdfs:comment "The cause of death of a person (select from controlled vocabulary)" ;
                                   rdfs:label "cause of death" .
 
 ###  http://www.wikidata.org/prop/P135
-<http://www.wikidata.org/prop/P135> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P135> rdf:type owl:DatatypeProperty ;
                                   rdfs:comment "The literary movement a person is affiliated to (select from controlled vocabulary)" ;
                                   rdfs:label "literary movement" .
 
@@ -203,7 +202,7 @@
 ####################
 
 ###  http://www.wikidata.org/prop/P106
-<http://www.wikidata.org/prop/P106> rdf:type owl:ObjectProperty ;
+<http://www.wikidata.org/prop/P106> rdf:type owl:DatatypeProperty ;
                                   rdfs:comment "Occupation or role of a person (select from controlled vocabulary)" ;
                                   rdfs:label "occupation" .
 
@@ -263,7 +262,10 @@
 ####################
 #    Publications
 ####################
-
+###  http://www.wikidata.org/prop/P407
+<http://www.wikidata.org/prop/P407> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The language of the publication at hand." ;
+                                    rdfs:label "language" .
 
 ###  http://www.wikidata.org/prop/P7535
 <http://www.wikidata.org/prop/P7535> rdf:type owl:DatatypeProperty ;
@@ -299,11 +301,6 @@
 <http://www.wikidata.org/prop/P433> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "The issue number of the publication." ;
                                     rdfs:label "issue" .
-
-###  http://www.wikidata.org/prop/P478
-<http://www.wikidata.org/prop/P478> rdf:type owl:DatatypeProperty ;
-                                    rdfs:comment "The volume of the publication." ;
-                                    rdfs:label "volume" .
 
 ###  http://www.wikidata.org/prop/P478
 <http://www.wikidata.org/prop/P478> rdf:type owl:DatatypeProperty ;

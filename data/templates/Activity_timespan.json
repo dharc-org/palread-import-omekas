@@ -60,6 +60,18 @@
             "vocabulary_label": "wikidata",
             "local_name": "P17",
             "label": "country"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "If the activity span refers to the publication of a periodical, include here the the periodical at hand (select from existing periodicals)",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": null,
+            "data_type_label": null,
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "related-periodical",
+            "label": "periodical"
         }
     ],
     "o:resource_class": {

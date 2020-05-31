@@ -60,25 +60,29 @@ def create_name(data_row,entity):
             name += ' studied at '
             if data_row["Organisation or POI"] is not None:
                 name += clean_name(data_row["Organisation or POI"])
+        if data_row["Event type"] == "Award":
+            name += ' awarded by '
+            if data_row["Organisation or POI"] is not None:
+                name += clean_name(data_row["Organisation or POI"])
         if data_row["Event type"] == "Residence":
             name += ' resident in'
 
-        if data_row["City"] != '' and data_row["City"] is not None:
+        if data_row["City"] != '""' and data_row["City"] is not None:
             name += ' '+data_row["City"]
         if data_row["District"] != '':
             name += ', '+data_row["District"]
             if data_row["Country"] != '':
                 name += ', '+data_row["Country"]
-        if (data_row["City"] is None or data_row["City"] == '') \
-            and (data_row["Country"] is not None and data_row["Country"] != ''):
+        if (data_row["City"] is None or data_row["City"] == '""') \
+            and (data_row["Country"] is not None and data_row["Country"] != '""'):
             name += ', '+data_row["Country"]
-        if (data_row["From year"] is not None and data_row["From year"] != '') \
-            or (data_row["To year"] is not None and data_row["To year"] != ''):
+        if (data_row["From year"] is not None and data_row["From year"] != '""') \
+            or (data_row["To year"] is not None and data_row["To year"] != '""'):
             from_y = data_row["From year"] if data_row["From year"] is not None and data_row["From year"] != '' else ''
             to_y = data_row["To year"] if data_row["To year"] is not None and data_row["To year"] != '' else ''
             name += ' ('+from_y+'-'+to_y+')'
-        if (data_row["From date"] is not None and data_row["From date"] != '') \
-            or (data_row["To date"] is not None or data_row["To date"] != ''):
+        if (data_row["From date"] is not None and data_row["From date"] != '""') \
+            or (data_row["To date"] is not None or data_row["To date"] != '""'):
             from_y = data_row["From date"] if data_row["From date"] != '' else ''
             to_y = data_row["To date"] if data_row["To date"] != '' else ''
             name += ' ('+from_y+'-'+to_y+')'

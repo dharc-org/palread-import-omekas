@@ -32,7 +32,7 @@
                                     rdfs:label "subject place" .
 
 ###  http://w3id.org/palread/loc-subject
-<http://w3id.org/palread/loc-subject> rdf:type owl:ObjectProperty ;
+<http://w3id.org/palread/loc-subject> rdf:type owl:DatatypeProperty ;
                                     rdfs:comment "A subject of the work that is available in the Library of Congress vocabularies." ;
                                     rdfs:label "LOC subject" .
 
@@ -274,7 +274,7 @@
 
 ###  http://w3id.org/palread/fieldwork-date
 <http://w3id.org/palread/fieldwork-date> rdf:type owl:DatatypeProperty ;
-                                  rdfs:comment "The date of the fieldwork (if applicable)" ;
+                                  rdfs:comment "The date of the fieldwork (if applicable). Use the format DD/MM/YYYY" ;
                                   rdfs:label "fieldwork date" .
 
 ###  http://w3id.org/palread/dedication

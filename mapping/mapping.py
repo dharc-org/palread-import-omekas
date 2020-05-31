@@ -144,7 +144,9 @@ def replace_value(val,data_row):
             if funct == "create_name":
                 new_val = eval('p.'+funct+'('+value+')')
             else:
-                new_val = eval('p.'+funct+'('+json.dumps(value)+')')  # replace the final json
+                value = json.dumps(value) if (value is not None and len(value) != 0) else "''"
+                new_val = eval('p.'+funct+'('+value+')')  # replace the final json
+
     if '-->' not in val:
         new_val = data_row[val]
     return new_val
@@ -168,7 +170,7 @@ def fill_json(data_row, item_properties,vocabularies_ids=None):
                 if "split_values" in value_dict[object]:
                     values = replace_value(value_dict[object],data_row)
                     if isinstance(values, str):
-                        value_dict[object] = replace_value(value_dict[object],data_row)
+                        value_dict[object] = values
                     elif isinstance(values, list) and len(values) >= 1:
                         count_prop = 0
                         for value in values:
@@ -194,44 +196,46 @@ def update_json(data_row, item_type, item_properties,vocabularies_props):
     item_data = {k:v for k,v in item_properties.items()}
     interm_data = {}
     final_data = defaultdict(list)
-
+    new_prop = None
     # parse prop if actions are required to define the property - look into vocabularies_props
     for prop, values_list in item_data.items():
         new_prop = get_property_from_vocab(data_row[prop.split("-->")[1]],c.VOCABULARY_PROPERTIES) if "op:lookup_relation-->" in prop else prop
         interm_data[new_prop] = values_list
-
     entities_id = None
-    # parse value_resource_id
-    for prop, values_list in interm_data.items():
-        for value_dict in values_list:
-            operations = value_dict["value_resource_id"].split(";")
-            if "op:" in operations[0]:
-                # preprocessing on data, e.g. split, clean, that may be followed by crosstable research
-                values = replace_value(operations[0],data_row)
-                lookup_entity_labels = [values] if isinstance(values, str) else values
-                if len(operations) > 1:
-                    # in this case lookup_entity_labels are always input of the second operation
-                    other_op = operations[1]
-                    crosstable_op = other_op[:other_op.find("(")]
-                    type_lookup = other_op[other_op.find("(")+1:other_op.find(")")]
-                    lookup_entity_labels= ",".join(["'"+x+"'" for x in lookup_entity_labels])
-                    entities_id = eval(crosstable_op+'( "'+type_lookup+'", lookup_entity_labels=['+lookup_entity_labels +'])')
-            else:
-                # single operation (cross table lookup without input and with parameters)
-                operation, parameters_list = operations[0].split("//",1)[0], operations[0].split("//",1)[1]
-                crosstable_op = operation[:operation.find("(")]
-                type_lookup = operation[operation.find("(")+1:operation.find(")")]
-                parameters = [x.split('=') for x in parameters_list.split('//')]
-                lookup_properties_values = {l[0]:l[1] for l in parameters}
-                lookup_properties_values = {k:cur_subject_label(v, item_type, data_row) for (k,v) in lookup_properties_values.items()}
-                lookup_properties_values = json.dumps(lookup_properties_values)
-                entities_id = eval(crosstable_op+'('+type_lookup+', parameters='+lookup_properties_values+')')
+    if new_prop is not None:
+        # parse value_resource_id
+        for prop, values_list in interm_data.items():
+            for value_dict in values_list:
+                if "value_resource_id" in value_dict.keys():
+                    operations = value_dict["value_resource_id"].split(";")
+                    if "op:" in operations[0]:
+                        # preprocessing on data, e.g. split, clean, that may be followed by crosstable research
+                        print(operations[0],data_row)
+                        lookup_entity_labels = replace_value(operations[0],data_row)
+                        #lookup_entity_labels = [values] if isinstance(values, str) else values
+                        if len(operations) > 1:
+                            # in this case lookup_entity_labels are always input of the second operation
+                            other_op = operations[1]
+                            crosstable_op = other_op[:other_op.find("(")]
+                            type_lookup = other_op[other_op.find("(")+1:other_op.find(")")]
+                            lookup_entity_labels= ",".join(['"'+x+'"' for x in lookup_entity_labels]) if isinstance(lookup_entity_labels,list) else '"'+lookup_entity_labels+'"'
+                            entities_id = eval(crosstable_op+'( "'+type_lookup+'", lookup_entity_labels=['+lookup_entity_labels +'])')
+                    else:
+                        # single operation (cross table lookup without input and with parameters)
+                        operation, parameters_list = operations[0].split("//",1)[0], operations[0].split("//",1)[1]
+                        crosstable_op = operation[:operation.find("(")]
+                        type_lookup = operation[operation.find("(")+1:operation.find(")")]
+                        parameters = [x.split('=') for x in parameters_list.split('//')]
+                        lookup_properties_values = {l[0]:l[1] for l in parameters}
+                        lookup_properties_values = {k:cur_subject_label(v, item_type, data_row) for (k,v) in lookup_properties_values.items()}
+                        lookup_properties_values = json.dumps(lookup_properties_values)
+                        entities_id = eval(crosstable_op+'('+type_lookup+', parameters='+lookup_properties_values+')')
 
-    for entity_id in entities_id:
-        entity_dict = {}
-        entity_dict["value_resource_id"] = entity_id
-        entity_dict["type"] = "resource"
-        final_data[prop].append(entity_dict)
+        for entity_id in entities_id:
+            entity_dict = {}
+            entity_dict["value_resource_id"] = entity_id
+            entity_dict["type"] = "resource"
+            final_data[prop].append(entity_dict)
     final_data = dict(final_data)
     return final_data
 
@@ -252,8 +256,11 @@ def cur_subject_label(v, type_lookup, data_row):
     return v
 
 def get_property_from_vocab(lookup_prop,vocab):
+    new_prop = None
     if lookup_prop in vocab:
         new_prop = vocab[lookup_prop]
+        print(lookup_prop)
+        print(new_prop)
     return new_prop
 
 def clean_dict(item_data):
@@ -351,8 +358,7 @@ def lookup_item(list_lookup_items,data_row,item_type,resource_templates_ids, pro
 
         if item_set_id != None and template_id != None:
             #<k>: operation and Column name
-            lookup_prop_vals = replace_value(k, data_row)
-
+            lookup_prop_vals = replace_value(k, data_row) if isinstance(replace_value(k, data_row),list) else [replace_value(k, data_row)]
             for part_v in lookup_prop_vals:
                 dest_prop = v["dest_prop"]
                 #Check the lookup mapping rule

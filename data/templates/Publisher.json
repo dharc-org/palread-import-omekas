@@ -198,8 +198,8 @@
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "literal",
-            "data_type_label": "Text",
+            "data_type_name": null,
+            "data_type_label": null,
             "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
             "vocabulary_label": "palread",
             "local_name": "internal-source",
@@ -210,8 +210,8 @@
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": "literal",
-            "data_type_label": "Text",
+            "data_type_name": null,
+            "data_type_label": null,
             "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
             "vocabulary_label": "palread",
             "local_name": "source",
@@ -231,7 +231,7 @@
         },
         {
             "o:alternate_label": null,
-            "o:alternate_comment": null,
+            "o:alternate_comment": "Notes (including resources related to the record)",
             "o:is_required": false,
             "o:is_private": false,
             "data_type_name": "literal",
@@ -240,6 +240,18 @@
             "vocabulary_label": "palread",
             "local_name": "note",
             "label": "notes"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "The period(s) of activity of the publisher if not continuous (select from existing activity timespans)",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": null,
+            "data_type_label": null,
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "activity-span",
+            "label": "activity timespan"
         }
     ],
     "o:resource_class": {

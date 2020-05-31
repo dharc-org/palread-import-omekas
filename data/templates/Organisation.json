@@ -75,6 +75,18 @@
         },
         {
             "o:alternate_label": null,
+            "o:alternate_comment": "The period(s) of activity of the subject at hand (select from existing activity timespans)",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "resource:item",
+            "data_type_label": "Item",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "activity-span",
+            "label": "activity timespan"
+        },
+        {
+            "o:alternate_label": null,
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
@@ -126,42 +138,6 @@
             "o:alternate_comment": null,
             "o:is_required": false,
             "o:is_private": false,
-            "data_type_name": null,
-            "data_type_label": null,
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "internal-source",
-            "label": "source (internal)"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": null,
-            "data_type_label": null,
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "source",
-            "label": "source (public)"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
-            "data_type_name": null,
-            "data_type_label": null,
-            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
-            "vocabulary_label": "palread",
-            "local_name": "internal-note",
-            "label": "notes (internal)"
-        },
-        {
-            "o:alternate_label": null,
-            "o:alternate_comment": null,
-            "o:is_required": false,
-            "o:is_private": false,
             "data_type_name": "resource:item",
             "data_type_label": "Item",
             "vocabulary_namespace_uri": "http:\/\/www.wikidata.org\/",
@@ -192,6 +168,54 @@
             "vocabulary_label": "palread",
             "local_name": "organised",
             "label": "organised"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": null,
+            "data_type_label": null,
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "source",
+            "label": "source (public)"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": null,
+            "data_type_label": null,
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "internal-source",
+            "label": "source (internal)"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": "A description of the organisation",
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "note",
+            "label": "notes"
+        },
+        {
+            "o:alternate_label": null,
+            "o:alternate_comment": null,
+            "o:is_required": false,
+            "o:is_private": false,
+            "data_type_name": "literal",
+            "data_type_label": "Text",
+            "vocabulary_namespace_uri": "http:\/\/w3id.org\/palread\/",
+            "vocabulary_label": "palread",
+            "local_name": "internal-note",
+            "label": "notes (internal)"
         }
     ],
     "o:resource_class": {

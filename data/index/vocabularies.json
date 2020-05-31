@@ -32,8 +32,32 @@
   "Type of institution":{
     "id":11
   },
-  "Work type":{
+  "Periodical type":{
     "id":12
+  },
+  "Genre":{
+    "id":13
+  },
+  "Theme":{
+    "id":14
+  },
+  "Format":{
+    "id":15
+  },
+  "Type of ephemeral":{
+    "id":16
+  },
+  "Type of contribution":{
+    "id":17
+  },
+  "Type of book":{
+    "id":18
+  },
+  "Type of book series":{
+    "id":19
+  },
+  "Type of article":{
+    "id":20
   },
   "Country": {
     "Palestine":"openmaps Palestine - country",

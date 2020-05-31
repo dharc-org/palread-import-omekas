@@ -2,7 +2,7 @@
   "work": {
     "create": {
       "wd:P1476":[{ "@value": "op:clean_name-->Work title", "type":"literal", "lang":"detect" }],
-      "pr:publication-type":[{ "@value": "op:clean_name-->Work type", "type":"customvocab:Work type" }]
+      "pr:publication-type":[{ "@value": "op:clean_name-->Work type", "type":"customvocab:Periodical type" }]
     },
     "lookup": {},
     "update": {}
@@ -102,7 +102,7 @@
     },
     "lookup": {},
     "update": {
-      "op:lookup_relation-->Relation  to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource" }]
+      "op:lookup_relation-->Relation to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource" }]
       }
   },
   "publisher":{
@@ -127,7 +127,7 @@
     "update": {
       "pr:political-affiliation":[{ "value_resource_id": "op:clean_name-->Political affiliation;crosstable_lookup(organisation)", "type":"resource" }],
       "pr:union-affiliation":[{ "value_resource_id": "op:clean_name-->Union affiliation;crosstable_lookup(organisation)", "type":"resource" }],
-      "op:lookup_relation-->Relation  to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource" }],
+      "op:lookup_relation-->Relation to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource" }],
       "wd:P112":[{ "value_resource_id": "op:clean_name-->Founder name @en;crosstable_lookup(person)", "type":"resource" },
                 { "value_resource_id": "op:clean_name-->Founder name @ar;crosstable_lookup(person)", "type":"resource" },
                 { "value_resource_id": "op:clean_name-->Founder name 2 @ar;crosstable_lookup(person)", "type":"resource" }]
@@ -153,7 +153,7 @@
     },
     "lookup": {},
     "update": {
-      "pr:related-event":[{"value_resource_id": "op:clean_name-->Related  event;crosstable_lookup(lit_event)", "type":"resource" }]
+      "pr:related-event":[{"value_resource_id": "op:clean_name-->Related  event ;crosstable_lookup(lit_event)", "type":"resource" }]
     }
   }
 }
