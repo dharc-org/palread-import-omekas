@@ -127,13 +127,14 @@ for update_payload in updated_data:
     # get item payload to be updated
     response = REQ_SESSION.get('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id))
     current_data = response.json()
+    # remove tmp relations
+    clean_data = {k:v for (k,v) in current_data.items() if "tmp" not in k}
+    # add new relations
     for k,v in update_payload.items():
-        print("\nTO BE ADDED",k,v)
-        current_data[k] = v
+        clean_data[k] = v
+    # upload
+    resp = REQ_SESSION.put('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id), json=clean_data, params=params)
 
-    print(current_data)
-    resp = REQ_SESSION.put('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id), json=current_data, params=params)
-    print(resp)
 print("-> data updated!")
 
 # 19. dump data created in "created_items.json"

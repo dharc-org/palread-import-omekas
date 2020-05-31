@@ -67,24 +67,22 @@ def create_name(data_row,entity):
         if data_row["Event type"] == "Residence":
             name += ' resident in'
 
-        if data_row["City"] != '""' and data_row["City"] is not None:
+        if len(data_row["City"]) > 2:
             name += ' '+data_row["City"]
-        if data_row["District"] != '':
+        if len(data_row["District"]) > 2:
             name += ', '+data_row["District"]
-            if data_row["Country"] != '':
-                name += ', '+data_row["Country"]
-        if (data_row["City"] is None or data_row["City"] == '""') \
-            and (data_row["Country"] is not None and data_row["Country"] != '""'):
+        if len(data_row["Country"]) > 2:
             name += ', '+data_row["Country"]
-        if (data_row["From year"] is not None and data_row["From year"] != '""') \
-            or (data_row["To year"] is not None and data_row["To year"] != '""'):
-            from_y = data_row["From year"] if data_row["From year"] is not None and data_row["From year"] != '' else ''
-            to_y = data_row["To year"] if data_row["To year"] is not None and data_row["To year"] != '' else ''
+        # if (data_row["City"] is None or data_row["City"] == '""') \
+        #     and (data_row["Country"] is not None and data_row["Country"] != '""'):
+        #     name += ', '+data_row["Country"]
+        if len(data_row["From year"]) > 2 or len(data_row["To year"]) > 2:
+            from_y = data_row["From year"]
+            to_y = data_row["To year"]
             name += ' ('+from_y+'-'+to_y+')'
-        if (data_row["From date"] is not None and data_row["From date"] != '""') \
-            or (data_row["To date"] is not None or data_row["To date"] != '""'):
-            from_y = data_row["From date"] if data_row["From date"] != '' else ''
-            to_y = data_row["To date"] if data_row["To date"] != '' else ''
+        if len(data_row["From date"]) > 2 or len(data_row["To date"]) > 2:
+            from_y = data_row["From date"]
+            to_y = data_row["To date"] 
             name += ' ('+from_y+'-'+to_y+')'
 
     return name
