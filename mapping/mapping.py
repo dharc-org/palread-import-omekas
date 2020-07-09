@@ -45,6 +45,8 @@ def update_item(data_row, item_set_id=None, item_type=None, res_class=None, prop
 
     # best match of subject within created items
     item_id = find_subject_item_id(data_row, res_class, item_type)
+    if item_id == None:
+        return None
     data = update_json(data_row, item_type, mapping[item_type]["update"],c.VOCABULARY_PROPERTIES, property_ids)
     print("\nupdated_json",data)
     data = change_prop_id(data,property_ids)
@@ -436,7 +438,8 @@ def read_tables(property_ids,classes_ids,resource_templates_ids,vocabularies_ids
                             list_items.append(item)
                     if operation == 'update':
                         updated_item = update_item(row,item_set_id,entity, res_class, property_ids)
-                        list_items.append(updated_item)
+                        if updated_item != None:
+                            list_items.append(updated_item)
 
     return list_items
 

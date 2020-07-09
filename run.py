@@ -113,10 +113,9 @@ m.backup_items(dataset)
 print("-> Done\n")
 
 
-## -------
-## Update
-## -------
-
+# -------
+# Update
+# -------
 # 18. update data
 print("Update items...")
 updated_data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "update")

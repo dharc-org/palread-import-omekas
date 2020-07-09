@@ -73,6 +73,8 @@ VOCABULARY_PROPERTIES = {
 #PATHS
 DATA_PATH = "data"
 TABLES_DATA_PATH = DATA_PATH+"/tables"
+#local sample
+#TABLES_DATA_PATH = "_local/data_8_7_2020/sample"
 TEMPLATES_DATA_PATH = DATA_PATH+"/templates"
 #--
 INDEX_DATA_PATH = "data/index"

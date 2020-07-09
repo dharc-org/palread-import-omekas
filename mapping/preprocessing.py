@@ -41,6 +41,7 @@ def vocabulary(stringa,vocab):
     return term_URI
 
 def create_name(data_row,entity):
+    #print(data_row,entity)
     # this is possibly the only function that cannot be reused outside PalREAD
     name = ''
     if entity == "life_event":
@@ -76,13 +77,16 @@ def create_name(data_row,entity):
         # if (data_row["City"] is None or data_row["City"] == '""') \
         #     and (data_row["Country"] is not None and data_row["Country"] != '""'):
         #     name += ', '+data_row["Country"]
-        if len(data_row["From year"]) > 2 or len(data_row["To year"]) > 2:
-            from_y = data_row["From year"]
-            to_y = data_row["To year"]
-            name += ' ('+from_y+'-'+to_y+')'
-        if len(data_row["From date"]) > 2 or len(data_row["To date"]) > 2:
-            from_y = data_row["From date"]
-            to_y = data_row["To date"]
-            name += ' ('+from_y+'-'+to_y+')'
+        if not ((data_row["From year"] == None) and (data_row["To year"] == None)):
+            if len(data_row["From year"]) > 2 or len(data_row["To year"]) > 2:
+                from_y = data_row["From year"] if data_row["From year"] != None else ""
+                to_y = data_row["To year"] if data_row["To year"] != None else ""
+                name += ' ('+from_y+'-'+to_y+')'
+
+        if not ((data_row["From date"] == None) and (data_row["To date"] == None)):
+            if len(data_row["From date"]) > 2 or len(data_row["To date"]) > 2:
+                from_y = data_row["From date"] if data_row["From date"] != None else ""
+                to_y = data_row["To date"] if data_row["To date"] != None else ""
+                name += ' ('+from_y+'-'+to_y+')'
 
     return name
