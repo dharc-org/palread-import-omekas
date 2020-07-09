@@ -54,6 +54,7 @@ TABLES_KEYS = {
 
 # some properties may be deduced from a controlled vocabulary
 VOCABULARY_PROPERTIES = {
+    "boycotted":"pr:boycotted",
     "has participant":"wd:P1344",
     "was participant":"wd:P1344",
     "participated in":"wd:P1344",

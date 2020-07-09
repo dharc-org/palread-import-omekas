@@ -60,6 +60,11 @@
                                    rdfs:comment "The event hosted by the subject at hand (select from existing literary events)" ;
                                    rdfs:label "hosted" .
 
+### http://w3id.org/palread/boycotted
+<http://w3id.org/palread/boycotted> rdf:type owl:ObjectProperty ;
+                                   rdfs:comment "The event boycotted by the subject at hand (select from existing literary events)" ;
+                                   rdfs:label "boycotted event" .
+
 ###  http://w3id.org/palread/organised
 <http://w3id.org/palread/organised> rdf:type owl:ObjectProperty ;
                                     rdfs:comment "The event organised by the subject at hand  (select from existing literary events)" ;

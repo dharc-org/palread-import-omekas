@@ -37,7 +37,7 @@ def vocabulary(stringa,vocab):
         vocabularies = json.load(json_file)
 
     term_URI = [iri for voc,terms in vocabularies.items() for term,iri in terms.items() if term == stringa and voc == vocab]
-    term_URI = term_URI[0] if len(term_URI) != 0 else ''
+    term_URI = term_URI[0] if len(term_URI) != 0 else stringa
     return term_URI
 
 def create_name(data_row,entity):
@@ -82,7 +82,7 @@ def create_name(data_row,entity):
             name += ' ('+from_y+'-'+to_y+')'
         if len(data_row["From date"]) > 2 or len(data_row["To date"]) > 2:
             from_y = data_row["From date"]
-            to_y = data_row["To date"] 
+            to_y = data_row["To date"]
             name += ' ('+from_y+'-'+to_y+')'
 
     return name
