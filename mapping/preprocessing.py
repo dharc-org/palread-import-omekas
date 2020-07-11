@@ -1,10 +1,14 @@
 import json , re
 import conf as c
+from urllib.parse import unquote
 
 def clean_name(stringa):
     #clean_stringa = s_strip(stringa.replace(r"\(.*\)","")) if stringa != '' and stringa != 'None' else ''
     clean_stringa = s_strip(stringa)
     return clean_stringa
+
+def normalize_text(stringa):
+    return re.sub(r'(https?://\S{1,})',  lambda x: unquote(x.group()),  s_strip(stringa))
 
 def expand_viaf(stringa):
     stringa = s_strip("http://viaf.org/viaf/"+stringa) if (stringa != '' and stringa != "None") else ''
@@ -37,8 +41,16 @@ def vocabulary(stringa,vocab):
         vocabularies = json.load(json_file)
 
     term_URI = [iri for voc,terms in vocabularies.items() for term,iri in terms.items() if term == stringa and voc == vocab]
-    term_URI = term_URI[0] if len(term_URI) != 0 else stringa
-    return term_URI
+
+    new_keys = []
+    if len(term_URI) != 0:
+        term_URI = term_URI[0]
+    else:
+        term_URI = stringa
+        new_keys = [("type","literal"),("@value",stringa)]
+
+    return (term_URI,new_keys)
+    #return term_URI
 
 def create_name(data_row,entity):
     #print(data_row,entity)

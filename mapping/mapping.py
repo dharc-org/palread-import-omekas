@@ -48,7 +48,6 @@ def update_item(data_row, item_set_id=None, item_type=None, res_class=None, prop
     if item_id == None:
         return None
     data = update_json(data_row, item_type, mapping[item_type]["update"],c.VOCABULARY_PROPERTIES, property_ids)
-    print("\nupdated_json",data)
     data = change_prop_id(data,property_ids)
     #data = add_res_id(data)
     updated_json = {
@@ -204,7 +203,15 @@ def fill_json(data_row, item_properties,vocabularies_ids=None):
                     if "customvocab" in value_dict["type"]:
                         vocab = value_dict["type"].split(":")[1]
                         value_dict["type"] = "customvocab:"+str(vocabularies_ids[vocab]["id"])
-                    value_dict[object] = replace_value(value_dict[object],data_row)
+                    replace_res = replace_value(value_dict[object],data_row)
+
+                    if type(replace_res) == tuple:
+                        for o_item in replace_res[1]:
+                            value_dict[o_item[0]] = o_item[1]
+                        replace_res = replace_res[0]
+
+                    value_dict[object] = replace_res
+
     return item_data
 
 def update_json(data_row, item_type, item_properties,vocabularies_props, property_ids):
@@ -260,10 +267,10 @@ def update_json(data_row, item_type, item_properties,vocabularies_props, propert
 def crosstable_lookup(type_lookup,lookup_entity_labels=None, parameters=None):
     if parameters is None:
         entities_id = [find_object_item_id(type_lookup, lookup_entity_label) for lookup_entity_label in lookup_entity_labels]
-        print("single entities_id",entities_id)
+        #print("single entities_id",entities_id)
     else:
         entities_id = find_objects_ids_by_properties(type_lookup, parameters)
-        print("multiple entities_id",entities_id)
+        #print("multiple entities_id",entities_id)
     return entities_id
 
 def cur_subject_label(v, type_lookup, data_row):

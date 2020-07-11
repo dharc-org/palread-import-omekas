@@ -30,7 +30,7 @@
       "pr:biography":[{ "@value": "op:clean_name-->Biography", "type":"literal", "lang":"detect" }],
       "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup":{
       "op:clean_name-->Mother": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"},
@@ -72,7 +72,7 @@
       "wd:P582":[{ "@value": "op:date-->To year", "type":"literal" }, { "@value": "op:date-->To date", "type":"literal" }],
       "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup": {
       "op:split_values-->Student of": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"}
@@ -96,9 +96,9 @@
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
       "wd:P856":[{"@value": "op:clean_name-->Webpage", "type":"literal"}],
       "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:note":[{ "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect" }],
+      "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup": {},
     "update": {
@@ -120,8 +120,8 @@
       "wd:P856":[{"@value": "op:clean_name-->Webpage", "type":"literal"}],
       "pr:source":[{ "@value": "op:split_values-->Sources public", "type":"uri", "lang":"detect" }],
       "pr:internal-source":[{ "@value": "op:split_values-->Sources private", "type":"uri", "lang":"detect" }],
-      "pr:note":[{ "@value": "op:clean_name-->Notes", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:clean_name-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:note":[{ "@value": "op:normalize_text-->Notes", "type":"literal", "lang":"detect" }],
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup": {},
     "update": {
@@ -145,8 +145,8 @@
                         { "@value": "op:date-->From date", "type":"literal" }],
       "wd:P582":[{ "@value": "op:date-->To year", "type":"literal" },
                         { "@value": "op:date-->To date", "type":"literal" }],
-      "pr:note":[{ "@value": "op:clean_name-->Description", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:clean_name-->Notes on related works", "type":"literal", "lang":"detect" }],
+      "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "lang":"detect" }],
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Notes on related works", "type":"literal", "lang":"detect" }],
       "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
       "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }]
 

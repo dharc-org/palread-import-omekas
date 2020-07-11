@@ -1,0 +1,44 @@
+Use this ID  in table People and Organisations	sub-events share the same  name of the recurrent event	general association  (in context of, related to, part of)			Places related to the event	Fill in only if  Palestine		Fill in either years or dates. If the event happened in a specific date or year, fill in only "From year/date" column				Free text	Free text (include ISBN, DOI  or bibl. references)	free-text: sources  and links (private)	free-text: sources  and links (public)	any other note (private)
+Event  ID	Event name	Related  event 	Event  Type	Periodicity	City	District	Country	From year	To year	From date	To date	Description	Notes on related works	Sources private	Sources public	Other notes
+L3000	معرض الكتاب العربي الفلسطيني الأول		Book Fair		Jerusalem		Palestine			11/10/1946	20/10/1946	A guide was published for the books on display with over 800 titles by Palestinian authors	https://books.google.de/books/about/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A_%D8%A7%D9%84%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A_%D9%83%D9%85%D8%A7.html?id=hygjzQEACAAJ&redir_esc=y			
+L3001	meeting in cafe		Private meeting		Jerusalem		Palestine					Meeting between Hanna Abu Hanna and Mohammed Hassan Alaa al-Din				
+L3002	meeting in book club		Public presentation		Nazareth		Palestine	1944	1944			Hanna Abu Hanna attends a talk by Mikhail Naima				
+L3003	meeting at magazine office		Private meeting		Jerusalem		Palestine	1946	1946			Hanna Abu Hanna vists al-ghad magazine and meets Mukhlis Amr				
+L3004	ملتقى أدبي		Private meeting		Nazareth		Palestine	1948	1948			A literary salon on world literature hosted by Najwa Kawar Farah in her home	Reading Goethe's Faust			
+L3005	جنازة عبد الرحيم محمود		Funeral		Nazareth		Palestine			14/07/1948	14/07/1948					
+L1000	Poetry salon Shi2r Group		Private meeting	Weekly	Beirut		Lebanon	1960	1969							
+L10 - Kafr  Yasif Poetry Festival 1957		L11 - Kafr  Yasif Poetry Festival 1958	Poetry Festival	Annual	Kafr Yasif		Israel	1957	1957							
+L11 - Kafr  Yasif Poetry Festival 1958		L10 - Kafr  Yasif Poetry Festival 1957	Poetry Festival	Annual	Kafr Yasif		Israel	1958	1958	21468	21468	Poetry festival attended by more than 800 people				
+L12 - Akka Poetry Festival 1958		L11 - Kafr  Yasif Poetry Festival 1958	Poetry Festival		Acre		Israel	1958	1958							
+L13 - Communist Conference in Sofia			Conference	Annual	Sofia		Bulgaria	1962	1962			Annual Communist Youth conference with literary events	Source: Nassar,			
+L14 - Seventh World Festival for Youth and Students			Poetry Festival	Annual	Vienna		Austria	1959	1959							
+L15 - Haifa Poetry Festival			Poetry Festival	Annual	Haifa		Israel	1955	1955			First poetry festival held in Israel/post-48 Palestine	Source: Furani 2012, Chapter 3, endnote 16			
+L16 - Poetry festival sponsored by Al-Jadeed		L15 - Haifa Poetry Festival	Poetry Festival	Annual	Haifa		Israel	1958	1958	21400	21400	First poetry festival sponsored by Al-Jadeed literary journal	Source: Furani 2012, Chapter 3, endnote 16			
+L17 - Nazareth Poetry Festival			Poetry Festival		Nazareth		Israel	1955	1955			Poetry festival held in summer 1955	Source: Furani 2012, Chapter 3, endnote 16			
+L18 - Second Palestinian Poetry Festival		L21 - First Palestinian Poetry Festival	Poetry Festival		Tamra		Israel	2001	2001	14/9/2001	16/9/2001	Second Palestinian Poetry festival pf this name held in Israel	Source: Furani 2012, Chapter 4, p60			
+L19 - Al-Aqsa Festival			Cultural Festival													
+L20 - Parliament of World Writers			Poetry Festival					2002	2002	24/03/2002	24/03/2002		Sources: Furani 2012, Chapter 11, 200-215			
+L21 - First Palestinian Poetry Festival		L18 - Second Palestinian Poetry Festival	Poetry Festival		Kafr Manda		Israel	2000	2000			First Palestinian Poetry festival of this name held in Israel				
+L22 - Cairo International Book Fair	Thirty-Fourth Cairo International Book Fair		Book Fair		Cairo		Egypt	2003	2003			Large-scale book fair, important meeting point	https://arablit.org/2019/02/16/cairo-international-book-fair-at-50-new-life-or-more-of-the-same/			
+L23 - International Parliament of Writers	International Parliament of World Writers solidarity delegation 2002		Conference		Ramallah		Palestine	2002	2002	28/03/2002	28/03/2002	International cultural network seeking to protect writers, esp. in situations of censorship	درويش, محمودgave a keynote reading at this solidarity event			
+L1001	Incident with Laure Ghrayyib	L1000	Private meeting	One-Off	Beirut		Lebanon					evening chaired by Adonis, debate on whether poetry written in French should be considered Lebanese, French or Arabic				
+L3006	Monthly Event		Public presentation	Monthly	Haifa		Palestine	1928	1931						منصور، جوني. 2016. حيفا: الكلمة التي صارت مدينة، ص. 204	
+L3007	عرض مسرحية "قاتل أخيه" لجميل البحري		Public presentation	One-Off	Haifa		Palestine			19/01/1929	19/01/1929		The play is based on a novel with the same name by Jamil Bahari		رحلة البحث عن التراث، ص. 83	
+L3008	حفل تأبين جبران خليل جبران		Commemoration	One-Off	Haifa		Palestine			14/06/1931	14/06/1931			https://box.fu-berlin.de/f/59199559		
+L1002	Literary Wall Paper		Literary Activism	One-Off	Tunis		Tunisia	1982	1983			ياسر عرفات proposed to the Palestinians who came to Tunis in 1982 to create a literary wall paper in the Hotel Nuzul Salwa where they used to stay.		دانيال, هادي		
+L1003	Poetry Evening Jundubah		Public presentation	One-Off	Jundubah		Tunisia	1982	1982			Poetry event devoted to the theme of Palestine and to the massacre of Sabra and Shatila.	دانيال, هادي؛ غانم, يوسف؛ حاتم, أدم tried to partake, but were sent back from Beja by the police naming an order of حكم بلعاوي, the president of the PLO at the time, as the reason.	دانيال, هادي		
+L3009	فصل عيسى لوباني ومرقس نمر من عملهما كمعلمين من قِبل وزارة المعارف الإسرائيلية بسبب مواقفهما السياسية		Literary Activism	One-Off	Kabul	Galilee	Israel	1958	1958				فصل عيسى لوباني بسبب قصيدة الحرية المسجونة		https://www.knooznet.com/?app=article.show.32590	
+L3010	لقاء بين أدباء يهود وعرب		Private meeting	One-Off	Tel Aviv		Israel	1958	1958			A meeting between Jewish and Arab authors organised by Benjamin Tammuz (editor of Haaertz) in his office	قرأت القصائد التالية في الاجتماع: الباب لرشيد حسين، قصة كفاح لعيسى لوباني، والأرض لحنا أبو حنا		أبو حنا، حنا. خميرة الرماد ص. 41-43	Jewish communist writers were excluded from the event
+L1004	Ban on independent cultural activities by حكم بلعاوي	L1003	Ban	One-Off	Tunis		Tunisia	1982	1982					دانيال, هادي		
+L1005	Demonstration	L1006	Literary Activism	One-Off	Tunis		Tunisia	1984	1984							
+L1006	Passing away of معين بسيسو	L1005	Funeral	One-Off	London		United Kingdom	1984	1984							
+L1007	 إميل حبيبي and حسونة مصباحي Meeting between		Private meeting	One-Off	Berlin		Germany	1989	1989			during an East-Western conference		 مصباحي, حسونة		
+L1008	Literary Symposium Hammamet		Conference	One-Off	Hammamet		Tunisia	1981	1981			hosted by ريتا عوض				
+L3011	مهرجانات شعرية في الداخل الفلسطيني		Poetry Festival	Completely irregular			Israel	1950	1965			Poets from the occupied territories organised poetry festivals in villages, as a way of connecting with the illiterate			أبو حنا، حنا. رحلة البحث عن التراث، ص. 110	
+L3012	خلاف بين إميل حبيبي وحنا أبو حنا في اجتماع هيئة تحرير دار الاتحاد للنشر		Private meeting	One-Off	Haifa		Israel	1961	1961			An argument between Emil Habibi and Hanna Abu Hanna over the publishing of الأجنحة المتكسرة by Jubran Khalil Jubran	الأجنحة المتكسرة، جبران خليل جبران		أبو حنا، حنا. خميرة الرماد، ص. 169	
+L3013	حنا أبو حنا يقاطع مؤتمر P.E.N في القدس الشرقية		Conference	One-Off	Jerusalem			1974	1974			Hanna Abu Hanna boycotted the event as a protest against the 1973 war, nevertheless since he had agreed a year earlier (before the war) to participating his name still appeared as a participant. Emil Habibi wrote an article criticising Abu Hanna, which led to a fall out between the two			أبو حنا، حنا. خميرة الرماد، ص. 171	
+L3014	حفل تأبين حنا نقارة		Commemoration	One-Off	Haifa		Israel	1984	1984			Organised by the Communist Party; Boycotted by Emil Habibi because of Hanna Abu Hanna's attendance			أبو حنا، حنا. خميرة الرماد، ص. 172	
+L3015	اجتماع تأسيس اتحاد كتاب		Private meeting	One-Off	Nazareth		Israel	1987	1987			An initative that was led by Emil Habibi and boycotted by Hanna Abu Hanna after his falling out with the communist party				
+L3016	راشد حسين يزور حنا أبو حنا		Private meeting	One-Off	Haifa		Israel	1956	1956			Rashid Hussein meets Hanna Abu Hanna for the first time in the latter's home to get his opinion on his first poetry collection	مع الفجر، راشد حسين			
+L3017	حفل تأبين راشد حسين		Commemoration	One-Off	Musmus		Israel	1977	1977							Took place after the return of Hussein's body from the U.S.
+L24	Cultural festival in Ramallah		Cultural Festival	Annual	Ramallah		Palestine	1962	1966			First festivals featuring folkloric Palestinian plays performed before 1967				
