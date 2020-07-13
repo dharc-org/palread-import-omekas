@@ -27,9 +27,9 @@
       "wd:P1196":[{ "@value": "op:clean_name-->Manner of death", "type":"customvocab:Manner of death" }],
       "wd:P509":[{ "@value": "op:clean_name-->Cause of death", "type":"customvocab:Cause of death" }],
       "wd:P135":[{ "@value": "op:clean_name-->Literary  movement", "type":"customvocab:Literary movement" }],
-      "pr:biography":[{ "@value": "op:clean_name-->Biography", "type":"literal", "lang":"detect" }],
-      "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
+      "pr:biography":[{ "@value": "op:normalize_text-->Biography", "type":"literal", "lang":"detect" }],
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }],
       "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup":{
@@ -70,8 +70,8 @@
       "wd:P17":[{ "@id": "op:vocabulary-->Country;Country", "type":"valuesuggest:geonames:geonames" }],
       "wd:P580":[{ "@value": "op:date-->From year", "type":"literal" }, { "@value": "op:date-->From date", "type":"literal" }],
       "wd:P582":[{ "@value": "op:date-->To year", "type":"literal" }, { "@value": "op:date-->To date", "type":"literal" }],
-      "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }],
       "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup": {
@@ -94,10 +94,10 @@
       "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
-      "wd:P856":[{"@value": "op:clean_name-->Webpage", "type":"literal"}],
-      "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
+      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"literal"}],
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
       "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }],
       "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
     },
     "lookup": {},
@@ -117,7 +117,7 @@
       "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
-      "wd:P856":[{"@value": "op:clean_name-->Webpage", "type":"literal"}],
+      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"literal"}],
       "pr:source":[{ "@value": "op:split_values-->Sources public", "type":"uri", "lang":"detect" }],
       "pr:internal-source":[{ "@value": "op:split_values-->Sources private", "type":"uri", "lang":"detect" }],
       "pr:note":[{ "@value": "op:normalize_text-->Notes", "type":"literal", "lang":"detect" }],
@@ -147,8 +147,8 @@
                         { "@value": "op:date-->To date", "type":"literal" }],
       "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "lang":"detect" }],
       "pr:internal-note":[{ "@value": "op:normalize_text-->Notes on related works", "type":"literal", "lang":"detect" }],
-      "pr:source":[{ "@value": "op:clean_name-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:clean_name-->Sources private", "type":"literal", "lang":"detect" }]
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }]
 
     },
     "lookup": {},

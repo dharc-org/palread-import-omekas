@@ -284,7 +284,7 @@ def cur_subject_label(v, type_lookup, data_row):
 
 def get_property_from_vocab(lookup_prop,vocab):
     new_prop = None
-    if lookup_prop in vocab:
+    if lookup_prop.strip() in vocab:
         new_prop = vocab[lookup_prop]
     return new_prop
 

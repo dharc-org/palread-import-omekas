@@ -47,8 +47,8 @@ def vocabulary(stringa,vocab):
         term_URI = term_URI[0]
     else:
         term_URI = stringa
-        new_keys = [("type","literal"),("@value",stringa)]
 
+    new_keys.append(("o:label",stringa))
     return (term_URI,new_keys)
     #return term_URI
 
