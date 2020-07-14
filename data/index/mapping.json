@@ -1,7 +1,7 @@
 {
   "work": {
     "create": {
-      "wd:P1476":[{ "@value": "op:clean_name-->Work title", "type":"literal", "lang":"detect" }],
+      "wd:P1476":[{ "@value": "op:clean_name-->Work title", "type":"literal", "@language":"detect" }],
       "pr:publication-type":[{ "@value": "op:clean_name-->Work type", "type":"customvocab:Periodical type" }]
     },
     "lookup": {},
@@ -9,11 +9,11 @@
   },
   "person": {
     "create": {
-      "wd:P2561":[{ "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
-                   { "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
+      "wd:P2561":[{ "@value": "op:clean_name-->Name @en", "type":"literal", "@language":"en" },
+                   { "@value": "op:clean_name-->Name @ar", "type":"literal", "@language":"ar" }
                  ],
       "wd:P214":[{ "@id": "op:expand_viaf-->VIAF", "type":"uri" }],
-      "wd:P742":[{ "@value": "op:split_values-->Pen names", "type":"literal", "lang":"detect" }],
+      "wd:P742":[{ "@value": "op:split_values-->Pen names", "type":"literal", "@language":"detect" }],
       "wd:P21":[{ "@value": "op:clean_name-->Gender", "type":"customvocab:Gender" }],
       "wd:P140":[{ "@value": "op:clean_name-->Religion", "type":"customvocab:Religion" }],
       "wd:P27":[{ "@id": "op:vocabulary-->Country of citiz. ;Country", "type":"valuesuggest:geonames:geonames" },
@@ -27,10 +27,10 @@
       "wd:P1196":[{ "@value": "op:clean_name-->Manner of death", "type":"customvocab:Manner of death" }],
       "wd:P509":[{ "@value": "op:clean_name-->Cause of death", "type":"customvocab:Cause of death" }],
       "wd:P135":[{ "@value": "op:clean_name-->Literary  movement", "type":"customvocab:Literary movement" }],
-      "pr:biography":[{ "@value": "op:normalize_text-->Biography", "type":"literal", "lang":"detect" }],
-      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:biography":[{ "@value": "op:normalize_text-->Biography", "type":"literal", "@language":"detect" }],
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "@language":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "@language":"detect" }],
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "@language":"detect" }]
     },
     "lookup":{
       "op:clean_name-->Mother": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"},
@@ -61,18 +61,18 @@
   },
   "life_event": {
     "create": {
-      "pr:tmp-person":[{ "@value": "op:clean_name-->Person name @en", "type":"literal", "lang":"detect" },
-                        { "@value": "op:clean_name-->Person  name @ar", "type":"literal", "lang":"detect" }],
-      "wd:P2561":[{ "@value": "op:create_name-->life_event", "type":"literal", "lang":"en" }],
+      "pr:tmp-person":[{ "@value": "op:clean_name-->Person name @en", "type":"literal", "@language":"detect" },
+                        { "@value": "op:clean_name-->Person  name @ar", "type":"literal", "@language":"detect" }],
+      "wd:P2561":[{ "@value": "op:create_name-->life_event", "type":"literal", "@language":"en" }],
       "pr:life-event-type":[{ "@value": "op:clean_name-->Event type", "type":"customvocab:Life event type" }],
       "wd:P106":[{ "@value": "op:clean_name-->Occupation", "type":"customvocab:Occupation" }],
       "wd:P276":[{ "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
       "wd:P17":[{ "@id": "op:vocabulary-->Country;Country", "type":"valuesuggest:geonames:geonames" }],
       "wd:P580":[{ "@value": "op:date-->From year", "type":"literal" }, { "@value": "op:date-->From date", "type":"literal" }],
       "wd:P582":[{ "@value": "op:date-->To year", "type":"literal" }, { "@value": "op:date-->To date", "type":"literal" }],
-      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "@language":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "@language":"detect" }],
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "@language":"detect" }]
     },
     "lookup": {
       "op:split_values-->Student of": {"entity": "person","dest_prop":"wd:P2561", "column":"Name @en"}
@@ -85,20 +85,20 @@
   },
   "organisation":{
     "create": {
-      "wd:P2561":[{ "@value": "op:clean_name-->Organisation or POI", "type":"literal", "lang":"detect" }],
+      "wd:P2561":[{ "@value": "op:clean_name-->Organisation or POI", "type":"literal", "@language":"detect" }],
       "pr:organisation-type":[{ "@value": "op:clean_name-->Type", "type":"customvocab:Type of institution" }],
       "wd:P580":[{ "@value": "op:date-->From year", "type":"literal" }],
       "wd:P582":[{ "@value": "op:date-->To year", "type":"literal" }],
       "wd:P276":[{ "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
       "wd:P17":[{ "@id": "op:vocabulary-->Country;Country", "type":"valuesuggest:geonames:geonames" }],
-      "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" }],
+      "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "@language":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
       "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"literal"}],
-      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "@language":"detect" }],
+      "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "@language":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "@language":"detect" }],
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "@language":"detect" }]
     },
     "lookup": {},
     "update": {
@@ -107,21 +107,21 @@
   },
   "publisher":{
     "create": {
-      "wd:P2561":[{ "@value": "op:clean_name-->Name @en", "type":"literal", "lang":"en" },
-                   { "@value": "op:clean_name-->Name @ar", "type":"literal", "lang":"ar" }
+      "wd:P2561":[{ "@value": "op:clean_name-->Name @en", "type":"literal", "@language":"en" },
+                   { "@value": "op:clean_name-->Name @ar", "type":"literal", "@language":"ar" }
                  ],
       "wd:P580":[{ "@value": "op:date-->From year", "type":"literal" }],
       "wd:P582":[{ "@value": "op:date-->To year", "type":"literal" }],
       "wd:P276":[{ "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
       "wd:P17":[{ "@id": "op:vocabulary-->Country;Country", "type":"valuesuggest:geonames:geonames" }],
-      "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "lang":"detect" }],
+      "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "@language":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
       "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"literal"}],
-      "pr:source":[{ "@value": "op:split_values-->Sources public", "type":"uri", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:split_values-->Sources private", "type":"uri", "lang":"detect" }],
-      "pr:note":[{ "@value": "op:normalize_text-->Notes", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "lang":"detect" }]
+      "pr:source":[{ "@value": "op:split_values-->Sources public", "type":"uri", "@language":"detect" }],
+      "pr:internal-source":[{ "@value": "op:split_values-->Sources private", "type":"uri", "@language":"detect" }],
+      "pr:note":[{ "@value": "op:normalize_text-->Notes", "type":"literal", "@language":"detect" }],
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Other notes", "type":"literal", "@language":"detect" }]
     },
     "lookup": {},
     "update": {
@@ -135,8 +135,8 @@
   },
   "lit_event":{
     "create": {
-      "pr:identifier":[{ "@value": "op:clean_name-->Event  ID", "type":"literal", "lang":"en" }],
-      "wd:P2561":[{ "@value": "op:clean_name-->Event name", "type":"literal", "lang":"detect" }],
+      "pr:identifier":[{ "@value": "op:clean_name-->Event  ID", "type":"literal", "@language":"en" }],
+      "wd:P2561":[{ "@value": "op:clean_name-->Event name", "type":"literal", "@language":"detect" }],
       "pr:literary-event-type":[{ "@value": "op:clean_name-->Event  Type", "type":"customvocab:Literary event type" }],
       "wd:P2257":[{ "@value": "op:clean_name-->Periodicity", "type":"customvocab:Periodicity" }],
       "wd:P276":[{ "@id": "op:vocabulary-->City;City", "type":"valuesuggest:geonames:geonames" }],
@@ -145,10 +145,10 @@
                         { "@value": "op:date-->From date", "type":"literal" }],
       "wd:P582":[{ "@value": "op:date-->To year", "type":"literal" },
                         { "@value": "op:date-->To date", "type":"literal" }],
-      "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "lang":"detect" }],
-      "pr:internal-note":[{ "@value": "op:normalize_text-->Notes on related works", "type":"literal", "lang":"detect" }],
-      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "lang":"detect" }],
-      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "lang":"detect" }]
+      "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "@language":"detect" }],
+      "pr:internal-note":[{ "@value": "op:normalize_text-->Notes on related works", "type":"literal", "@language":"detect" }],
+      "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "@language":"detect" }],
+      "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "@language":"detect" }]
 
     },
     "lookup": {},

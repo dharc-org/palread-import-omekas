@@ -196,8 +196,8 @@ def fill_json(data_row, item_properties,vocabularies_ids=None):
                             if "type" in value_dict:
                                 new_dict["type"] = value_dict["type"]
                             if value_dict["type"] == "literal":
-                                if "lang" in value_dict:
-                                    new_dict["lang"] = value_dict["lang"]
+                                if "@language" in value_dict:
+                                    new_dict["@language"] = value_dict["@language"]
                             values_list.append(new_dict)
                 else:
                     if "customvocab" in value_dict["type"]:
@@ -312,13 +312,13 @@ def pop_empty(item_data):
 def detect_lang(item_data):
     for prop, values_list in item_data.items():
         for value_dict in values_list:
-            if "lang" in value_dict and value_dict["lang"] == "detect":
+            if "@language" in value_dict and value_dict["@language"] == "detect":
                 try:
                     lang = detect(value_dict["@value"])
                     lang = "ar" if lang == 'ar' else "en"
-                    value_dict["lang"] = lang
+                    value_dict["@language"] = lang
                 except:
-                    value_dict.pop("lang", None)
+                    value_dict.pop("@language", None)
     return item_data
 
 def change_prop_id(item_data,property_ids):
