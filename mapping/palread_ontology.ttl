@@ -172,6 +172,10 @@
 ####################
 #    People
 ####################
+###  http://w3id.org/palread/activity-type
+<http://w3id.org/palread/activity-type> rdf:type owl:DatatypeProperty ;
+                                    rdfs:comment "The type of activity timespan (select from controlled vocabulary)" ;
+                                    rdfs:label "activity type" .
 
 ###  http://w3id.org/palread/identifier
 <http://w3id.org/palread/identifier> rdf:type owl:DatatypeProperty ;
