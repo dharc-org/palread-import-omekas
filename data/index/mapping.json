@@ -9,7 +9,7 @@
   },
   "person": {
     "create": {
-      "wd:P2561":[{ "@value": "op:clean_name-->Name @en", "type":"literal", "@language":"en" },
+      "wd:P2561":[{ "@value": "op:clean_name-->Name @en", "type":"literal", "@language":"detect" },
                    { "@value": "op:clean_name-->Name @ar", "type":"literal", "@language":"ar" }
                  ],
       "wd:P214":[{ "@id": "op:expand_viaf-->VIAF", "type":"uri" }],
@@ -94,7 +94,7 @@
       "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "@language":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
-      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"literal"}],
+      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"uri"}],
       "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "@language":"detect" }],
       "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "@language":"detect" }],
       "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "@language":"detect" }],
@@ -117,7 +117,7 @@
       "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "@language":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
-      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"literal"}],
+      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"uri"}],
       "pr:source":[{ "@value": "op:split_values-->Sources public", "type":"uri", "@language":"detect" }],
       "pr:internal-source":[{ "@value": "op:split_values-->Sources private", "type":"uri", "@language":"detect" }],
       "pr:note":[{ "@value": "op:normalize_text-->Notes", "type":"literal", "@language":"detect" }],

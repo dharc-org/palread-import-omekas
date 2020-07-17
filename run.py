@@ -36,9 +36,9 @@ print("\n")
 
 # 7. call properties, classes and resource templates APIs, store ids in dedicated json files, return dictionaries 'resource_classes','properties','resource_templates'
 #--- e.g. dict_ids["resource_classes"] -> a dict of all the resource_classes in Omeka
-print("Get from Omeka the 'resource_classes', 'properties', and 'resource_templates' ...")
+print("Get from Omeka the 'resource_classes', 'properties', and 'resource_templates' ...",flush=True)
 dict_ids = m.get_ids(c.CONF["OMEKA_API_URL"],['resource_classes','properties','resource_templates'])
-print("-> Done\n")
+print("-> Done\n",flush=True)
 
 # 8. open vocabularies.json
 with open(c.VOCABULARIES_INDEX) as json_file:
@@ -46,7 +46,7 @@ with open(c.VOCABULARIES_INDEX) as json_file:
 
 
 # 9, 10, 11. create the item-sets and get the ids
-print("Add item-sets ...")
+print("Add item-sets ...",flush=True)
 all_item_sets = dict()
 response = REQ_SESSION.get('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]))
 for an_items_set in response.json():
@@ -71,18 +71,18 @@ with open(c.ITEM_SETS_INDEX,"w") as itemsets_file:
     itemsets_file.write(json.dumps(my_item_sets))
 itemsets_file.close()
 
-print("-> Done\n")
+print("-> Done\n",flush=True)
 
 ## -------
 ## CREATE
 ## -------
-print("Add items ...")
+print("Add items ...",flush=True)
 # 12. query tables, create payloads, wherein substitute all properties IDs, classes and vocabularies IDs with the one mapped in the json files
 data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "create")
 
 # 13. iterate over payloads and upload
-print("-> add [",len(data), "] item/s to Omeka")
-print("-> update the OmekaS server")
+print("-> add [",len(data), "] item/s to Omeka",flush=True)
+print("-> update the OmekaS server",flush=True)
 count_done = 0
 for payload in data:
     response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
@@ -91,7 +91,7 @@ for payload in data:
     sys.stdout.flush()
 
 # 14. dump data created in "created_items.json"
-print("-> backup all the items")
+print("-> backup all the items",flush=True)
 dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
 dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
 m.backup_items(dataset)
@@ -99,14 +99,14 @@ m.backup_items(dataset)
 ## -------
 ## Lookup
 ## -------
-print("Items lookup ...")
+print("Items lookup ...",flush=True)
 # 15. lookup for certain tables/rows following the rules in mapping.json; if entities do not exist, create them
-print("-> read the tables")
+print("-> read the tables",flush=True)
 data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "lookup")
 
 # 16. iterate over payloads and upload
-print("-> add [",len(data), "] new item/s to Omeka")
-print("-> update the OmekaS server")
+print("-> add [",len(data), "] new item/s to Omeka",flush=True)
+print("-> update the OmekaS server",flush=True)
 count_done = 0
 for payload in data:
     response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
@@ -115,21 +115,21 @@ for payload in data:
     sys.stdout.flush()
 
 # 17. dump data created in "created_items.json"
-print("-> backup all the items")
+print("-> backup all the items",flush=True)
 dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
 dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
 m.backup_items(dataset)
-print("-> Done\n")
+print("-> Done\n",flush=True)
 
 
 # -------
 # Update
 # -------
 # 18. update data
-print("Update items...")
+print("Update items...",flush=True)
 updated_data = m.read_tables(dict_ids["properties"],dict_ids["resource_classes"],dict_ids["resource_templates"],vocabularies_ids, "update")
-print("-> update the OmekaS server")
-print("-> update [",len(updated_data), "] item/s")
+print("-> update the OmekaS server",flush=True)
+print("-> update [",len(updated_data), "] item/s",flush=True)
 count_done = 0
 for update_payload in updated_data:
     res_id = update_payload["o:item"][0]["o:id"]
@@ -148,14 +148,14 @@ for update_payload in updated_data:
     sys.stdout.write('\r-> %d uploaded' %count_done)
     sys.stdout.flush()
 
-print("-> data updated!")
+print("-> data updated!",flush=True)
 
 # 19. dump data created in "created_items.json"
-print("-> backup all the items")
+print("-> backup all the items",flush=True)
 dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
 dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
 m.backup_items(dataset)
-print("-> Done\n")
+print("-> Done\n",flush=True)
 
 # TODO
 # 20. remove temporary properties (or not?)
