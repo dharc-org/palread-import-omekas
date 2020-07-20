@@ -16,9 +16,15 @@ CONF = {
 
     # ## Palread test
     # ## ---------------
-    "KEY_IDENTITY": "umPgHIUxAn5tc9ueMNu10wgnuII9tq2v",
-    "KEY_CREDENTIALS": "cYeGaXJM1CMQ0ZpDXdFhARnmN8KXpC7n",
-    "OMEKA_API_URL": "http://137.204.168.11/palread/api"
+    #"KEY_IDENTITY": "umPgHIUxAn5tc9ueMNu10wgnuII9tq2v",
+    #"KEY_CREDENTIALS": "cYeGaXJM1CMQ0ZpDXdFhARnmN8KXpC7n",
+    #"OMEKA_API_URL": "http://137.204.168.11/palread/api",
+
+    # ## Palread production
+    # ## ------------------
+    "KEY_IDENTITY": "OTYU0ogz1ugn0zhSgDhuJRtEcOCfwpnZ",
+    "KEY_CREDENTIALS": "nyXFCrpsAnmv1FGA3EGsWXurMTEcRwxF",
+    "OMEKA_API_URL": "https://palread.geschkult.fu-berlin.de/omeka-s/api"
 }
 
 
@@ -72,9 +78,8 @@ VOCABULARY_PROPERTIES = {
 
 #PATHS
 DATA_PATH = "data"
-TABLES_DATA_PATH = DATA_PATH+"/tables/data_17_7_2020"
-#TABLES_DATA_PATH = DATA_PATH+"/tables/sample"
-#TABLES_DATA_PATH = "_local/data_8_7_2020/sample" #local sample
+TABLES_DATA_PATH = DATA_PATH+"/tables/sample"
+#TABLES_DATA_PATH = DATA_PATH+"/tables/data_20_7_2020"
 
 TEMPLATES_DATA_PATH = DATA_PATH+"/templates"
 #--
