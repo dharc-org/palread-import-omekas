@@ -24,7 +24,7 @@ CONF = {
     # ## ------------------
     "KEY_IDENTITY": "OTYU0ogz1ugn0zhSgDhuJRtEcOCfwpnZ",
     "KEY_CREDENTIALS": "nyXFCrpsAnmv1FGA3EGsWXurMTEcRwxF",
-    "OMEKA_API_URL": "https://palread.geschkult.fu-berlin.de/omeka-s/api"
+    "OMEKA_API_URL": "http://palread.geschkult.fu-berlin.de/omeka-s/api"
 }
 
 

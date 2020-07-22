@@ -470,7 +470,7 @@ def backup_items(d):
 
 
 def get_from_omeka(api_url, api_opr, curr_page=1, curr_data=[]):
-    response = requests.get(api_url+"/"+api_opr+"?page="+str(curr_page))
+    response = requests.get(api_url+"/"+api_opr+"?page="+str(curr_page), verify=False)
     if response.status_code == 200:
         l_elems = json.loads(response.text)
         if len(l_elems) == 0:

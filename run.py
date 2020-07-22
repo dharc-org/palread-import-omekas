@@ -48,7 +48,7 @@ with open(c.VOCABULARIES_INDEX) as json_file:
 # 9, 10, 11. create the item-sets and get the ids
 print("Add item-sets ...",flush=True)
 all_item_sets = dict()
-response = REQ_SESSION.get('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]))
+response = REQ_SESSION.get('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]), verify=False)
 for an_items_set in response.json():
     all_item_sets[an_items_set["o:title"]] = an_items_set["o:id"]
 
@@ -56,7 +56,7 @@ my_item_sets = {}
 for itemset_val in c.ITEM_SETS:
     if itemset_val not in all_item_sets:
         payload = m.prepare_item_set(itemset_val, dict_ids["properties"])
-        response = REQ_SESSION.post('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
+        response = REQ_SESSION.post('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params, verify=False)
         if response.status_code == 200:
             omeka_res_data = response.json()
             itemset_id = omeka_res_data['o:id']
@@ -85,14 +85,14 @@ print("-> add [",len(data), "] item/s to Omeka",flush=True)
 print("-> update the OmekaS server",flush=True)
 count_done = 0
 for payload in data:
-    response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
+    response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params, verify=False)
     count_done += 1
     sys.stdout.write('\r-> %d uploaded' %count_done)
     sys.stdout.flush()
 
 # 14. dump data created in "created_items.json"
 print("-> backup all the items",flush=True)
-dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
+dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]), verify=False)
 dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
 m.backup_items(dataset)
 
@@ -109,14 +109,14 @@ print("-> add [",len(data), "] new item/s to Omeka",flush=True)
 print("-> update the OmekaS server",flush=True)
 count_done = 0
 for payload in data:
-    response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params)
+    response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params, verify=False)
     count_done += 1
     sys.stdout.write('\r-> %d uploaded' %count_done)
     sys.stdout.flush()
 
 # 17. dump data created in "created_items.json"
 print("-> backup all the items",flush=True)
-dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
+dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]), verify=False)
 dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
 m.backup_items(dataset)
 print("-> Done\n",flush=True)
@@ -135,7 +135,7 @@ for update_payload in updated_data:
     res_id = update_payload["o:item"][0]["o:id"]
 
     # get item payload to be updated
-    response = REQ_SESSION.get('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id))
+    response = REQ_SESSION.get('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id), verify=False)
     current_data = response.json()
     # remove tmp relations
     clean_data = {k:v for (k,v) in current_data.items() if "tmp" not in k}
@@ -143,7 +143,7 @@ for update_payload in updated_data:
     for k,v in update_payload.items():
         clean_data[k] = v
     # upload
-    resp = REQ_SESSION.put('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id), json=clean_data, params=params)
+    resp = REQ_SESSION.put('{}/items/{}'.format(c.CONF["OMEKA_API_URL"],res_id), json=clean_data, params=params, verify=False)
     count_done += 1
     sys.stdout.write('\r-> %d uploaded' %count_done)
     sys.stdout.flush()
@@ -152,7 +152,7 @@ print("-> data updated!",flush=True)
 
 # 19. dump data created in "created_items.json"
 print("-> backup all the items",flush=True)
-dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]))
+dataset = REQ_SESSION.get('{}/items/'.format(c.CONF["OMEKA_API_URL"]), verify=False)
 dataset = m.get_from_omeka(c.CONF["OMEKA_API_URL"], "items")
 m.backup_items(dataset)
 print("-> Done\n",flush=True)
