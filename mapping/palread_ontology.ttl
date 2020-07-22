@@ -107,6 +107,32 @@
 <http://w3id.org/palread/award-event> rdf:type owl:ObjectProperty ;
                                   rdfs:comment "Relation between a person and an award event (select from existing life events)" ;
                                   rdfs:label "award event" .
+###  http://w3id.org/palread/related-art-event
+<http://w3id.org/palread/related-art-event> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and an art exhibition event (select from existing life events)" ;
+                                  rdfs:label "art exhibition event" .
+###  http://w3id.org/palread/related-assassination--event
+<http://w3id.org/palread/related-assassination--event> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and an assassination event (select from existing life events)" ;
+                                  rdfs:label "assassination event" .
+###  http://w3id.org/palread/related-exile-event
+<http://w3id.org/palread/related-exile-event> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and an exile event (select from existing life events)" ;
+                                  rdfs:label "exile event" .
+###  http://w3id.org/palread/related-strike-event
+<http://w3id.org/palread/related-strike-event> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "Relation between a person and an strike event (select from existing life events)" ;
+                                  rdfs:label "hunger strike event" .
+
+###  http://w3id.org/palread/related-imprisonment-event
+<http://w3id.org/palread/related-imprisonment-event> rdf:type owl:ObjectProperty ;
+                              rdfs:comment "Relation between a person and an imprisonment event (select from existing life events)" ;
+                              rdfs:label "imprisonment event" .
+
+###  http://w3id.org/palread/cofunded-by
+<http://w3id.org/palread/cofunded-by> rdf:type owl:ObjectProperty ;
+                              rdfs:comment "Relation between an organisation and a co-funder (select from existing persons)" ;
+                              rdfs:label "co-funded by" .
 
 ###  http://w3id.org/palread/life-event-type
 <http://w3id.org/palread/life-event-type> rdf:type owl:ObjectProperty ;

@@ -22,11 +22,13 @@ CONF = {
 
     # ## Palread production
     # ## ------------------
-    "KEY_IDENTITY": "OTYU0ogz1ugn0zhSgDhuJRtEcOCfwpnZ",
-    "KEY_CREDENTIALS": "nyXFCrpsAnmv1FGA3EGsWXurMTEcRwxF",
+    "KEY_IDENTITY": "hupNC00xHihmXeieVWuopIoPynuPP9Zt",
+    "KEY_CREDENTIALS": "uHOCDqUjJbOoPfDr85Y662ZZD85yrZIL",
     "OMEKA_API_URL": "http://palread.geschkult.fu-berlin.de/omeka-s/api"
 }
 
+# key_identity: hupNC00xHihmXeieVWuopIoPynuPP9Zt
+# key_credential: uHOCDqUjJbOoPfDr85Y662ZZD85yrZIL
 
 # Script Configurations
 ITEM_SETS = ["palread"]
@@ -78,8 +80,8 @@ VOCABULARY_PROPERTIES = {
 
 #PATHS
 DATA_PATH = "data"
-TABLES_DATA_PATH = DATA_PATH+"/tables/sample"
-#TABLES_DATA_PATH = DATA_PATH+"/tables/data_20_7_2020"
+#TABLES_DATA_PATH = DATA_PATH+"/tables/sample"
+TABLES_DATA_PATH = DATA_PATH+"/tables/data_20_7_2020"
 
 TEMPLATES_DATA_PATH = DATA_PATH+"/templates"
 #--

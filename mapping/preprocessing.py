@@ -8,7 +8,11 @@ def clean_name(stringa):
     return clean_stringa
 
 def normalize_text(stringa):
-    return re.sub(r'(https?://\S{1,})',  lambda x: unquote(x.group()),  s_strip(stringa))
+    if (stringa != '' and stringa != "None"):
+        return re.sub(r'(https?://\S{1,})',  lambda x: unquote(x.group()),  s_strip(stringa))
+    else:
+        strng_clean = clean_name(stringa)
+        return strng_clean
 
 def expand_viaf(stringa):
     stringa = s_strip("http://viaf.org/viaf/"+stringa) if (stringa != '' and stringa != "None") else ''

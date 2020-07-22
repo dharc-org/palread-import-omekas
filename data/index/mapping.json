@@ -55,6 +55,11 @@
       "pr:education-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Education", "type":"resource:item" }],
       "pr:employment-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Employment", "type":"resource:item" }],
       "pr:award-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Award", "type":"resource:item" }],
+      "pr:related-art-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Art exhibition", "type":"resource:item" }],
+      "pr:related-assassination-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Assassination attempt", "type":"resource:item" }],
+      "pr:related-exile-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Exile", "type":"resource:item" }],
+      "pr:related-strike-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Hunger Strike", "type":"resource:item" }],
+      "pr:related-imprisonment-event":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Imprisonment", "type":"resource:item" }],
       "wd:P551":[{ "value_resource_id": "crosstable_lookup(life_event)//pr:tmp-person=$this//pr:life-event-type=Residence", "type":"resource:item" }
       ]
     }
@@ -94,7 +99,7 @@
       "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "@language":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
-      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"uri"}],
+      "wd:P856":[{"@id": "op:normalize_text-->Webpage", "type":"uri"}],
       "pr:source":[{ "@value": "op:normalize_text-->Sources public", "type":"literal", "@language":"detect" }],
       "pr:note":[{ "@value": "op:normalize_text-->Description", "type":"literal", "@language":"detect" }],
       "pr:internal-source":[{ "@value": "op:normalize_text-->Sources private", "type":"literal", "@language":"detect" }],
@@ -117,7 +122,7 @@
       "wd:P6375":[{ "@value": "op:clean_name-->Street address", "type":"literal", "@language":"detect" }],
       "wd:P1329":[{"@value": "op:clean_name-->Phone number", "type":"literal"}],
       "wd:P968":[{"@value": "op:clean_name-->Email", "type":"literal"}],
-      "wd:P856":[{"@value": "op:normalize_text-->Webpage", "type":"uri"}],
+      "wd:P856":[{"@id": "op:normalize_text-->Webpage", "type":"uri"}],
       "pr:source":[{ "@value": "op:split_values-->Sources public", "type":"uri", "@language":"detect" }],
       "pr:internal-source":[{ "@value": "op:split_values-->Sources private", "type":"uri", "@language":"detect" }],
       "pr:note":[{ "@value": "op:normalize_text-->Notes", "type":"literal", "@language":"detect" }],
@@ -128,9 +133,8 @@
       "pr:political-affiliation":[{ "value_resource_id": "op:clean_name-->Political affiliation;crosstable_lookup(organisation)", "type":"resource:item" }],
       "pr:union-affiliation":[{ "value_resource_id": "op:clean_name-->Union affiliation;crosstable_lookup(organisation)", "type":"resource:item" }],
       "op:lookup_relation-->Relation to event":[{ "value_resource_id": "op:split_values-->Literary event;crosstable_lookup(lit_event)", "type":"resource:item" }],
-      "wd:P112":[{ "value_resource_id": "op:clean_name-->Founder name @en;crosstable_lookup(person)", "type":"resource:item" },
-                { "value_resource_id": "op:clean_name-->Founder name @ar;crosstable_lookup(person)", "type":"resource:item" },
-                { "value_resource_id": "op:clean_name-->Founder name 2 @ar;crosstable_lookup(person)", "type":"resource:item" }]
+      "wd:P112":[{ "value_resource_id": "op:clean_name-->Founder name @ar;crosstable_lookup(person)", "type":"resource:item" }],
+      "pr:cofunded-by":[{ "value_resource_id": "op:clean_name-->Founder name 2 @ar;crosstable_lookup(person)", "type":"resource:item" }]
     }
   },
   "lit_event":{

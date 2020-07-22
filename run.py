@@ -8,7 +8,7 @@ import conf as c
 REQ_SESSION = requests.Session()
 retries = Retry(total=10, backoff_factor=1, status_forcelist=[ 502, 503, 504, 524 ])
 REQ_SESSION.mount('http://', HTTPAdapter(max_retries=retries))
-REQ_SESSION.mount('https://', HTTPAdapter(max_retries=retries))
+#REQ_SESSION.mount('https://', HTTPAdapter(max_retries=retries))
 
 params = {
     'key_identity': c.CONF["KEY_IDENTITY"],
@@ -59,6 +59,7 @@ for itemset_val in c.ITEM_SETS:
         response = REQ_SESSION.post('{}/item_sets/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params, verify=False)
         if response.status_code == 200:
             omeka_res_data = response.json()
+            print(omeka_res_data)
             itemset_id = omeka_res_data['o:id']
         else:
             #an error occured STOP the process
@@ -85,6 +86,8 @@ print("-> add [",len(data), "] item/s to Omeka",flush=True)
 print("-> update the OmekaS server",flush=True)
 count_done = 0
 for payload in data:
+    print("\npayload\n")
+    print(payload)
     response = REQ_SESSION.post('{}/items/'.format(c.CONF["OMEKA_API_URL"]), json=payload, params=params, verify=False)
     count_done += 1
     sys.stdout.write('\r-> %d uploaded' %count_done)
