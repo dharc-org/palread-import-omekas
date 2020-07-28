@@ -49,6 +49,10 @@
 ####################
 #    People
 ####################
+###  http://w3id.org/palread/related-person
+<http://w3id.org/palread/related-person> rdf:type owl:ObjectProperty ;
+                                  rdfs:comment "The person subject of the event at hand (select from existing people)" ;
+                                  rdfs:label "related person" .
 
 ###  http://w3id.org/palread/banned-from
 <http://w3id.org/palread/banned-from> rdf:type owl:ObjectProperty ;
